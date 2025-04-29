@@ -1,0 +1,17 @@
+*
+!*/
+# track this file
+!/.gitignore
+!/README.md
+# whitelist everything in ./config/
+!Assets/**
+!Packages/**
+!ProjectSettings/EditorBuildSettings.asset
+!Library/LastSceneManagerSetup.txt
+!Assets/Resources/UOSSettings.asset
+!Assets/Resources/UOSSettings.asset.meta
+!ProjectSettings/ProjectSettings.asset
+!UserSettings/Layouts/*
+!Tools/*
+node_modules
+.env.*

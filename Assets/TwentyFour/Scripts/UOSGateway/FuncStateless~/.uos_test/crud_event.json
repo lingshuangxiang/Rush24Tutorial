@@ -1,0 +1,38 @@
+{
+  "body": "{\"roomID\":\"20cf6ecf-52a8-4ddb-85a4-5d304bb4d61b\",\"startTime\":\"2025-02-19T03:21:24.438Z\",\"endTime\":\"2025-02-19T03:27:35.671Z\",\"battleMode\":4,\"isRobotRoom\":false,\"tournamentSlugName\":\"UOSTournamentSlug\",\"redTeamProgress\":{\"score\":5,\"resolved\":[true,true,true,true,true],\"teamPlayers\":[{\"currentIndex\":0,\"previousScore\":2000,\"currentTier\":\"钻石\",\"currentScore\":2002,\"uniqueId\":20261000006001,\"previousTier\":\"钻石\",\"battleResult\":0,\"resolvedCount\":2}]},\"allResolved\":true,\"resolvedStatus\":[{\"resolvedTeam\":0,\"resolved\":true,\"resolvedPersonaID\":1000006001,\"resolvedTime\":0,\"costTime\":6},{\"resolvedTeam\":0,\"resolved\":true,\"resolvedPersonaID\":1000006001,\"resolvedTime\":0,\"costTime\":6},{\"resolvedTeam\":0,\"resolved\":true,\"resolvedPersonaID\":1000006001,\"resolvedTime\":0,\"costTime\":6},{\"resolvedTeam\":0,\"resolved\":true,\"resolvedPersonaID\":1000006001,\"resolvedTime\":0,\"costTime\":6},{\"resolvedTeam\":0,\"resolved\":true,\"resolvedPersonaID\":1000000002,\"resolvedTime\":0,\"costTime\":8}],\"stages\":[{\"index\":0,\"question\":{\"cards\":[{\"index\":0,\"number\":3,\"suit\":0},{\"index\":1,\"number\":9,\"suit\":0},{\"index\":2,\"number\":8,\"suit\":0},{\"index\":3,\"number\":9,\"suit\":0}]}},{\"index\":1,\"question\":{\"cards\":[{\"index\":0,\"number\":9,\"suit\":0},{\"index\":1,\"number\":6,\"suit\":0},{\"index\":2,\"number\":9,\"suit\":0},{\"index\":3,\"number\":2,\"suit\":0}]}},{\"index\":2,\"question\":{\"cards\":[{\"index\":0,\"number\":6,\"suit\":0},{\"index\":1,\"number\":6,\"suit\":0},{\"index\":2,\"number\":5,\"suit\":0},{\"index\":3,\"number\":9,\"suit\":0}]}},{\"index\":3,\"question\":{\"cards\":[{\"index\":0,\"number\":9,\"suit\":0},{\"index\":1,\"number\":7,\"suit\":0},{\"index\":2,\"number\":1,\"suit\":0},{\"index\":3,\"number\":3,\"suit\":0}]}},{\"index\":4,\"question\":{\"cards\":[{\"index\":0,\"number\":8,\"suit\":0},{\"index\":1,\"number\":8,\"suit\":0},{\"index\":2,\"number\":3,\"suit\":0},{\"index\":3,\"number\":2,\"suit\":0}]}}],\"blueTeamProgress\":{\"score\":0,\"resolved\":[false,false,false,false,false],\"teamPlayers\":[{\"currentIndex\":0,\"previousScore\":1,\"currentTier\":\"石头\",\"currentScore\":1,\"uniqueId\":20051000000002,\"previousTier\":\"石头\",\"isRobot\":true,\"battleResult\":-2,\"resolvedCount\":2}]}}",
+  "headerParameters": {},
+  "headers": {
+    "accept": "*/*",
+    "accept-encoding": "gzip, deflate, br",
+    "connection": "keep-alive",
+    "content-length": "14",
+    "content-type": "application/javascript",
+    "host": "*",
+    "postman-token": "*",
+    "requestsource": "APIGW",
+    "test": "1",
+    "user-agent": "*",
+    "x-api-requestid": "*",
+    "x-api-scheme": "https",
+    "x-b3-traceid": "*",
+    "x-qualifier": "$DEFAULT",
+    "authorization": "Basic OTEwYTgwNGYtZTYwNy00YzhmLWE2MjctYWE0NGM2YmM4M2JlOjQ2ZjQ1NDQ4MTBiNTQ5MmU5MTliMjcwNzllMjdhMTM0"
+  },
+  "httpMethod": "POST",
+  "isBase64Encoded": false,
+  "path": "https://func-stateless.unity.cn/release/3e2310e5-e991-45e4-8890-1cf58af45eee/passport/v1/leaderboards/test/scores",
+  "pathParameters": {},
+  "queryString": {
+    "method": "set_match",
+    "uniqueId": "1000008001"
+  },
+  "queryStringParameters": {},
+  "requestContext": {
+    "httpMethod": "ANY",
+    "identity": {},
+    "path": "*",
+    "serviceId": "*",
+    "sourceIp": "*",
+    "stage": "release"
+  }
+}

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eb4e97607a49fd96fe2b6ed8cabfef, type: 3}
+  m_Name: DevEnvData
+  m_EditorClassIdentifier: 
+  DevEnvInfos:
+  - name: Prod
+    app_id: cbe05e3b-6d6f-4e08-b0d6-80ba62cd790d
+    app_secret: bb4430ad661a4642a33af17acf5b833a
+    app_service_secret: 91cf11bce9ae400281c27452b7cf61fb
+    match_config_id: 16c30787-c16f-4774-b0ff-ab2826f98e50
+    room_profile_UUID: 4d2d4cfe-f977-44fe-98a3-7001c86f5b24
+    accoplish_stateless_url: 07543d80-f88a-40f8-a6d1-2af532c19d60
+    cdn_bucket: 1ec2c38d-2bc3-448e-a42d-a5c7de4dc3bf
+  - name: Dev
+    app_id: 910a804f-e607-4c8f-a627-aa44c6bc83be
+    app_secret: e522d96663f04f39a854e689db527911
+    app_service_secret: 46f4544810b5492e919b27079e27a134
+    match_config_id: a0d42532-ce64-4470-860b-15a5aae01da0
+    room_profile_UUID: 16811e1c-e9b0-46bc-a189-ec363995abf5
+    accoplish_stateless_url: 7fa14adf-6df8-4672-8a48-a16118ae5887
+    cdn_bucket: a1ead621-be42-49dc-bb56-3a71ee7553eb

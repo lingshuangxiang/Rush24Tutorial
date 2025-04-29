@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696b6244836dcf4459e59c0f4d9a9485, type: 3}
+  m_Name: UosConfigs
+  m_EditorClassIdentifier: 
+  MatchConfigId: 16c30787-c16f-4774-b0ff-ab2826f98e50
+  RoomProfileUUID: 4d2d4cfe-f977-44fe-98a3-7001c86f5b24
+  AccoplishStatelessUrl: 07543d80-f88a-40f8-a6d1-2af532c19d60
+  CurrentEnv: Prod

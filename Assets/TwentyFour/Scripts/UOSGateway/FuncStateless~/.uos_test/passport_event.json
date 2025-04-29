@@ -1,0 +1,37 @@
+{
+  "body": "{\"memberId\":\"1000003001\",\"score\":3000,\"properties\":{\"testKey\":\"testValue\"}}",
+  "headerParameters": {},
+  "headers": {
+    "accept": "*/*",
+    "accept-encoding": "gzip, deflate, br",
+    "connection": "keep-alive",
+    "content-length": "14",
+    "content-type": "application/javascript",
+    "host": "*",
+    "postman-token": "*",
+    "requestsource": "APIGW",
+    "test": "1",
+    "user-agent": "*",
+    "x-api-requestid": "*",
+    "x-api-scheme": "https",
+    "x-b3-traceid": "*",
+    "x-qualifier": "$DEFAULT",
+    "authorization": "Basic OTEwYTgwNGYtZTYwNy00YzhmLWE2MjctYWE0NGM2YmM4M2JlOjQ2ZjQ1NDQ4MTBiNTQ5MmU5MTliMjcwNzllMjdhMTM0"
+  },
+  "httpMethod": "POST",
+  "isBase64Encoded": false,
+  "path": "https://func-stateless.unity.cn/release/3e2310e5-e991-45e4-8890-1cf58af45eee/passport/v1/leaderboards/test/scores",
+  "pathParameters": {},
+  "queryString": {
+    "param1": "value"
+  },
+  "queryStringParameters": {},
+  "requestContext": {
+    "httpMethod": "ANY",
+    "identity": {},
+    "path": "*",
+    "serviceId": "*",
+    "sourceIp": "*",
+    "stage": "release"
+  }
+}

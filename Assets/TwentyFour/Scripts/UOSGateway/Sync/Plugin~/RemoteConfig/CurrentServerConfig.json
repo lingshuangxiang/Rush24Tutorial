@@ -1,0 +1,46 @@
+{
+  "MinRandomTime": 5,
+  "MaxRandomTime": 20,
+  "LowerTimeBound": 4,
+  "UpperTimeBound": 40,
+  "ResolutionRateBound": 40,
+  "TimeFormula": "-3*x+3.2",
+  "ResolutionRateFormula": "1*x",
+  "UseRandomOrderToAnserQuestionRate": 40,
+  "Ability": [
+      {
+          "From": 36,
+          "Coefficient": 0.94
+      },
+      {
+          "From": 26,
+          "To": 36,
+          "Coefficient": 0.92
+      },
+      {
+          "From": 16,
+          "To": 26,
+          "Coefficient": 0.9
+      },
+      {
+          "From": 12,
+          "To": 16,
+          "Coefficient": 0.8
+      },
+      {
+          "From": 8,
+          "To": 12,
+          "Coefficient": 0.7
+      },
+      {
+          "From": 4,
+          "To": 8,
+          "Coefficient": 0.65
+      },
+      {
+          "From": 0,
+          "To": 4,
+          "Coefficient": 0.6
+      }
+  ]
+}
