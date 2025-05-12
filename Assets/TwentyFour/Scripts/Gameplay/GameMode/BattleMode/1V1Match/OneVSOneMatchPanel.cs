@@ -60,24 +60,8 @@ public class OneVSOneMatchPanel : MonoBehaviour
         CustomPanel.SetActive(false);
         BlackCell.SetActive(true);
         RankPanel.SetActive(true);
-        RefreshMatchButtons();
-        VitalityHelper.Instance.OnVitalityUpdated += RefreshMatchButtons;
-
     }
-
-    void RefreshMatchButtons()
-    {
-        if (VitalityHelper.Instance.CurrentVitality >= VitalityHelper.MatchCost)
-        {
-            OneVsOneMatchBtn.gameObject.SetActive(true);
-            OneVsOneLowVITButton.gameObject.SetActive(false);
-        }
-        else
-        {
-            OneVsOneMatchBtn.gameObject.SetActive(false);
-            OneVsOneLowVITButton.gameObject.SetActive(true);
-        }
-    }
+    
     public void ShowCustomPanel()
     {
         
@@ -315,8 +299,6 @@ public class OneVSOneMatchPanel : MonoBehaviour
 
     private void OnDestroy()
     {
-        if(VitalityHelper.Inited && VitalityHelper.Instance != null)
-            VitalityHelper.Instance.OnVitalityUpdated -= RefreshMatchButtons;
         if(LaunchParamsHelper.Instance == null) return;
         LaunchParamsHelper.Instance.OneVSOneMatchPanel = null;
         if(MuninnManager.Singleton == null) return;
@@ -336,8 +318,7 @@ public class OneVSOneMatchPanel : MonoBehaviour
 
     private void OnDisable()
     {
-        if(VitalityHelper.Inited && VitalityHelper.Instance != null)
-            VitalityHelper.Instance.OnVitalityUpdated -= RefreshMatchButtons;
+
     }
 
     public void Hide()

@@ -9,11 +9,9 @@ public class LowVITMatchButton : MonoBehaviour
 {
     public Button Button;
     public RectTransform Label;
-    public Text VITCostText;
 
     private void OnEnable()
     {
-        VITCostText.text = $"{VitalityHelper.MatchCost}";
         Button.onClick.RemoveAllListeners();
         Button.onClick.AddListener(OnClick);
     }

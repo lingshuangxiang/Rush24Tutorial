@@ -120,7 +120,6 @@ namespace TwentyFour.Scripts.UI.Store
             yield return new WaitUntil(()=> defalut.IsCompleted);
             
             Init(CategoryHelper.LocalProducts[CategoryHelper.DefaultVITCategory].Products[0]);
-            StartCoroutine(VitalityHelper.Instance.GetVitalityData(Identity.persona.PersonaID, true));
 
             if (canPlayEffect)
             {

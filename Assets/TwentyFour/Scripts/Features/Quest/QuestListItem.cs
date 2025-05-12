@@ -119,11 +119,7 @@ public class QuestListItem : MonoBehaviour
 
     private void OnADButtonClick()
     {
-        StartCoroutine(GetReward((() =>
-        {
-            
-            StartCoroutine(VitalityHelper.Instance.GetVitalityData(Identity.persona.PersonaID, true));
-        })));
+
     }
 
 

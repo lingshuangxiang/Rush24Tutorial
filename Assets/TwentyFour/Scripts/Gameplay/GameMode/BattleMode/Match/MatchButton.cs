@@ -13,22 +13,8 @@ namespace TwentyFour.Scripts.UI.Match
 
         public void FetchVitality()
         {
+            OnSucceed?.Invoke();
 
-            if (VitalityHelper.Instance.CurrentVitality >= VitalityHelper.MatchCost)
-            {
-                OnSucceed?.Invoke();
-            }
-            else
-            {
-                UIMessage.Show("体力不足");
-            }
-            StartCoroutine(GetData());
-        }
-
-        IEnumerator GetData()
-        {
-            yield return VitalityHelper.Instance.GetVitalityData(Identity.persona.PersonaID,true);
-            
         }
     }
 }

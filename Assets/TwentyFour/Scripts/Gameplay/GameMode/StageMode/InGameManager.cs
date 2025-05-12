@@ -357,13 +357,6 @@ namespace Unity.UOS.TwentyFour
             MatchMakingManager.IsMatchedAndInRoom = true;
             GameRouter.LoadBattleGameScene(); 
             MuninnMessage.OnStages.RemoveListener(InGameManager.OnReceiveBattleStages);//移出上一个addScene避免重复加载
-            //VIT System
-            if (MuninnManager.Singleton.GetBattleMode() == BattleMode.OneOnOne)
-            {
-                VitalityHelper.Instance.Reset();
-                VitalityHelper.Instance.ConsumeVitality(Identity.persona.PersonaID,(uint)VitalityHelper.MatchCost);
-                UIManager.Instance.ShowVITConsumeToast(VitalityHelper.MatchCost);
-            }
             
         }
         #endregion

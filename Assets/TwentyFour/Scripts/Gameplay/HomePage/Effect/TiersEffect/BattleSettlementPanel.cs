@@ -73,8 +73,6 @@ public class BattleSettlementPanel : MonoBehaviour
             MuninnManager.Singleton.OnDisconnectAction -= OnDisconnectTriggerOnceMore;
             MuninnManager.Singleton.OnLeftRoomAction -= OnLeftRoom;
         }
-        if(VitalityHelper.Inited && VitalityHelper.Instance != null)
-            VitalityHelper.Instance.OnVitalityUpdated -= RefreshMatchButtons;
     }
 
     private void Init()
@@ -168,19 +166,6 @@ public class BattleSettlementPanel : MonoBehaviour
         MuninnMessage.OnCustomOnceMore.AddListener(OnReceiveCustomOnceMore);
         await TiersHelper.UpdatePlayerScore();
     }
-    void RefreshMatchButtons()
-    {
-        if (VitalityHelper.Instance.CurrentVitality >= VitalityHelper.MatchCost)
-        {
-            MatchAgainButton.gameObject.SetActive(true);
-            MatchAgainLowVITButton.gameObject.SetActive(false);
-        }
-        else
-        {
-            MatchAgainButton.gameObject.SetActive(false);
-            MatchAgainLowVITButton.gameObject.SetActive(true);
-        }
-    }
 
     private GetItemParams itemParam;
     public void SetAndShowTier(TeamPlayer self,GetItemParams items)
@@ -189,8 +174,6 @@ public class BattleSettlementPanel : MonoBehaviour
         var addCount = self.currentScore - self.previousScore;
 
         ActiveTitle(addCount);
-        RefreshMatchButtons();
-        VitalityHelper.Instance.OnVitalityUpdated += RefreshMatchButtons;
         var tournament = GameInitManagerLocal.PreviousBattleMode == BattleMode.TournamentOneOnOne;
         Badge.SetActive(!tournament);
         if (tournament)

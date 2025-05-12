@@ -46,11 +46,9 @@ namespace Unity.UOS.TwentyFour
             InventoryHelper.OnInventoryUpdated += GetUserBagInfo;
             InBoxHelper.OnViewInbox += OnViewInbox;
             QuestHelper.OnSearchPersonaQuests += RefreshQuestInfo;
-            VitalityHelper.Instance.OnVitalityUpdated += RefreshVIT;
             OnViewInbox(InBoxHelper.NewMessageFound);
             GetUserBagInfo();
             RefreshQuestInfo();
-            RefreshVIT();
             DefaultCategoryUpdatedHint.SetActive(CategoryHelper.DefaultCategoryUpdated);
         }
 
@@ -70,9 +68,6 @@ namespace Unity.UOS.TwentyFour
 
         void OnDestroy()
         {
-            
-            if(VitalityHelper.Inited && VitalityHelper.Instance != null)
-                VitalityHelper.Instance.OnVitalityUpdated -= RefreshVIT;
             PersonaPropertiesHelper.OnPersonaUpdatedAction -= OnPersonaUpdatedAction;
             InventoryHelper.OnInventoryUpdated -= GetUserBagInfo;
             InBoxHelper.OnViewInbox -= OnViewInbox;
@@ -83,15 +78,7 @@ namespace Unity.UOS.TwentyFour
         }   
         public GameObject RedeemQuestHint;
         public GameObject RedeemDailyQuestHint;
-        public void ConsumeVIT()
-        {
-            VitalityHelper.Instance.ConsumeVitality(Identity.persona.PersonaID,20);
-        }
-        void RefreshVIT()
-        {
-            VITCostText.text = $"{VitalityHelper.MatchCost}";
-            VITText.text = $"{VitalityHelper.Instance.CurrentVitality}/{VitalityHelper.Instance.MaxVitality}";
-        }
+        
         void RefreshQuestInfo()
         {
             if (TournamentData.Current)

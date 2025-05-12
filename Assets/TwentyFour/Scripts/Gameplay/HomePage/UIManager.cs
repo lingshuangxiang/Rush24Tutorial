@@ -12,7 +12,6 @@ public class UIManager : GenericSingleton<UIManager>
     public InBoxPanel InBoxPanelInstance;
     public PlayerInfoPanel PlayerInfoPanelInstance;
     private GetItemPanel getItemPanelInstance;
-    VITConsumeToast VITConsumeToastInstance;
     Canvas canvas;
 
     public void Init()
@@ -77,17 +76,6 @@ public class UIManager : GenericSingleton<UIManager>
         ShowGetItemPanel(dataParam);
     }
 
-    public void ShowVITConsumeToast(int vit)
-    {
-        if (VITConsumeToastInstance == null)
-        {
-            var go = Instantiate(Resources.Load<GameObject>("UI/VITConsumeToast"), transform);
-            DontDestroyOnLoad(go);
-            VITConsumeToastInstance = go.GetComponent<VITConsumeToast>();
-        }
-        canvas.worldCamera = Camera.main;
-        VITConsumeToastInstance?.Show(vit);
-    }
     public void HideCommonLoading()
     {
         if(commonLoadingPanel != null)
