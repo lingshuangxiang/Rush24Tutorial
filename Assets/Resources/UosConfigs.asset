@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 696b6244836dcf4459e59c0f4d9a9485, type: 3}
   m_Name: UosConfigs
   m_EditorClassIdentifier: 
-  MatchConfigId: 16c30787-c16f-4774-b0ff-ab2826f98e50
-  RoomProfileUUID: 4d2d4cfe-f977-44fe-98a3-7001c86f5b24
-  AccoplishStatelessUrl: 07543d80-f88a-40f8-a6d1-2af532c19d60
-  CurrentEnv: Prod
+  MatchConfigId: a0d42532-ce64-4470-860b-15a5aae01da0
+  RoomProfileUUID: 16811e1c-e9b0-46bc-a189-ec363995abf5
+  AccoplishStatelessUrl: 7fa14adf-6df8-4672-8a48-a16118ae5887
+  CurrentEnv: Dev
