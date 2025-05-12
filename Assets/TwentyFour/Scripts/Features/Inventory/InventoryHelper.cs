@@ -7,7 +7,6 @@ using Economy;
 using Google.Protobuf.Collections;
 using Token;
 using TwentyFour.Scripts.PersonaProperty;
-using TwentyFour.Scripts.Tournament;
 using Unity.Passport.Runtime;
 using Unity.Passport.Runtime.Model;
 using Unity.VisualScripting;
@@ -51,26 +50,6 @@ public static class InventoryHelper
                     Item = item,
                     CustomData = item.Resource.CustomData.ToDictionary(x => x.Key, x => x.Value),
                 });
-            }
-
-            TournamentDataHelper.TournamentDatas?.Clear();
-            foreach (var item in personaInventories.Inventory.Where(item =>
-                         item.Resource.Namespace == TournamentTicketKey))
-            {
-                TournamentDataHelper.Add(item.Resource.CustomData["data"]);
-            }
-
-            if (TournamentDataHelper.TournamentDatas?.Count > 0)
-            {
-                for (int i = 0; i < TournamentDataHelper.TournamentDatas.Count; i++)
-                {
-                    var data = TournamentDataHelper.TournamentDatas[i];
-                    if (!data.IsExpired())
-                    {
-                        TournamentData.Current = data;
-                        break;
-                    }
-                }
             }
 
             CharAvatarPartsList?.Add(GenCharPartsInventoryItem(PersonaPropertyKeys.ActiveAvatarHeadKey, "default_head",

@@ -1,5 +1,4 @@
-﻿using TwentyFour.Scripts.Tournament;
-using UnityEditor;
+﻿using UnityEditor;
 
 namespace Unity.UOS.TwentyFour.Editor
 {
@@ -8,7 +7,6 @@ namespace Unity.UOS.TwentyFour.Editor
         [MenuItem("/Tools/TournamentData/GenerateJson")]
         static void GenerateJson()
         {
-            TournamentData.GenJson();
         }
     }
 }

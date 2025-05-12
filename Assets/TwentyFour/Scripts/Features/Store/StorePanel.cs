@@ -11,7 +11,6 @@ using TwentyFour.Scripts.Inventory;
 using TwentyFour.Scripts.Metrics;
 using TwentyFour.Scripts.Purchase;
 using TwentyFour.Scripts.RemoteConfig;
-using TwentyFour.Scripts.Tournament;
 using Unity.Passport.Runtime;
 using Unity.Passport.Runtime.UI;
 using UnityEngine;
@@ -219,9 +218,6 @@ public class StorePanel : MonoBehaviour
         var updateInventory = InventoryHelper.ListPersonaInventory();
         yield return new WaitUntil(() => updateInventory.IsCompleted);
         var defalut = CategoryHelper.ListProducts(CategoryHelper.DefaultGOLDCategory);
-        var currentTournament = TournamentData.Current.SlugName;
-        var category = CategoryHelper.ListProducts(currentTournament);
-        yield return new WaitUntil(()=> category.IsCompleted && defalut.IsCompleted);
         currentStoreProductList = CategoryHelper.LocalProducts[StoreSlugName];
         var tempCurrent = currentExpandedProduct;
         currentExpandedProduct = null;
@@ -259,16 +255,7 @@ public class StorePanel : MonoBehaviour
         yield return new WaitUntil(() => updateInventory.IsCompleted);
         var defalut = CategoryHelper.ListProducts(CategoryHelper.DefaultGOLDCategory);
 
-        if (TournamentData.Current)
-        {
-            var currentTournament = TournamentData.Current.GetStoreData();
-            var category = CategoryHelper.ListProducts(currentTournament);
-            yield return new WaitUntil(()=>category.IsCompleted && defalut.IsCompleted);
-        }
-        else
-        {
-            yield return new WaitUntil(()=>defalut.IsCompleted);
-        }
+        yield return new WaitUntil(()=>defalut.IsCompleted);
         if (canPlayEffect)
         {
             var itemList = new List<GetItemData>();

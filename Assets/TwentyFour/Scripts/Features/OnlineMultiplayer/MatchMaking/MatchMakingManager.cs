@@ -7,7 +7,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Passport;
 using TwentyFour.Scripts.RemoteConfig;
-using TwentyFour.Scripts.Tournament;
 using Unity.Muninn;
 using Unity.Muninn.Model;
 using Unity.Passport.Runtime;
@@ -369,25 +368,6 @@ public class MatchMakingManager : MonoBehaviour
     private void OnJoinRoomEvent(MuninnRoomView roomView)
     {
         OnJoinedRoomEvent?.Invoke();
-        if (!string.IsNullOrEmpty(TournamentSlugName) && TournamentData.Current)
-        {
-            Dictionary<string, string> properties = MuninnManager.GetRoom().Room.Properties;;
-            properties[CustomRoomPropertyKey.TournamentSlugName] = TournamentSlugName;
-            foreach (var referenceData in TournamentData.Current.ReferenceSlugs)
-            {
-                if (referenceData.SlugType == TournamentDataReferenceSlugType.Leaderboards)
-                {
-                    foreach (var kv in referenceData.Datas.ToDictionary())
-                    {
-                        properties[kv.Key] = kv.Value;
-                    }
-                }
-            }
-            RoomManager.UpdateRoomCustomProperties(properties, callback =>
-            {
-                Logger.Log("UpdateRoomCustomProperties");
-            });
-        }
         
         Logger.LogInfo("MatchMakingManager::OnJoinRoomEvent");
         MuninnManager.Singleton.OnJoinRoomAction -= OnJoinRoomEvent;

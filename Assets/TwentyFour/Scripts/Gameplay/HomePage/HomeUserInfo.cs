@@ -8,7 +8,6 @@ using TwentyFour.Scripts.Category;
 using TwentyFour.Scripts.Purchase;
 using TwentyFour.Scripts.Quest;
 using TwentyFour.Scripts.RemoteConfig;
-using TwentyFour.Scripts.Tournament;
 using Unity.Passport.Runtime;
 using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
@@ -81,22 +80,6 @@ namespace Unity.UOS.TwentyFour
         
         void RefreshQuestInfo()
         {
-            if (TournamentData.Current)
-            {
-                var questRefData = TournamentData.Current.ReferenceSlugs.Find(item => item.SlugType == TournamentDataReferenceSlugType.Quests);
-                var questSlug = questRefData.Datas.ToDictionary()["main"];
-                var questData = QuestHelper.PersonaQuests[questSlug];
-                var canRedeem = false;
-                foreach (var quest in questData.Items)
-                {
-                    if (quest.Completed && !quest.Redeemed)
-                    {
-                        canRedeem = true;
-                        break;
-                    }
-                }
-                RedeemQuestHint?.SetActive(canRedeem);
-            }
             var DailyData = QuestHelper.PersonaQuests[QuestKeys.DailyMatchQuestsSlug];
             var canRedeemDaily = false;
             foreach (var quest in DailyData.Items)
@@ -122,16 +105,6 @@ namespace Unity.UOS.TwentyFour
                 if (inventory.Resource.ResourceSlug == "GOLD_COIN")
                 {
                     CoinText.text = inventory.Quantity.ToString();
-                }
-
-                if (TournamentData.Current != null)
-                {
-                    TournamentButton.SetActive(true);
-                    StageButton.SetActive(false);
-                    StageButtonTournament.SetActive(true);
-                    TournamentActiveHint.SetActive(TournamentData.Current.IsActive());
-                   
-                    
                 }
             }
         }

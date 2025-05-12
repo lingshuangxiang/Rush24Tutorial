@@ -12,7 +12,6 @@ using TwentyFour.Scripts.Achievement;
 using TwentyFour.Scripts.Metrics;
 using TwentyFour.Scripts.Quest;
 using TwentyFour.Scripts.RemoteConfig;
-using TwentyFour.Scripts.Tournament;
 using Unity.Passport.Runtime;
 using Unity.Passport.Runtime.UI;
 using Unity.UOS.TwentyFour;
@@ -685,31 +684,7 @@ public class BattleEffectManager : MonoBehaviour
         var other = GetOtherProgress();
         if (GameInitManagerLocal.PreviousBattleMode == BattleMode.TournamentOneOnOne)
         {
-            var currenttournament = TournamentData.Current.SlugName;
-            if (!string.IsNullOrEmpty(tournamentSlug) && currenttournament == tournamentSlug)
-            {
-                var tournament = tournamentSlug;
-                if (self.score > other.score)
-                {
-                    var dailyWin = QuestHelper.UpdatePersonaQuestItem(
-                        $"{tournament}_{QuestKeys.DailyMatchMakingWin}", QuestItemUpdateAction.Increase,
-                        1);
-                    yield return new WaitUntil(() => dailyWin.IsCompleted);
-                    if (self.score >= 5)
-                    {
-                        //完胜
-                        var dailyWinCompletely = QuestHelper.UpdatePersonaQuestItem(
-                            $"{tournament}_{QuestKeys.DailyMatchMakingWinCompletely}", QuestItemUpdateAction.Increase,
-                            1);
-                        yield return new WaitUntil(() => dailyWinCompletely.IsCompleted);
-                    }
-                }
 
-                var daily = QuestHelper.UpdatePersonaQuestItem(
-                    $"{tournament}_{QuestKeys.DailyMatchMaking}", QuestItemUpdateAction.Increase,
-                    1);
-                yield return new WaitUntil(() => daily.IsCompleted);
-            }
             
         }
         else if(GameInitManagerLocal.PreviousBattleMode == BattleMode.OneOnOne)

@@ -10,7 +10,6 @@ using TwentyFour.Scripts.Category;
 using TwentyFour.Scripts.Metrics;
 using TwentyFour.Scripts.Quest;
 using TwentyFour.Scripts.RemoteConfig;
-using TwentyFour.Scripts.Tournament;
 using Unity.Passport.Runtime;
 using Unity.Passport.Runtime.UI;
 using Unity.UOS.Common;
@@ -228,11 +227,6 @@ namespace Unity.UOS.TwentyFour
             var defalut = CategoryHelper.ListProducts(CategoryHelper.DefaultGOLDCategory);
             var vit = CategoryHelper.ListProducts(CategoryHelper.DefaultVITCategory);
             yield return new WaitUntil(()=>defalut.IsCompleted && vit.IsCompleted);
-            foreach (var data in TournamentDataHelper.TournamentDatas)
-            {
-                var category = CategoryHelper.ListProducts(data.GetStoreData());
-                yield return new WaitUntil(()=>category.IsCompleted);
-            }
         }
         IEnumerator FetchInBoxData()
         {
@@ -257,22 +251,6 @@ namespace Unity.UOS.TwentyFour
             var count = leaderboardCount == 0 ? 20 : leaderboardCount;
             var leaderboardlistAwaiter =
                 TiersHelper.ListTierLeaderBoard(count).GetAwaiter();
-            if (TournamentData.Current)
-            {
-                var tournamentLeaderBoard = TournamentData.Current.GetLeaderboardData();
-                if (tournamentLeaderBoard != null)
-                {
-                    foreach (var leaderboard in tournamentLeaderBoard)
-                    {
-                        var awaiter = TiersHelper.ListLeaderBoard(leaderboard.Value, count).GetAwaiter();
-                        yield return new WaitUntil(() => awaiter.IsCompleted);
-                    }
-                }
-
-                yield return TournamentDataHelper.GetSelfTournamentScoreData(TournamentData.Current.SlugName,
-                    Identity.persona.PersonaID);
-                yield return WXSubscribe.SendGETRequest(TournamentData.Current.SlugName);
-            }
 
             var personaPropertyAwaiter = PersonaPropertiesHelper.GetPersonaProperties().GetAwaiter();
             var leaderBoardAwaiter =

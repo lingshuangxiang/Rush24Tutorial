@@ -7,7 +7,6 @@ using DG.Tweening;
 using Inbox;
 using TwentyFour.Scripts.Common;
 using TwentyFour.Scripts.Metrics;
-using TwentyFour.Scripts.Tournament;
 using Unity.Passport.Runtime;
 using Unity.Passport.Runtime.UI;
 using UnityEngine;
@@ -126,7 +125,6 @@ public class InBoxItem : MonoBehaviour
             ParentInBoxPanel.RedeemButton.interactable = false;
             ParentInBoxPanel.RedeemButtonText.text = "已领取";
             var updateInventory = InventoryHelper.ListPersonaInventory();
-            yield return TournamentDataHelper.FetchTournamentData();
             yield return new WaitUntil(() => updateInventory.IsCompleted);
             var itemList = new List<GetItemData>();
             foreach (var reward in redeem.Result.Message.Attachment)

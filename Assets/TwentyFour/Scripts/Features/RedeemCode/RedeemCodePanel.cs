@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TwentyFour.Scripts.Metrics;
 using TwentyFour.Scripts.Quest;
 using TwentyFour.Scripts.RemoteConfig;
-using TwentyFour.Scripts.Tournament;
 using Unity.Passport.Runtime;
 using Unity.Passport.Runtime.UI;
 using Unity.UOS.TwentyFour.UOSGateway;
@@ -52,7 +51,6 @@ public class RedeemCodePanel : MonoBehaviour
         yield return new WaitUntil(() => redeem.IsCompleted);
         var updateInventory = InventoryHelper.ListPersonaInventory();
         yield return new WaitUntil(() => updateInventory.IsCompleted);
-        yield return TournamentDataHelper.FetchTournamentData();
         UIManager.Instance.HideCommonLoading();
         if (redeem.Result.TokenInstance.HasInboxMessageId)
         {
