@@ -145,15 +145,7 @@ public class AysncLoadingScenenEf : MonoBehaviour
             personaPropertyAwaiter.IsCompleted && leaderBoardAwaiter.IsCompleted && leaderboardlistAwaiter.IsCompleted &&
             achievementAwaiter.IsCompleted && inventryAwaiter.IsCompleted && questAwaiter.IsCompleted);
     }
-    IEnumerator FetchInBoxData()
-    {
-        var fetch = InBoxHelper.ReceiveMessages().GetAwaiter();
-        yield return new WaitUntil(() => fetch.IsCompleted);
-        var data = InBoxHelper.ViewInbox().GetAwaiter();
-        yield return new WaitUntil(() => data.IsCompleted);
-            
 
-    }
     /// <summary>
     /// 当动画加载完后卸载本过场动画场景,由动画调用
     /// </summary>

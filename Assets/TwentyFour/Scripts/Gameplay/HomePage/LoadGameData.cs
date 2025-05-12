@@ -145,7 +145,6 @@ namespace Unity.UOS.TwentyFour
             yield return StartCoroutine(InitQuest());
             yield return StartCoroutine(InitInventory());
             yield return StartCoroutine(InitCategory());
-            yield return StartCoroutine(FetchInBoxData());
             //yield return AccomplishmentHelper.GetData(Identity.persona.PersonaID);
             yield return StartCoroutine(FetchLeaderboard());
             StreamDataCheckHelper.Instance.Init();
@@ -227,16 +226,6 @@ namespace Unity.UOS.TwentyFour
             var defalut = CategoryHelper.ListProducts(CategoryHelper.DefaultGOLDCategory);
             var vit = CategoryHelper.ListProducts(CategoryHelper.DefaultVITCategory);
             yield return new WaitUntil(()=>defalut.IsCompleted && vit.IsCompleted);
-        }
-        IEnumerator FetchInBoxData()
-        {
-            ProgressTextTmp.text = "正在...解析讯息...";
-            var fetch = InBoxHelper.ReceiveMessages().GetAwaiter();
-            yield return new WaitUntil(() => fetch.IsCompleted);
-            var data = InBoxHelper.ViewInbox().GetAwaiter();
-            yield return new WaitUntil(() => data.IsCompleted);
-            
-
         }
 
         IEnumerator InitMetrics()
