@@ -130,7 +130,6 @@ public class AysncLoadingScenenEf : MonoBehaviour
     {
         // var remoteConfigAwaiter = RemoteConfigHelper.GetDefaultRemoteConfig().GetAwaiter();
         // yield return new WaitUntil(() => remoteConfigAwaiter.IsCompleted);
-        VitalityHelper.Instance.GetVitalityData(Identity.persona.PersonaID,true);
         var leaderboardCount = RemoteConfigHelper.GetInt(RemoteConfigKeys.DefaultRankCount);
         var count = leaderboardCount == 0 ? 20 : leaderboardCount;
         var leaderboardlistAwaiter =

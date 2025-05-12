@@ -149,7 +149,6 @@ namespace Unity.UOS.TwentyFour
             yield return StartCoroutine(FetchInBoxData());
             //yield return AccomplishmentHelper.GetData(Identity.persona.PersonaID);
             yield return StartCoroutine(FetchLeaderboard());
-            yield return StartCoroutine(FetchVitalityData());
             StreamDataCheckHelper.Instance.Init();
             if (PersonaPropertiesHelper.ShowStageTutorial)
             {
@@ -244,13 +243,6 @@ namespace Unity.UOS.TwentyFour
             yield return new WaitUntil(() => data.IsCompleted);
             
 
-        }
-
-        IEnumerator FetchVitalityData()
-        {
-            ProgressTextTmp.text = "正在...汲取能源...";
-            VitalityHelper.Instance.Init();
-            yield return VitalityHelper.Instance.GetVitalityData(Identity.persona.PersonaID,true);
         }
 
         IEnumerator InitMetrics()

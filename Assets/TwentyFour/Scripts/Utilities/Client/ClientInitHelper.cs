@@ -28,7 +28,6 @@ public static class ClientInitHelper
         MuninnManager.Singleton.Dispose();
         TiersHelper.Dispose();
         TournamentDataHelper.Dispose();
-        VitalityHelper.Instance.Dispose();
         WXSubscribe.Dispose();
         StreamDataCheckHelper.Instance.Dispose();
         MetricsHelper.Dispose();

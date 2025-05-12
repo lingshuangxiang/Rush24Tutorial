@@ -455,7 +455,6 @@ public class BattleEffectManager : MonoBehaviour
         var settlePrefab = IsDraw() ? DrawPrefab : IfMyTeamWin() ? WinPrefab : LosPrefab;
         settlementObject = Instantiate(settlePrefab, SceneCanvas.transform);
         var AnimEventBridge = settlementObject.GetComponent<SettlementAnimBridge>();
-        StartCoroutine(VitalityHelper.Instance.GetVitalityData(Identity.persona.PersonaID, true));
         // 动画事件：结束时Hook上传数据事件
         AnimEventBridge?.SetOnDestroyAction(OnSettlementEndingAnim);
         Dictionary<string, string> properties = MuninnManager.GetRoom().Room.Properties;
