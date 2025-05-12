@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TwentyFour.Scripts.LaunchParam;
-using TwentyFour.Scripts.Tournament;
 using TwentyFour.Scripts.Wechat;
 using Unity.UOS.Common;
 using Unity.UOS.TwentyFour;
@@ -27,7 +26,6 @@ public static class ClientInitHelper
         AchievementManager.Dispose();
         MuninnManager.Singleton.Dispose();
         TiersHelper.Dispose();
-        TournamentDataHelper.Dispose();
         WXSubscribe.Dispose();
         StreamDataCheckHelper.Instance.Dispose();
         MetricsHelper.Dispose();

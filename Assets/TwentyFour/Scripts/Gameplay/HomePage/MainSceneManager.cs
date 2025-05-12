@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TwentyFour.Scripts.Tournament;
 using Unity.UOS.TwentyFour;
 using Unity.UOS.TwentyFour.UOSGateway;
 using Unity.VisualScripting;

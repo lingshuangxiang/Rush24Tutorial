@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Economy;
 using TwentyFour.Scripts.Category;
 using TwentyFour.Scripts.Purchase;
-using TwentyFour.Scripts.Tournament;
 using Unity.Passport.Runtime;
 using Unity.Passport.Runtime.UI;
 using Unity.UOS.TwentyFour.UOSGateway;

@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TwentyFour.Scripts.Metrics;
-using TwentyFour.Scripts.Tournament;
 using Unity.Passport.Runtime;
 using Unity.Passport.Runtime.UI;
 using UnityEngine;
@@ -137,7 +136,6 @@ public class InBoxPanel : MonoBehaviour, LoopScrollPrefabSource, LoopScrollDataS
         if (canPlayGetItemEffect)
         {
             var updateInventory = InventoryHelper.ListPersonaInventory();
-            yield return TournamentDataHelper.FetchTournamentData();
             yield return new WaitUntil(() => updateInventory.IsCompleted);
             
             UIManager.Instance.HideCommonLoading();

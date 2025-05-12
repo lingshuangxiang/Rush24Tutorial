@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Cloud;
-using TwentyFour.Scripts.Tournament;
 using Unity.UOS.Config;
 using Unity.UOS.Config.Model;
 using Unity.UOS.Config.Utility;

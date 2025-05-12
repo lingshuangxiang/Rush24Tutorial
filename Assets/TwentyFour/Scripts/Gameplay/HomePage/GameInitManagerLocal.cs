@@ -29,7 +29,6 @@ public class GameInitManagerLocal : MonoBehaviour
     public GameObject matchCanvas;
     public Button matchButton;
 
-    public TournamentPanel TournamentPanel;
     public PlayerInfoPanel PlayerInfoPanel;
     public Button BattleButton;
     public UnityEvent OnStartEvent;
@@ -89,8 +88,5 @@ public class GameInitManagerLocal : MonoBehaviour
     IEnumerator Tournament(bool matchAgain = false)
     {
         yield return null;
-        TournamentPanel.gameObject.SetActive(true);
-        if (matchAgain)
-            TournamentPanel.MatchMakingButton.onClick.Invoke();
     }
 }

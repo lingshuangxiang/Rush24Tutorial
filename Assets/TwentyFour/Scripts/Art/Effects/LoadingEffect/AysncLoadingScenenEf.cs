@@ -5,7 +5,6 @@ using DG.Tweening;
 using TwentyFour.Scripts.Quest;
 using TwentyFour.Scripts.Accomplishment;
 using TwentyFour.Scripts.RemoteConfig;
-using TwentyFour.Scripts.Tournament;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -134,20 +133,7 @@ public class AysncLoadingScenenEf : MonoBehaviour
         var count = leaderboardCount == 0 ? 20 : leaderboardCount;
         var leaderboardlistAwaiter =
             TiersHelper.ListTierLeaderBoard(count).GetAwaiter();
-        if (TournamentData.Current)
-        {
-            var tournamentLeaderBoard = TournamentData.Current.GetLeaderboardData();
-            if (tournamentLeaderBoard != null)
-            {
-                foreach (var leaderboard in tournamentLeaderBoard)
-                {
-                    var awaiter = TiersHelper.ListLeaderBoard(leaderboard.Value, count).GetAwaiter();
-                    yield return new WaitUntil(() => awaiter.IsCompleted);
-                }
-            }
-            yield return WXSubscribe.SendGETRequest(TournamentData.Current.SlugName);
-            yield return TournamentDataHelper.GetSelfTournamentScoreData(TournamentData.Current.SlugName, Identity.persona.PersonaID);
-        }
+
         var personaPropertyAwaiter = PersonaPropertiesHelper.GetPersonaProperties().GetAwaiter();
         var leaderBoardAwaiter = TiersHelper.GetMyLeaderboardScore(TiersHelper.TiersLeaderboardSlugName).GetAwaiter();
         
