@@ -43,9 +43,7 @@ namespace Unity.UOS.TwentyFour
             UserNameText.text = Identity.persona.DisplayName;
             PersonaPropertiesHelper.OnPersonaUpdatedAction += OnPersonaUpdatedAction;
             InventoryHelper.OnInventoryUpdated += GetUserBagInfo;
-            InBoxHelper.OnViewInbox += OnViewInbox;
             QuestHelper.OnSearchPersonaQuests += RefreshQuestInfo;
-            OnViewInbox(InBoxHelper.NewMessageFound);
             GetUserBagInfo();
             RefreshQuestInfo();
             DefaultCategoryUpdatedHint.SetActive(CategoryHelper.DefaultCategoryUpdated);
@@ -69,7 +67,6 @@ namespace Unity.UOS.TwentyFour
         {
             PersonaPropertiesHelper.OnPersonaUpdatedAction -= OnPersonaUpdatedAction;
             InventoryHelper.OnInventoryUpdated -= GetUserBagInfo;
-            InBoxHelper.OnViewInbox -= OnViewInbox;
             QuestHelper.OnSearchPersonaQuests -= RefreshQuestInfo;
 
 

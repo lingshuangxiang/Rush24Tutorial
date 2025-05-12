@@ -9,7 +9,6 @@ public class UIManager : GenericSingleton<UIManager>
 {
     private PopUpPanel popUpPanel;
     private CommonLoadingPanel commonLoadingPanel;
-    public InBoxPanel InBoxPanelInstance;
     public PlayerInfoPanel PlayerInfoPanelInstance;
     private GetItemPanel getItemPanelInstance;
     Canvas canvas;

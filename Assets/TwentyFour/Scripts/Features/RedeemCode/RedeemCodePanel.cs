@@ -54,11 +54,7 @@ public class RedeemCodePanel : MonoBehaviour
         UIManager.Instance.HideCommonLoading();
         if (redeem.Result.TokenInstance.HasInboxMessageId)
         {
-            var fetch = InBoxHelper.ReceiveMessages().GetAwaiter();
-            yield return new WaitUntil(() => fetch.IsCompleted);
-            var data = InBoxHelper.ViewInbox().GetAwaiter();
-            yield return new WaitUntil(() => data.IsCompleted);
-            UIMessage.Show("兑换成功！已发送到邮箱中！");
+
         }
         else
         {
