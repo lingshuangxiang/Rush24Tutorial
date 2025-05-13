@@ -11,7 +11,7 @@ public class GetItemData
 
     public Sprite GetIcon()
     {
-        return InventoryHelper.GetItemIcon(Namespace, Slug);
+        return null;
     }
 
     public GetItemData(Achievement.ResourceDetail resourceDetail)

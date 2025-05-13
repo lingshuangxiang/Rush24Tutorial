@@ -138,12 +138,11 @@ public class AysncLoadingScenenEf : MonoBehaviour
         var leaderBoardAwaiter = TiersHelper.GetMyLeaderboardScore(TiersHelper.TiersLeaderboardSlugName).GetAwaiter();
         
         var achievementAwaiter = AchievementManager.ListPersonaAchievements().GetAwaiter();
-        var inventryAwaiter = InventoryHelper.ListPersonaInventory().GetAwaiter();
         var questAwaiter = QuestHelper.SearchPersonaQuests().GetAwaiter();
         yield return TiersHelper.GetTierUserScoreData(Identity.persona.PersonaID);
         yield return new WaitUntil(() =>
             personaPropertyAwaiter.IsCompleted && leaderBoardAwaiter.IsCompleted && leaderboardlistAwaiter.IsCompleted &&
-            achievementAwaiter.IsCompleted && inventryAwaiter.IsCompleted && questAwaiter.IsCompleted);
+            achievementAwaiter.IsCompleted && questAwaiter.IsCompleted);
     }
 
     /// <summary>

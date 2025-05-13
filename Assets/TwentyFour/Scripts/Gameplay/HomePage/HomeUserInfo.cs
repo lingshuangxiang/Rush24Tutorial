@@ -42,7 +42,6 @@ namespace Unity.UOS.TwentyFour
 #endif
             UserNameText.text = Identity.persona.DisplayName;
             PersonaPropertiesHelper.OnPersonaUpdatedAction += OnPersonaUpdatedAction;
-            InventoryHelper.OnInventoryUpdated += GetUserBagInfo;
             QuestHelper.OnSearchPersonaQuests += RefreshQuestInfo;
             GetUserBagInfo();
             RefreshQuestInfo();
@@ -66,7 +65,6 @@ namespace Unity.UOS.TwentyFour
         void OnDestroy()
         {
             PersonaPropertiesHelper.OnPersonaUpdatedAction -= OnPersonaUpdatedAction;
-            InventoryHelper.OnInventoryUpdated -= GetUserBagInfo;
             QuestHelper.OnSearchPersonaQuests -= RefreshQuestInfo;
 
 
@@ -97,13 +95,7 @@ namespace Unity.UOS.TwentyFour
         async void GetUserBagInfo()
         {
             //GetPersonaInventoryResponse personaInventories = await PassportFeatureSDK.Economy.SearchPersonaInventory();
-            foreach (var inventory in InventoryHelper.ExpandedInventoryItems)
-            {
-                if (inventory.Resource.ResourceSlug == "GOLD_COIN")
-                {
-                    CoinText.text = inventory.Quantity.ToString();
-                }
-            }
+
         }
 
         // Update is called once per frame
