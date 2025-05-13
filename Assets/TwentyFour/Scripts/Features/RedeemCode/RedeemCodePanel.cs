@@ -46,43 +46,10 @@ public class RedeemCodePanel : MonoBehaviour
     IEnumerator RedeemItem()
     {
         canPlayGetItemEffect = true;
-        UIManager.Instance.ShowCommonLoading("正在兑换");
-        var redeem = InventoryHelper.RedeemToken(InputCodeField.text, "", RedeemFailed);
-        yield return new WaitUntil(() => redeem.IsCompleted);
-        var updateInventory = InventoryHelper.ListPersonaInventory();
-        yield return new WaitUntil(() => updateInventory.IsCompleted);
+
         UIManager.Instance.HideCommonLoading();
-        if (redeem.Result.TokenInstance.HasInboxMessageId)
-        {
-
-        }
-        else
-        {
-            if (canPlayGetItemEffect)
-            {
-                InputCodeField.text = string.Empty;
-                var itemList = new List<GetItemData>();
-
-                foreach (var reward in redeem.Result.TokenInstance.Gifts)
-                {
-                    var data = new GetItemData();
-                    data.DisplayName = reward.Detail.DisplayName;
-                    data.Slug = reward.Slug;
-                    data.Count = reward.Quantity;
-                    data.Namespace = reward.Detail.Namespace;
-                    itemList.Add(data);
-                    MetricsHelper.TrackEvent(MetricsKeys.EVENT_REDEEM_ITEM,new Dictionary<string, object>()
-                    {
-                        {MetricsKeys.PARAM_REWARD_TYPE,reward.Slug},
-                        {MetricsKeys.PARAM_FROM,redeem.Result.TokenInstance.Id},
-                        {MetricsKeys.PARAM_REDEEM_TYPE,"redeem_code"}
-                    });
-                }
-                UIManager.Instance.ShowGetItemPanel(itemList);
-            }
-        }
         
-        
+        yield break;
     }
     
     void RedeemFailed(Exception e)

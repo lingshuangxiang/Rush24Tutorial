@@ -143,7 +143,6 @@ namespace Unity.UOS.TwentyFour
             yield return StartCoroutine(InitSave());
             yield return StartCoroutine(InitAchievement());
             yield return StartCoroutine(InitQuest());
-            yield return StartCoroutine(InitInventory());
             yield return StartCoroutine(InitCategory());
             //yield return AccomplishmentHelper.GetData(Identity.persona.PersonaID);
             yield return StartCoroutine(FetchLeaderboard());
@@ -209,13 +208,7 @@ namespace Unity.UOS.TwentyFour
             var defaultQuests = QuestHelper.SearchPersonaQuests();
             yield return new WaitUntil(()=>defaultQuests.IsCompleted && quest.IsCompleted);
         }
-
-        IEnumerator InitInventory()
-        {
-            ProgressTextTmp.text = "正在...解压容器...";
-            var inventory = InventoryHelper.ListPersonaInventory();
-            yield return new WaitUntil(()=>inventory.IsCompleted);
-        }
+        
         IEnumerator InitCategory()
         {
             ProgressTextTmp.text = "正在...加载货舱...";

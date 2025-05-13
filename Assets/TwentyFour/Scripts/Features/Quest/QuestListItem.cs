@@ -37,7 +37,6 @@ public class QuestListItem : MonoBehaviour
         if (quest.Rewards.Count > 0)
         {
             Reward.text = $"x{quest.Rewards[0].Quantity}";
-            Icon.sprite = InventoryHelper.GetItemIcon(quest.Rewards[0].Resource.Namespace, quest.Rewards[0].SlugName);
         }
         
         ActionButton.interactable = false;
@@ -169,8 +168,6 @@ public class QuestListItem : MonoBehaviour
         UIManager.Instance.ShowCommonLoading("正在领取奖励");
         var rewardAwaiter = QuestHelper.RedeemQuestItemRewards(questItem.SlugName, RedeemFailed);
         yield return new WaitUntil(()=>rewardAwaiter.IsCompleted);
-        var updateInventory = InventoryHelper.ListPersonaInventory();
-        yield return new WaitUntil(() => updateInventory.IsCompleted);
         UIManager.Instance.HideCommonLoading();
         if (canPlayGetItemEffect)
         {
