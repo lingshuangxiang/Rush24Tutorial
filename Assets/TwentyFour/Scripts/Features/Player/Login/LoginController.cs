@@ -9,10 +9,6 @@ using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
 using Unity.UOS.Auth;
 using System.Threading.Tasks;
-#if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
-using CloudService;
-using WeChatWASM;
-#endif
 using Unity.UOS.Networking;
 using UnityEngine.UI;
 
@@ -108,78 +104,10 @@ namespace Unity.UOS.TwentyFour
         public async void Login()
         {
             await PassportFeatureSDK.Initialize();
-            // 调用 SDK
-#if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
-            // external login
-            
-            // 检查 token 是否已经存在
-            // try
-            // {
-            //     await AuthTokenManager.GetTokenInfo();
-            //     _callback(PassportEvent.Completed);
-            //     return;
-            // }
-            // catch (Exception e)
-            // {
-            //     // token 获取失败，继续原登录流程
-            //     Debug.Log(e.Message);
-            // }
-            
-            // UIMessage.Show("微信登录中...");
-            var externalLoginResponse = await WechatLogin();
-             
-            if (externalLoginResponse == null)
-            {
-                var exp = "微信登录失败，请稍后重试";
-                UIMessage.Show(exp, MessageType.Error);
-                throw new Exception(exp);
-            }
-            TokenInfo tokeninfo = new TokenInfo();
-            tokeninfo.AccessToken = externalLoginResponse.personaAccessToken;
-            tokeninfo.RefreshToken = externalLoginResponse.personaRefreshToken;
-            tokeninfo.UserId = externalLoginResponse.persona.userID;
-            AuthTokenManager.SaveToken(tokeninfo);
-            
-            _callback(PassportEvent.Completed);
-#else
             // passport login
             await PassportSDK.Initialize();
             await PassportUI.Init(_config, _callback);
-#endif
         }
-
-#if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
-        /// <summary>
-        /// 微信登录
-        /// </summary>
-        public static async Task<ExternalLoginResponse?> WechatLogin()
-        {
-            var tcs = new TaskCompletionSource<ExternalLoginResponse?>();
-            WX.Login(new LoginOption()
-            {
-                success = async (res) =>
-                {
-                    var wechatApi = new WechatAPI();
-                    Debug.Log("微信获取 code 成功");
-                    Debug.Log(res.code);
-                    var externalLoginResponse = await wechatApi.WechatLogin(res.code);
-                    tcs.SetResult(externalLoginResponse);
-                    WXSubscribe.Init(externalLoginResponse.openid);
-                    //Debug.LogError(externalLoginResponse.openid+"OpenID");
-                },
-                fail = (err) =>
-                {
-                    Debug.Log("微信获取 code 失败");
-                    Debug.Log(err.errMsg);
-                    tcs.SetResult(null);
-                }
-            });
-
-            return await tcs.Task;
-        }
-#endif
-        
-        
 
         // 登出
         public void Logout()

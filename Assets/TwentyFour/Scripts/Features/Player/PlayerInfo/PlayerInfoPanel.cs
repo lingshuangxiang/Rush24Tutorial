@@ -12,13 +12,8 @@ using Unity.UOS.TwentyFour;
 using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
 using UnityEngine.UI;
-using Unity.UOS.TwentyFour.Wechat;
 using UnityEngine.Networking;
 using Logger = Unity.UOS.TwentyFour.Common.Logger;
-
-#if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
-using WeChatWASM;
-#endif
 
 public class PlayerInfoPanel : MonoBehaviour
 {
@@ -47,11 +42,6 @@ public class PlayerInfoPanel : MonoBehaviour
     Vector3 InfoBoardPos;
     public RectTransform AvatarEnd;
     public RectTransform InfoEnd;
-#if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
-    private Action<UserInfo> OnGetNewUserInfo;
-    private Action OnShowWechatButton;
-#endif
-
 
     public GameObject EditorAvatarButton;
     public GameObject SettingComponent;
@@ -85,14 +75,6 @@ public class PlayerInfoPanel : MonoBehaviour
     public void ShowSelfInfo()
     {
         gameObject.SetActive(true);
-#if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
-        ButtonLogout.SetActive(false);
-        StartCoroutine(CheckWechatButton());
-        OnGetNewUserInfo -= ReviseUserInfo;
-        OnGetNewUserInfo += ReviseUserInfo;
-        OnShowWechatButton -= ShowWechatButton;
-        OnShowWechatButton += ShowWechatButton;
-#endif
     }
 
     void SetFuncButtons(bool enable)
@@ -104,37 +86,8 @@ public class PlayerInfoPanel : MonoBehaviour
     }
     private void OnDisable()
     {
-#if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
-        GetWechatUserInfo.Hide();
-        WeChatButton.gameObject.SetActive(false);
-#endif
+
     }
-#if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
-    private void ShowWechatButton()
-    {
-        // 尚未授权，才展示按钮
-        WeChatButton.gameObject.SetActive(true);
-    }
-    
-    private async void ReviseUserInfo(UserInfo userinfo)
-    {
-        var persona = await PassportSDK.Identity.UpdatePersona(userinfo.nickName, userinfo.avatarUrl);
-        Identity.persona = persona;
-        PlayerName.text = userinfo.nickName;
-        PlayerNameInHall.text = userinfo.nickName;
-    }
-    IEnumerator CheckWechatButton()
-    {
-        // 延迟
-        yield return new WaitForSeconds(1);
-        
-        // 当前面板已关闭
-        if (!gameObject.activeSelf) yield break;
-        
-        // 微信修改昵称按钮挂载与卸载
-        GetWechatUserInfo.Get(WeChatButton.gameObject, ShowWechatButton, ReviseUserInfo);
-    }
-#endif
 
     private void GetPlayerInfo()
     {
