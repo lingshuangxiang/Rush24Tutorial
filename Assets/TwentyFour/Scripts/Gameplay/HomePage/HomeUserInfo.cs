@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using Economy;
 using Passport;
 using TMPro;
-using TwentyFour.Scripts.Category;
-using TwentyFour.Scripts.Purchase;
 using TwentyFour.Scripts.Quest;
 using TwentyFour.Scripts.RemoteConfig;
 using Unity.Passport.Runtime;
@@ -45,16 +43,11 @@ namespace Unity.UOS.TwentyFour
             QuestHelper.OnSearchPersonaQuests += RefreshQuestInfo;
             GetUserBagInfo();
             RefreshQuestInfo();
-            DefaultCategoryUpdatedHint.SetActive(CategoryHelper.DefaultCategoryUpdated);
         }
 
         public void OnClickDefaultStore()
         {
             DefaultCategoryUpdatedHint.SetActive(false);
-            CategoryHelper.DefaultCategoryUpdated = false;
-            LocalStorageUtil.SetString(LocalStorageKeys.DEFAULT_CATEGORY_UPDATED,CategoryHelper.DefaultCategoryUpdatedTime);
-
-
         }
         private void OnViewInbox(bool newMessage)
         {

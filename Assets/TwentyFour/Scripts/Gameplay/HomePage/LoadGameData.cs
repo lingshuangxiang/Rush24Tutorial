@@ -6,7 +6,6 @@ using Cloud;
 using Passport;
 using TMPro;
 using TwentyFour.Scripts.Accomplishment;
-using TwentyFour.Scripts.Category;
 using TwentyFour.Scripts.Metrics;
 using TwentyFour.Scripts.Quest;
 using TwentyFour.Scripts.RemoteConfig;
@@ -143,7 +142,6 @@ namespace Unity.UOS.TwentyFour
             yield return StartCoroutine(InitSave());
             yield return StartCoroutine(InitAchievement());
             yield return StartCoroutine(InitQuest());
-            yield return StartCoroutine(InitCategory());
             //yield return AccomplishmentHelper.GetData(Identity.persona.PersonaID);
             yield return StartCoroutine(FetchLeaderboard());
             StreamDataCheckHelper.Instance.Init();
@@ -209,17 +207,6 @@ namespace Unity.UOS.TwentyFour
             yield return new WaitUntil(()=>defaultQuests.IsCompleted && quest.IsCompleted);
         }
         
-        IEnumerator InitCategory()
-        {
-            ProgressTextTmp.text = "正在...加载货舱...";
-            CategoryHelper.Init();
-            var categories = CategoryHelper.ListCategories();
-            yield return new WaitUntil(()=>categories.IsCompleted);
-            CategoryHelper.CheckDefaultCategoryUpdated();
-            var defalut = CategoryHelper.ListProducts(CategoryHelper.DefaultGOLDCategory);
-            var vit = CategoryHelper.ListProducts(CategoryHelper.DefaultVITCategory);
-            yield return new WaitUntil(()=>defalut.IsCompleted && vit.IsCompleted);
-        }
 
         IEnumerator InitMetrics()
         {
