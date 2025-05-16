@@ -5,7 +5,6 @@ using DG.Tweening;
 using Leaderboard;
 using TMPro;
 using Unity.Passport.Runtime;
-using Unity.UOS.TwentyFour.Model.Sync;
 using Unity.UOS.TwentyFour.Scripts.Component;
 using Unity.UOS.TwentyFour.UOSGateway;
 using Unity.VisualScripting;

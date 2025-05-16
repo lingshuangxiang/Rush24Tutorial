@@ -32,7 +32,6 @@ namespace Unity.UOS.TwentyFour
             }
 
             //Init all SDK
-            MatchMakingManager.StartInitializeMatchMaking();
         }
 
         // Start is called before the first frame update

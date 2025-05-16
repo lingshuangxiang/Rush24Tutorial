@@ -22,7 +22,6 @@ public static class ClientInitHelper
         UOSSave.Dispose();
         PersonaPropertiesHelper.Dispose();
         AchievementManager.Dispose();
-        MuninnManager.Singleton.Dispose();
         TiersHelper.Dispose();
         WXSubscribe.Dispose();
         StreamDataCheckHelper.Instance.Dispose();

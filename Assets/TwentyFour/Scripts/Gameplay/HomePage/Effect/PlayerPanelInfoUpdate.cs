@@ -38,22 +38,13 @@ public class PlayerPanelInfoUpdate : MonoBehaviour
         }
         else
         {
-            MuninnManager.Singleton.OnMasterClientChangedAction += OnMasterClientChanged;
-            KickButton?.onClick.AddListener(() =>
-            {
-                if (playerInfo != null)
-                {
-                    MuninnManager.Singleton.KickPlayer(playerInfo.SenderId);
-                }
-            });    
         }
     }
 
     private void OnDestroy()
     {
         KickButton?.onClick.RemoveAllListeners();
-        if(MuninnManager.Singleton != null)
-            MuninnManager.Singleton.OnMasterClientChangedAction -= OnMasterClientChanged;
+
     }
 
     private void ShowSelfInfo()
@@ -75,15 +66,7 @@ public class PlayerPanelInfoUpdate : MonoBehaviour
 
     private void UpdateMasterClient()
     {
-        //update tag
-        if (playerInfo != null)
-        {
-            bool isMasterClientPanel = MuninnManager.Singleton.IsMasterClient(playerInfo);
-            IsMasterClient?.SetActive(isMasterClientPanel);
-            
-            //update kick button
-            KickButton?.gameObject.SetActive(MuninnManager.Singleton.IsMasterClient() && !isMasterClientPanel);
-        }
+
     }
 
     public void ShowPlayerInfo(MuninnPlayer player)
@@ -94,7 +77,6 @@ public class PlayerPanelInfoUpdate : MonoBehaviour
             Logger.LogError("Player is null");
             return;
         }
-        var room = MuninnManager.Singleton.GetMuninnRoomView();
 
         PlayerName.text = player.Name;
 

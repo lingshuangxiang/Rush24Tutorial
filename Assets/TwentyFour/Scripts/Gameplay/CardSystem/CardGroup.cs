@@ -198,9 +198,6 @@ namespace Unity.UOS.TwentyFour
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (BattleEffectManager.IsCurrentQuestionResolved())
-                return;
-            
             if (!isLocked && onCardGroupClick != null)
             {
                 onCardGroupClick(CardIndex);
