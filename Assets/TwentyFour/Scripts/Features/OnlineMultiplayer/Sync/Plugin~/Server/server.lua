@@ -125,10 +125,6 @@ function server.InitProgress(clientMessage, room)
   server.tournamentSlugName = roomProperties.tournament_slug_name or ""
   Passport.Init(roomProperties); -- 根据房间 properties 设置排行榜信息
 
-  -- 获取排行榜分数
-  Passport.GetScores(clientMessage.redTeamProgress)
-  Passport.GetScores(clientMessage.blueTeamProgress)
-
   -- 获取玩家信息
   Passport.GetPersonaInfo(clientMessage.redTeamProgress)
   Passport.GetPersonaInfo(clientMessage.blueTeamProgress)
@@ -224,101 +220,10 @@ function server.GetAllBattleData()
   return serverMessage
 end
 
-function server.GetTeamScore(blueTeamProgress, redTeamProgress)
-  local redTeamTierChangedScore = 0
-  local blueTeamTierChangedScore = 0
-
-  if blueTeamProgress.score > redTeamProgress.score then
-    blueTeamTierChangedScore = 1
-    redTeamTierChangedScore = -1
-  elseif blueTeamProgress.score == redTeamProgress.score then
-    blueTeamTierChangedScore = 0
-    redTeamTierChangedScore = 0
-    
-  else
-    blueTeamTierChangedScore = -1
-    redTeamTierChangedScore = 1
-  end
-
-  if blueTeamProgress.score == stageSize then
-    blueTeamTierChangedScore = 2
-    redTeamTierChangedScore = -2
-  end
-  if redTeamProgress.score == stageSize then
-    redTeamTierChangedScore = 2
-    blueTeamTierChangedScore = -2
-  end
-
-  MuninnPlugin.LogInfo("battleMode" .. tostring(battleMode))
-  -- 锦标赛规则
-  if battleMode == BattleMode.Tournament then
-    MuninnPlugin.LogInfo("battleMode is tournament")
-
-    if blueTeamProgress.score > redTeamProgress.score then
-      blueTeamTierChangedScore = 1
-      redTeamTierChangedScore = 0
-    elseif blueTeamProgress.score == redTeamProgress.score then
-      blueTeamTierChangedScore = 0
-      redTeamTierChangedScore = 0
-    else
-      blueTeamTierChangedScore = 0
-      redTeamTierChangedScore = 1
-    end
-  
-    if blueTeamProgress.score == stageSize then
-      blueTeamTierChangedScore = 2
-      redTeamTierChangedScore = -1
-    end
-    if redTeamProgress.score == stageSize then
-      redTeamTierChangedScore = 2
-      blueTeamTierChangedScore = -1
-    end
-  end
-
-  return blueTeamTierChangedScore, redTeamTierChangedScore
-end
-
-local function UpdateTeamScore()
-
-  if battleMode == BattleMode.OneOnOneCustom then
-    -- 自定义模式不修改等级
-    return
-  end
-
-  -- 旧版本不作处理
-  if battleMode == nil then
-    return
-  end
-  local blueTeamTierChangedScore, redTeamTierChangedScore = server.GetTeamScore(blueTeamProgress, redTeamProgress)
-
-  MuninnPlugin.LogInfo("final score: blue: " .. blueTeamTierChangedScore .. " red: " .. redTeamTierChangedScore)
-
-  Passport.UpdateScore(redTeamProgress, redTeamTierChangedScore)
-  Passport.UpdateScore(blueTeamProgress, blueTeamTierChangedScore)
-
-  -- 设置锦标赛排行榜
-  MuninnPlugin.LogInfo("battleMode" .. tostring(battleMode))
-
-  if battleMode == BattleMode.Tournament then
-    MuninnPlugin.LogInfo("battleMode is tournament")
-
-    -- 设置完胜信息（成绩累加）
-    if redTeamTierChangedScore == 2 then
-      Passport.SetPerfectWinLeaderboard(redTeamProgress)
-    end
-    if blueTeamTierChangedScore == 2 then
-      Passport.SetPerfectWinLeaderboard(blueTeamProgress)
-    end
-    -- 单题最快（保留最好成绩）
-    Passport.SetFastSolveSingleLeaderboard(resolvedStatus)
-  end
-end
-
 -- 处理战局结束逻辑
 function server.HandleBattleEnd()
   endTime = utils.GetFormattedTime();
 
-  UpdateTeamScore()
   server.SetMatchData()
 end
 
