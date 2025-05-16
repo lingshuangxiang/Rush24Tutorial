@@ -7,15 +7,6 @@
       "dependencies": {},
       "hash": "4a296e521829f4b4b3fa857bb3fb8ffa966f3d2b"
     },
-    "cn.unity.uos.cloudsave": {
-      "version": "https://e.coding.net/unitychina/uos/CloudSaveSDK.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "3.2.1"
-      },
-      "hash": "8f9205ccc522ce99764f4ffa40efa3c02d9563ac"
-    },
     "cn.unity.uos.config": {
       "version": "https://e.coding.net/unitychina/uos/RemoteConfigSDK.git",
       "depth": 0,

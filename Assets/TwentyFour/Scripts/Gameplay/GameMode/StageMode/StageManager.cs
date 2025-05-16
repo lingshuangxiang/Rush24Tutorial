@@ -50,11 +50,11 @@ namespace Unity.UOS.TwentyFour
             return _battleStages;
         }
 
-        public static void LoadStageScores(byte[] stageScores)
+        public static void LoadStageScores(List<int> scores)
         {
             try
             {
-                playerStageScores = SerializeList.Deserialize<int>(stageScores);
+                playerStageScores = scores;
             }
             catch (Exception e)
             {
@@ -62,7 +62,7 @@ namespace Unity.UOS.TwentyFour
                 playerStageScores = new List<int>(_allStages.Count);
                 for (int i = 0; i < _allStages.Count; i++)
                 {
-                    playerStageScores.Add(i < stageScores.Length ? stageScores[i] : 0);
+                    playerStageScores.Add(i < scores.Count ? scores[i] : 0);
                 }
             }
 
@@ -84,7 +84,7 @@ namespace Unity.UOS.TwentyFour
 
         public static void LoadEmptyStageScore()
         {
-            LoadStageScores(new byte[] {});
+            LoadStageScores(new List<int>());
         }
 
         private static string GetFileContent()
