@@ -191,17 +191,8 @@ namespace Unity.UOS.TwentyFour
 
         public static void LoadAllStagesFromRemoteConfig()
         {
-            var file = RemoteConfigHelper.GetString(RemoteConfigKeys.AllStageLevels);
-            if (string.IsNullOrEmpty(file))
-            {
-                file = Resources.Load<TextAsset>("levels").text;
-                HandleFileContent(file);
-            }
-            else
-            {
-                HandleFileContentWithSpace(file);
-            }
-
+            var file = Resources.Load<TextAsset>("levels").text;
+            HandleFileContent(file);
         }
         
         public static List<Stage> ReturnAllStages()
