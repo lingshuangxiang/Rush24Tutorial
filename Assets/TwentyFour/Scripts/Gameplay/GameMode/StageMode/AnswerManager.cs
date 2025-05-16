@@ -5,7 +5,6 @@ using TMPro;
 using Unity.Muninn;
 using Unity.Muninn.Model;
 using Unity.UOS.TwentyFour.Model;
-using Unity.UOS.TwentyFour.Model.Sync;
 using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
 using UnityEngine.Advertisements;
@@ -238,35 +237,8 @@ namespace Unity.UOS.TwentyFour
 
                 return false;
             }
-            // 联机模式
-            else
-            {
-                SubmitAnswer(expressions, InGameManager.currentStage.index);
-            }
-   
             return false;
 
-        }
-        
-        /// <summary>
-        /// 消息：提交答案给服务器
-        /// </summary>
-        /// <param name="expressions"></param>
-        /// <param name="index"></param>
-        public void SubmitAnswer(List<Expression> expressions, int index)
-        {
-            var serverMessage = new MuninnMessageData()
-            {
-                type = MuninnMessageData.Type.SubmitAnswer.ToString(),
-                answerExpressions = expressions,
-                answerIndex = index,
-                personaID = Identity.persona.PersonaID
-            };
-            Logger.Log($"提交的答案 : {JsonUtility.ToJson(serverMessage)}");
-            MuninnNetwork.RaiseEvent(
-                Encoding.UTF8.GetBytes(JsonUtility.ToJson(serverMessage)),
-                new RaiseEventOptions() {Target = RaiseEventTarget.TO_PLUGIN}
-            );
         }
 
     }

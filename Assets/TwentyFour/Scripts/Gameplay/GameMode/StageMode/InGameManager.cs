@@ -18,7 +18,6 @@ using Unity.UOS.TwentyFour.UOSGateway;
 using WeChatWASM;
 #endif
 using Logger = Unity.UOS.TwentyFour.Common.Logger;
-using Unity.UOS.TwentyFour.Scripts.Battle.Model;
 using UnityEngine.UI;
 
 namespace Unity.UOS.TwentyFour
@@ -85,17 +84,6 @@ namespace Unity.UOS.TwentyFour
                 WX.OnShow(WXOnShowCheckDisconnection);
 #endif
                 CheckDisconnection();
-                MuninnMessage.OnJudgeResult.AddListener(ShowResult);
-                if (MuninnManager.Singleton != null)
-                {
-                    GameInitManagerLocal.PreviousRoomId = MuninnManager.Singleton.GetMuninnRoomView().Room.Id;
-                    GameInitManagerLocal.PreviousBattleMode = MuninnManager.Singleton.GetBattleMode();
-                    MetricsHelper.TrackEvent(MetricsKeys.EVENT_JOIN_BATTLE, new Dictionary<string, object>()
-                    {
-                        { MetricsKeys.PARAM_BATTLE_MODE, GameInitManagerLocal.PreviousBattleMode.ToString() },
-                        { MetricsKeys.PARAM_ROOM_ID, MuninnManager.Singleton.GetMuninnRoomView().Room.Id },
-                    });
-                }
 
             }
         }
@@ -120,31 +108,12 @@ namespace Unity.UOS.TwentyFour
 #endif
         void CheckDisconnection()
         {
-            if (MuninnManager.Singleton != null)
-            {
-                MuninnManager.Singleton.OnDisconnectAction -= OnDisconnectAction;
-                MuninnManager.Singleton.OnDisconnectAction += OnDisconnectAction;
-                Logger.LogInfo("MuninnManager.Singleton.InRoom: " + MuninnManager.Singleton.InRoom);
-                if (!MuninnManager.Singleton.InRoom)
-                {
-                    // quitPopup.SetActive(true);
-                }
-            }
+
         }
         
         private void OnDisconnectAction()
         {
-            // 处理断连事件
-            // 游戏已经结束
-            if (MuninnMessage.GameOver())
-            {
-                // quitPopup.SetActive(true);
-            }
-            // 游戏尚未结束
-            else
-            {
 
-            }
         }
 
         private void OnDestroy()
@@ -152,13 +121,10 @@ namespace Unity.UOS.TwentyFour
 #if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
             WX.OffShow(WXOnShowCheckDisconnection);
 #endif
-            if (MuninnManager.Singleton == null) return;
-            MuninnManager.Singleton.OnDisconnectAction -= OnDisconnectAction;
         }
 
         public void ExitBattle()
         {
-            RoomManager.LeaveRoom();
             ExitGame();
         }
 
@@ -304,7 +270,6 @@ namespace Unity.UOS.TwentyFour
             //     return;
             // }
             Logger.LogInfo("接收到牌组数据+OnReceiveBattleStages");
-            var roomView = MuninnManager.Singleton.GetMuninnRoomView();
             // if (roomView.Players.Count != 2)
             // {
             //     Logger.LogError("房间人数不为2");
@@ -320,10 +285,7 @@ namespace Unity.UOS.TwentyFour
             StageManager.SetAllStages(stages, GameMode.Battle);
             StageManager.selectedStage = 0;
             currentStage = stages[0];
-            MatchMakingManager.IsMatchedAndInRoom = true;
             GameRouter.LoadBattleGameScene(); 
-            MuninnMessage.OnStages.RemoveListener(InGameManager.OnReceiveBattleStages);//移出上一个addScene避免重复加载
-            
         }
         #endregion
     }

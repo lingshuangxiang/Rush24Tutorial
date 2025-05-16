@@ -16,12 +16,10 @@ namespace Unity.UOS.TwentyFour
         [SerializeField] public AnswerManager answerManager;
         [SerializeField] public Operator operatorModel;
 
-        private ButtonTextAdaptor[] btns;
         
         // Start is called before the first frame update
         void Start()
         {
-            btns = transform.parent.GetComponentsInChildren<ButtonTextAdaptor>();
         }
 
         // Update is called once per frame
@@ -32,24 +30,7 @@ namespace Unity.UOS.TwentyFour
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if(BattleEffectManager.IsCurrentQuestionResolved())
-                return;
             answerManager.AddOperator(operatorModel);
-            
-            foreach (var btn in btns)
-            {
-                if (btn.gameObject != gameObject)
-                {
-                    btn.OnDeselect();
-                }
-                else
-                {
-                    if (btn.isSelected)
-                    {
-                        answerManager.RemoveOperator(operatorModel);
-                    }
-                }
-            }
         }
     }
 }

@@ -134,7 +134,6 @@ namespace Unity.UOS.TwentyFour
         IEnumerator Init()
         {
             MetricsHelper.SetUser();
-            MuninnManager.Initialize();
             yield return StartCoroutine(InitPush());
             yield return StartCoroutine(InitRemoteConfig());
             yield return StartCoroutine(InitStage());

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using Unity.Passport.Runtime.UI;
-using Unity.UOS.TwentyFour.Scripts.Battle.Model;
 using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
 using UnityEngine.Events;
@@ -21,7 +20,6 @@ public enum InitState
 public class GameInitManagerLocal : MonoBehaviour
 {
     public static InitState MyInitState = InitState.None;
-    public static BattleMode PreviousBattleMode;
     public static bool IsCustomOnceMoreSender;
     public static bool ReceiveCustomOnceMoreResponse;
     public static string PreviousRoomId;
@@ -46,24 +44,7 @@ public class GameInitManagerLocal : MonoBehaviour
     {
         if (MyInitState == InitState.MatchAgain)
         {
-            MuninnManager.Singleton.SetBattleMode(PreviousBattleMode);
-            if (PreviousBattleMode == BattleMode.OneOnOne)
-            {
-                matchButton.onClick.Invoke();
-            }
-            else if(PreviousBattleMode == BattleMode.OneOnOneCustom)
-            {
-                MuninnMessage.Clear();
-                PreviousRoomId = string.Empty;
-                ReceiveCustomOnceMoreResponse = false;
-                IsCustomOnceMoreSender = false;
-            }
-            else if(PreviousBattleMode == BattleMode.TournamentOneOnOne)
-            {
-                StartCoroutine(Tournament(true));
-            }
-
-            PreviousBattleMode = BattleMode.None;
+ 
             MyInitState = InitState.None;
         }
         else if (MyInitState == InitState.OpponentQuits)
@@ -76,7 +57,6 @@ public class GameInitManagerLocal : MonoBehaviour
         {
             StartCoroutine(Tournament());
             MyInitState = InitState.None;
-            PreviousBattleMode = BattleMode.None;
         }
     }
 

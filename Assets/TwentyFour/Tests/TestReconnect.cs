@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Unity.UOS.TwentyFour.UOSGateway;
-using Unity.UOS.TwentyFour.Scripts.Battle.Model;
 
 namespace TwentyFour.Scripts.Tests
 {
@@ -14,23 +13,5 @@ namespace TwentyFour.Scripts.Tests
         {
             DontDestroyOnLoad(this);
         }
-
-
-        // just for test
-        public void Update()
-        {
-#if UNITY_EDITOR
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                // 离开房间
-                MuninnManager.Singleton.LeaveRoom();
-            }
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                RoomManager.JoinRoom(BattleMode.OneOnOneCustom, MuninnManager.Singleton.RoomId);
-            }
-#endif
-
-        }
-    }
+   }
 }
