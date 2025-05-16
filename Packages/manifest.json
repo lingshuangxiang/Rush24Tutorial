@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "cn.unity.uos.cdn": "https://e.coding.net/unitychina/uos/UosCdnSDK.git",
-    "cn.unity.uos.cloudsave": "https://e.coding.net/unitychina/uos/CloudSaveSDK.git",
     "cn.unity.uos.config": "https://e.coding.net/unitychina/uos/RemoteConfigSDK.git",
     "cn.unity.uos.func.stateless": "https://e.coding.net/unitychina/uos/FuncStatelessSDK.git",
     "cn.unity.uos.launcher": "https://e.coding.net/unitychina/uos/UOSLauncher.git",
@@ -13,6 +12,7 @@
     "cn.unity.uos.push": "https://e.coding.net/unitychina/uos/PushSDK.git",
     "cn.unity.uos.sync.realtime": "https://e.coding.net/unitychina/uos/SyncRealtimeSDK.git",
     "com.cysharp.unitask": "https://e.coding.net/unitychina/uos/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.3",
+    "com.qq.weixin.minigame": "https://gitee.com/wechat-minigame/minigame-tuanjie-transform-sdk.git",
     "com.unity.2d.animation": "9.1.1",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
@@ -66,7 +66,6 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0",
-    "com.qq.weixin.minigame": "https://gitee.com/wechat-minigame/minigame-tuanjie-transform-sdk.git"
+    "com.unity.modules.xr": "1.0.0"
   }
 }
