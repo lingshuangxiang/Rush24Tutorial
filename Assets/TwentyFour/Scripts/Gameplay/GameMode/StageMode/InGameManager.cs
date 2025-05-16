@@ -144,8 +144,7 @@ namespace Unity.UOS.TwentyFour
             // 游戏尚未结束
             else
             {
-                UIMessage.Show("正在重连...");
-                RoomManager.JoinRoom(BattleMode.OneOnOneCustom, MuninnManager.Singleton.RoomId);
+
             }
         }
 

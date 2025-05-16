@@ -57,10 +57,6 @@ end
 -- [生命周期] 玩家加入房间后
 function OnJoin(player)
   MuninnPlugin.LogInfo("[plugin] OnJoin")
--- 加入房间时，如果对局已经开始且未结束，则同步对局信息
-  if gameing then
-    SendAllBattleData(player.Id)
-  end
 end
 
 -- [生命周期] 玩家离开房间
@@ -192,15 +188,6 @@ function CancelRemainTask()
     MuninnPlugin.CancelTask(taskId)
     taskId = nil
   end
-end
-
--- 下发对局数据
-function SendAllBattleData(playerId)
-  local BattleData = server.GetAllBattleData()
-  BattleData.remainTime = RemainTime -- 添加倒计时信息
-  MuninnPlugin.SendMessage(playerId, json.encode(BattleData))
-  MuninnPlugin.LogInfo("SendAllBattleData\n")
-  MuninnPlugin.LogInfo(json.encode(BattleData))
 end
 
 -- 倒计时
