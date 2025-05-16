@@ -16,7 +16,6 @@ using Unity.Passport.Runtime;
 using Unity.Passport.Runtime.UI;
 using Unity.UOS.TwentyFour;
 using Unity.UOS.TwentyFour.Model.Sync;
-using Unity.UOS.TwentyFour.Robot;
 using Unity.UOS.TwentyFour.Scripts.Battle.Model;
 using Unity.UOS.TwentyFour.UOSGateway;
 using Unity.VisualScripting;
@@ -204,7 +203,6 @@ public class BattleEffectManager : MonoBehaviour
     {
         //SettlementEndingAnim();
         receivedEndGame = true;
-        DowngradeHelper.SetDowngradeInfo();
     }
 
     private void Update()

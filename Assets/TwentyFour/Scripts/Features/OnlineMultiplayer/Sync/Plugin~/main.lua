@@ -1,6 +1,5 @@
 local json = require("Utils.json")
 local server = require("Server.server")
-local robot = require("Server.robot")
 local utils = require("Utils.utils")
 
 local ClientMessageType = server.ClientMessageType
@@ -113,11 +112,6 @@ function HandleSubmitAnswer(senderId, decodedMsg)
     local progress = server.getProgress();
 
     SendProgressMessage();
-
-    -- 通知机器人进展
-    if robot.IsRobotRoom then 
-      robot.NotifyProgress(progress)
-    end
     
     -- 游戏结束处理
     if progress.allResolved then
@@ -146,14 +140,6 @@ function StartGame(decodedMsg)
   end
   Timer.Reset()
   currentRoom = MuninnPlugin.GetRoom()
-  robot.Init(currentRoom);
-
-  MuninnPlugin.LogInfo("is robot room: " .. tostring(robot.IsRobotRoom))
-
-  -- 机器人房间，获取队伍信息
-  if robot.IsRobotRoom then
-    robot.SetRobotInfo(decodedMsg.blueTeamProgress.teamPlayers[1])
-  end
 
   server.GenQuestions(decodedMsg.size or 5, decodedMsg.useAdvanceQuestionsRate or 0)
   -- 牌局数据和组队数组
@@ -176,10 +162,6 @@ function StartGame(decodedMsg)
   CancelRemainTask()
   taskId, err = MuninnPlugin.ScheduleRepeat("CountDown", 1000)
   gameing = true;
-
-  if robot.IsRobotRoom then
-    robot.StartRobot()
-  end
 end
 
 -- 取消遗留的 Task

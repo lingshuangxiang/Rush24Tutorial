@@ -22,7 +22,6 @@ using UnityEngine.Events;
 using Unity.Passport.Runtime.UI;
 using UnityEngine;
 using Logger = Unity.UOS.TwentyFour.Common.Logger;
-using Unity.UOS.TwentyFour.Robot;
 using Random = UnityEngine.Random;
 
 public class MatchMakingManager : MonoBehaviour
@@ -104,9 +103,6 @@ public class MatchMakingManager : MonoBehaviour
         StopCoroutine(BattleDataTimeoutDetect());
         m_cancellationTokenSource = new CancellationTokenSource();
         m_cancellationToken = m_cancellationTokenSource.Token;
-        
-        // 生成本次匹配的机器人随机创建时间
-        RobotHelper.GenRandomCreateRobotTime();
         
         CreateTicket();
     }
@@ -281,10 +277,6 @@ public class MatchMakingManager : MonoBehaviour
                     {
                         UIMessage.Show("匹配超时！");
                         CancelTicket();
-                    }
-                    else
-                    {
-                        CreateRobot();
                     }
                     yield break;
 
@@ -535,46 +527,6 @@ public class MatchMakingManager : MonoBehaviour
     {
         // 锦标赛模式不使用机器人
         if (MuninnManager.Singleton.GetBattleMode() == BattleMode.TournamentOneOnOne) return;
-        
-        if (RobotHelper.ShouldCreateRobot())
-        {
-            // 取消匹配
-            CancelCurrentTicket();
-            // 创建机器人
-            CreateRobot();
-        }
-    }
-
-    /// <summary>
-    /// 创建机器人
-    /// </summary>
-    private async void CreateRobot()
-    {
-        // 匹配成功：
-        OnAwaitingAssignment?.Invoke();
-
-        MuninnMessage.Init();
-        MuninnManager.Singleton.OnJoinRoomAction -= OnJoinRoomEvent;
-        MuninnManager.Singleton.OnJoinRoomAction += OnJoinRoomEvent;
-        MuninnManager.Singleton.OnJoinRoomFailedAction -= OnJoinRoomFailedEvent;
-        MuninnManager.Singleton.OnJoinRoomFailedAction += OnJoinRoomFailedEvent;
-        MuninnManager.Singleton.OnDisconnectAction -= OnCreateRoomDisconnect;
-        MuninnManager.Singleton.OnDisconnectAction += OnCreateRoomDisconnect;
-
-        // 创建并加入机器人房间
-        var customProperties = new Dictionary<string, string>();
-        try
-        {
-            await RobotHelper.AddRobotProperties(customProperties);
-            RoomManager.CreateRoom(BattleMode.OneOnOne, "CustomRobot", "", true, customProperties);
-        }
-        catch (Exception e)
-        {
-            Logger.LogError($"CreateRobot: {e.Message}");
-            UIMessage.Show("对手已退出！");
-            OnCancelEvent?.Invoke();
-            throw;
-        }
         
     }
 }
