@@ -173,32 +173,6 @@ namespace Unity.UOS.TwentyFour
             }
         }
 
-        async Task<uint> GetRewardRemote()
-        {
-            // if (StageManager.playerStageScores[currentStage.index] > 0)
-            // {
-            //     Debug.Log("Already got the reward");
-            //     RewardQuantityTMP.text = "0";
-            //     return;
-            // }
-
-            try
-            {
-                Transaction transaction =
-                    await PassportFeatureSDK.Economy.VirtualPurchase("STAGE_REWARD_GOLD_COIN", 1);
-                return transaction.Product.Rewards[0].Quantity;
-            }
-            catch (PassportException e)
-            {
-                Logger.LogError($"GetRewardRemote Failed: code:{e.Code} message:{e.Message}");
-            }
-
-            return 0;
-
-            // Task<Transaction> task = PassportFeatureSDK.Economy.VirtualPurchase("STAGE_REWARD_GOLD_COIN", null);
-            // yield return new WaitUntil(() => task.IsCompleted);
-        }
-
         void ResetResultPopup()
         {
             resultPlaceholderText.text = "等待奖励进口袋...";
@@ -286,14 +260,8 @@ namespace Unity.UOS.TwentyFour
 
         IEnumerator GetReward()
         {
-            Task<uint> rewardTask = GetRewardRemote();
-            yield return new WaitUntil(()=>rewardTask.IsCompleted);
-            yield return new WaitForSeconds(.7f);
-            if (rewardTask.IsCompleted && !rewardTask.IsFaulted && rewardTask.Result>0)
-            {
-                RewardQuantityTMP.text = "+ " + rewardTask.Result.ToString();
-                DisplayRewardDetail();
-            }
+            yield return new WaitForSeconds(1);
+            DisplayRewardDetail();
         }
             
         public void SkipTutorial()
