@@ -10,8 +10,6 @@
         
         public const string UseAdvanceQuestionsRate = "UseAdvanceQuestionsRate";
         
-        public const string AllStageLevels = "AllStageLevels";
-        
         public const string WXSubscribe_TournamentMatch = "WXSubscribe_TournamentMatch";
         
         public const string CurrentSeasonSlug = nameof(CurrentSeasonSlug);
