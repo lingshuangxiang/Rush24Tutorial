@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
-using TwentyFour.Scripts.LaunchParam;
 using Unity.Passport.Runtime.UI;
 using Unity.UOS.TwentyFour.Scripts.Battle.Model;
 using Unity.UOS.TwentyFour.UOSGateway;
@@ -40,8 +39,6 @@ public class GameInitManagerLocal : MonoBehaviour
     {
         OnStartEvent?.Invoke();
         IsCustomOnceMoreSender = false;
-        LaunchParamsHelper.Instance.OneVSOneMatchPanel = matchCanvas.GetComponent<OneVSOneMatchPanel>();
-        LaunchParamsHelper.Instance.ParseLaunchParams();
         UIManager.Instance.PlayerInfoPanelInstance = PlayerInfoPanel;
     }
 
@@ -52,13 +49,11 @@ public class GameInitManagerLocal : MonoBehaviour
             MuninnManager.Singleton.SetBattleMode(PreviousBattleMode);
             if (PreviousBattleMode == BattleMode.OneOnOne)
             {
-                matchCanvas.GetComponent<OneVSOneMatchPanel>().ShowRankPanel();
                 matchButton.onClick.Invoke();
             }
             else if(PreviousBattleMode == BattleMode.OneOnOneCustom)
             {
                 MuninnMessage.Clear();
-                LaunchParamsHelper.Instance.ReJoinRoom(PreviousRoomId, BattleMode.OneOnOneCustom);
                 PreviousRoomId = string.Empty;
                 ReceiveCustomOnceMoreResponse = false;
                 IsCustomOnceMoreSender = false;

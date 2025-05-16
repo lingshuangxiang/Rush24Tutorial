@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TwentyFour.Scripts.LaunchParam;
 using TwentyFour.Scripts.Wechat;
 using Unity.UOS.Common;
 using Unity.UOS.TwentyFour;
@@ -12,7 +11,6 @@ public static class ClientInitHelper
     public static void Init()
     {
         ScreenOption.IsKeepScreenOn = false;
-        LaunchParamsHelper.Instance.Init();
         Application.targetFrameRate = 60;
         UIManager.Instance.Init();
         WXAdManager.Init();

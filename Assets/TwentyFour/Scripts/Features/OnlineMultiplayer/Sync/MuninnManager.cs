@@ -8,7 +8,6 @@ using Unity.Muninn.Transport;
 using System.Collections.Generic;
 using System.Text;
 using Passport;
-using TwentyFour.Scripts.LaunchParam;
 using Unity.UOS.TwentyFour.Scripts.Battle.UI;
 using Unity.UOS.Common;
 using UnityEngine;
