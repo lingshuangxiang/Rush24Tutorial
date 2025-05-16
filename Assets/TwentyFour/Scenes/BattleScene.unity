@@ -26921,7 +26921,6 @@ MonoBehaviour:
   CurrentIndex: 0
   TimerText: {fileID: 4726382876410646070}
   AllBattlePlayers: []
-  AvatarPrefab: {fileID: 5590510459283899267, guid: cce3f4ae1bdc6844cb2e332b0c602251, type: 3}
   BlueTeamAvatarParent: {fileID: 1390858347}
   RedTeamAvatarParent: {fileID: 1038108706}
   BlueTeamColor: {r: 0.37647063, g: 0.56078434, b: 1, a: 1}

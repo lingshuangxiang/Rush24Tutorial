@@ -122,7 +122,6 @@ public class BattleEffectManager : MonoBehaviour
 
     // public List<BattlePlayer> AllPlayersAvatar = new List<BattlePlayer>();//现在玩家头像 0,1,是红队,2,3是蓝队
     public List<BattlePlayer> AllBattlePlayers = new List<BattlePlayer>();
-    public GameObject AvatarPrefab;
     public Transform BlueTeamAvatarParent, RedTeamAvatarParent;
     public Color BlueTeamColor, RedTeamColor;
     public GameObject RobbedPanel, RobboedIcon;
@@ -926,65 +925,7 @@ public class BattleEffectManager : MonoBehaviour
         string id = PassportSDK.CurrentPersona.PersonaID;
 
         GameObject _playerObj = null; //
-
-        for (int i = 0; i < newMessage.redTeamProgress.teamPlayers.Count; i++) //处理红队信息
-        {
-            TeamPlayer teamPlayer = newMessage.redTeamProgress.teamPlayers[i];
-            GameObject cloneTarget = Instantiate(AvatarPrefab, RedTeamAvatarParent.transform);
-            cloneTarget.transform.Find("Character_(Mask)").Find("BackGround").GetComponent<Image>().color =
-                RedTeamColor;
-
-            BattlePlayer battlePlayer = cloneTarget.GetComponent<BattlePlayer>();
-            battlePlayer.Team = TeamTag.RED;
-            battlePlayer.PersonaID = teamPlayer.uniqueId;
-            battlePlayer.InitPlayerInfo();
-
-            if (battlePlayer.PersonaID == id) //是本地玩家本人
-            {
-                cloneTarget.GetComponent<Image>().color = Color.yellow;
-                _playerObj = cloneTarget;
-            }
-
-            AllBattlePlayers.Add(battlePlayer);
-            yield return null;
-        }
-
-        for (int i = 0; i < newMessage.blueTeamProgress.teamPlayers.Count; i++) //处理蓝队信息
-        {
-            TeamPlayer teamPlayer = newMessage.blueTeamProgress.teamPlayers[i];
-            GameObject cloneTarget = Instantiate(AvatarPrefab, BlueTeamAvatarParent.transform);
-            cloneTarget.transform.Find("Character_(Mask)").Find("BackGround").GetComponent<Image>().color =
-                BlueTeamColor;
-
-            BattlePlayer battlePlayer = cloneTarget.GetComponent<BattlePlayer>();
-            battlePlayer.Team = TeamTag.BLUE;
-            battlePlayer.PersonaID = teamPlayer.uniqueId;
-            battlePlayer.InitPlayerInfo();
-
-            if (battlePlayer.PersonaID == id) //是本地玩家本人
-            {
-                cloneTarget.GetComponent<Image>().color = Color.yellow;
-                _playerObj = cloneTarget;
-            }
-
-            AllBattlePlayers.Add(battlePlayer);
-            //
-            // PlayerAvatarData newdata = new PlayerAvatarData();
-            // newdata.Playerid = newMessage.blueTeamProgress.teamPlayers[i].uniqueId;
-            // newdata.m_Avatar = cloneTarget.GetComponent<BattlePlayer>();
-            // newdata.TeamName = "BLUE";
-            // newdata.Playerid = newMessage.blueTeamProgress.teamPlayers[i].uniqueId;
-            //
-            // if (newMessage.blueTeamProgress.teamPlayers[i].uniqueId == id) //是本地玩家本人
-            // {
-            //     cloneTarget.GetComponent<Image>().color=Color.yellow;
-            //     MyTeamName = "BLUE";
-            //     _playerObj = cloneTarget;
-            // }
-            //
-            // AllPlayerAvatarDatas.Add(newdata);
-            yield return null;
-        }
+        
 
         if (_playerObj != null) //将玩家物体设置为子物体的第一位
         {
