@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using TwentyFour.Scripts.Quest;
-using TwentyFour.Scripts.Accomplishment;
 using TwentyFour.Scripts.RemoteConfig;
 using UnityEngine;
 using UnityEngine.SceneManagement;

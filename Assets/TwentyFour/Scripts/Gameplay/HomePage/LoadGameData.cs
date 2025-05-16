@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Cloud;
 using Passport;
 using TMPro;
-using TwentyFour.Scripts.Accomplishment;
 using TwentyFour.Scripts.Metrics;
 using TwentyFour.Scripts.Quest;
 using TwentyFour.Scripts.RemoteConfig;
