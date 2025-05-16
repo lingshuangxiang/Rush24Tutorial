@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Muninn.Message;
 using Unity.UOS.TwentyFour.Model.Sync;
-using Unity.UOS.TwentyFour.Robot;
 using Unity.UOS.TwentyFour.Scripts.Component;
 using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
@@ -32,10 +31,6 @@ public class BattlePlayer : MonoBehaviour
     {
         var controller = GetComponent<InGameAvatarUI>();
         var mPlayer = MuninnManager.GetRoom()?.Players.Find(player => player.Id.Equals(PersonaID));
-        if (mPlayer == null && MuninnManager.IsRobotRoom())
-        {
-            mPlayer = RobotHelper.Player;
-        }
         PlayerName = string.IsNullOrEmpty(mPlayer?.Name) ? "神秘人" : mPlayer.Name;
         controller.Init(mPlayer);
         PlayerCharator.InitPlayerAvatar(mPlayer.Properties);

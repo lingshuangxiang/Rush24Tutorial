@@ -12,7 +12,6 @@ using Unity.UOS.TwentyFour.Scripts.Battle.UI;
 using Unity.UOS.Common;
 using UnityEngine;
 using Unity.UOS.TwentyFour.Model.Sync;
-using Unity.UOS.TwentyFour.Robot;
 using Unity.UOS.TwentyFour.Scripts.Battle.Model;
 using UnityEngine.Events;
 using Logger = Unity.UOS.TwentyFour.Common.Logger;
@@ -223,10 +222,6 @@ namespace Unity.UOS.TwentyFour.UOSGateway
                 {
                     Logger.LogInfo("人数已满，房主开始游戏");
                     StartGame();
-                } else if (IsRobotRoom())
-                {
-                    Logger.LogInfo("机器人房间，开始游戏");
-                    StartGame();
                 }
             }
         }
@@ -311,18 +306,6 @@ namespace Unity.UOS.TwentyFour.UOSGateway
             }
 
             IsBotRoom = false;
-            // 添加蓝队机器人信息（此时房间已创建完成，机器人信息已生成）
-            if (IsRobotRoom())
-            {
-                IsBotRoom = true;
-                var robotPlayer = RobotHelper.Player;
-                blueTeamPlayers.Add(new TeamPlayer()
-                {
-                    displayName = robotPlayer.Name,
-                    uniqueId = "2025" + robotPlayer.Id,
-                    isRobot = true
-                });
-            }
             
             Debug.Log("blueTeamPlayers "+ JsonUtility.ToJson(blueTeamPlayers));
 
@@ -355,17 +338,6 @@ namespace Unity.UOS.TwentyFour.UOSGateway
             return _singleton.GetMuninnRoomView();
             
         }
-
-        /// <summary>
-        /// 是否为机器人房间
-        /// </summary>
-        /// <returns></returns>
-        public static bool IsRobotRoom()
-        {
-            var room = GetRoom();
-            return RobotHelper.CheckIsRobot(room.Room.Properties);
-        }
-
         
         //if the input player is masterclient
         public bool IsMasterClient(MuninnPlayer player)

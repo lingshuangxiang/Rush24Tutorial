@@ -93,7 +93,6 @@ namespace Unity.UOS.TwentyFour
                     MetricsHelper.TrackEvent(MetricsKeys.EVENT_JOIN_BATTLE, new Dictionary<string, object>()
                     {
                         { MetricsKeys.PARAM_BATTLE_MODE, GameInitManagerLocal.PreviousBattleMode.ToString() },
-                        { MetricsKeys.PARAM_IS_ROBOT_ROOM, MuninnManager.IsRobotRoom() },
                         { MetricsKeys.PARAM_ROOM_ID, MuninnManager.Singleton.GetMuninnRoomView().Room.Id },
                     });
                 }

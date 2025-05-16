@@ -24,7 +24,6 @@ local startTime = "";
 local endTime = "";
 
 server.CurrentQuestions = {}
-server.IsRobotRoom = false
 
 local ClientMessageType = {
   StartGame = "StartGame",       -- 开始游戏
@@ -335,7 +334,6 @@ function server.SetMatchData()
     startTime = startTime,
     endTime = endTime,
     battleMode = battleMode,
-    isRobotRoom = server.IsRobotRoom,
     tournamentSlugName = server.tournamentSlugName
   }
   print("战绩表信息：")
