@@ -133,23 +133,6 @@ namespace Unity.UOS.TwentyFour.UOSGateway
             {
                 OnSyncStatus.Invoke(serverMessage.currentIndex, serverMessage.personaID);
             }
-            
-            // 同步所有数据
-            if (serverMessage.type == MuninnMessageData.Type.AllBattleData.ToString())
-            {
-                // Debug.Log("收到所有对局信息");
-                SetTeamData(serverMessage);
-                OnStages.Invoke(serverMessage.stages);
-                _battleData.stages = serverMessage.stages;
-                _battleData.battleMode = serverMessage.battleMode;
-
-                OnProgress.Invoke(serverMessage);
-                _battleData.allResolved = serverMessage.allResolved;
-
-                OnCountDown.Invoke(serverMessage.remainTime);
-                _battleData.remainTime = serverMessage.remainTime;
-                UIMessage.Show("重连成功");
-            }
 
             if (serverMessage.type == MuninnMessageData.Type.CustomOnceMoreResponse.ToString())
             {
