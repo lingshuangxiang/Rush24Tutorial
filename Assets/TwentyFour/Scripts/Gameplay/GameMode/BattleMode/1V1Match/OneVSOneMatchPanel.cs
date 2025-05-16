@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TwentyFour.Scripts.LaunchParam;
 using TwentyFour.Scripts.PersonaProperty;
 using Unity.Muninn.Model;
 using Unity.UOS.TwentyFour.Scripts.Battle.Model;
@@ -18,9 +17,7 @@ using Logger = Unity.UOS.TwentyFour.Common.Logger;
 public class OneVSOneMatchPanel : MonoBehaviour
 {
     public GameObject RankPanel;
-
-    public GameObject CustomPanel;
-
+    
     public GameObject BlackCell;
 
     
@@ -57,32 +54,8 @@ public class OneVSOneMatchPanel : MonoBehaviour
     {
         OnShowPanel.Invoke();
         gameObject.SetActive(true);
-        CustomPanel.SetActive(false);
         BlackCell.SetActive(true);
         RankPanel.SetActive(true);
-    }
-    
-    public void ShowCustomPanel()
-    {
-        
-        MuninnManager.Singleton.BeforeConnectRoomAction -= OnBeforeConnectRoom;
-        MuninnManager.Singleton.BeforeConnectRoomAction += OnBeforeConnectRoom;
-        //加入房间成功回调事件
-        MuninnManager.Singleton.OnJoinRoomAction -= OnJoinCustomRoom;
-        MuninnManager.Singleton.OnJoinRoomAction += OnJoinCustomRoom;
-        
-        MuninnManager.Singleton.OnJoinRoomFailedAction -= OnJoinRoomFailed;
-        MuninnManager.Singleton.OnJoinRoomFailedAction += OnJoinRoomFailed;
-
-        MuninnManager.Singleton.OnDisconnectAction -= OnCreateRoomDisconnect;
-        MuninnManager.Singleton.OnDisconnectAction += OnCreateRoomDisconnect;
-
-        RoomManager.CreateRoom(BattleMode.OneOnOneCustom,
-            Identity.persona.PersonaID + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());
-        UIManager.Instance.ShowCommonLoading("正在创建房间");
-        
-        TestCustomRoomBtn.onClick.RemoveAllListeners();
-        TestCustomRoomBtn.onClick.AddListener(GetRoomDeepLink);
     }
 
     private void OnBeforeConnectRoom(JoinRoomResponse obj)
@@ -211,7 +184,6 @@ public class OneVSOneMatchPanel : MonoBehaviour
         InviteBtn.gameObject.SetActive(true);
         StartBtn.onClick.RemoveAllListeners();
         gameObject.SetActive(true);
-        CustomPanel.SetActive(true);
         BlackCell.SetActive(false);
         RankPanel.SetActive(false);
         RoomHint.text = string.Empty;
@@ -222,8 +194,6 @@ public class OneVSOneMatchPanel : MonoBehaviour
         InviteBtn.onClick.AddListener((() =>
         {
             Share.ShareApp(room.Room.Id,BattleMode.OneOnOneCustom);
-            deepLink = LaunchParamsHelper.Instance.GenerateDeepLink(BattleMode.OneOnOneCustom,
-                Identity.persona.DisplayName, room.Room.Id);
 #if UNITY_EDITOR
             CopyToClipboard(deepLink);
             Logger.Log(deepLink);
@@ -299,10 +269,7 @@ public class OneVSOneMatchPanel : MonoBehaviour
 
     private void OnDestroy()
     {
-        if(LaunchParamsHelper.Instance == null) return;
-        LaunchParamsHelper.Instance.OneVSOneMatchPanel = null;
         if(MuninnManager.Singleton == null) return;
-        LaunchParamsHelper.Instance.RegisterMuninnEvents(false);
         MuninnManager.Singleton.OnJoinRoomFailedAction -= OnJoinRoomFailed;
         MuninnManager.Singleton.OnPlayerJoinedAction -= OnPlayerJoined;
         MuninnManager.Singleton.OnPlayerLeftAction -= OnPlayerLeft;

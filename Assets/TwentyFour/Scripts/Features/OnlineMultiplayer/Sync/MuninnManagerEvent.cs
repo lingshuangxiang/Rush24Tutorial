@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using TwentyFour.Scripts.LaunchParam;
 using Unity.Muninn;
 using Unity.Muninn.Model;
 using Unity.Muninn.MuninnLobby;
@@ -119,7 +118,6 @@ namespace Unity.UOS.TwentyFour.UOSGateway
             InRoom = false;
             RoomId = GetMuninnRoomView()?.Room?.Id;
             SetBattleMode(BattleMode.None);
-            LaunchParamsHelper.Instance.Clear();
             MuninnNetwork.PlayerInfo = new MuninnPlayerInfo()
             {
                 Id = Identity.persona.PersonaID,
