@@ -5,7 +5,6 @@ using System.Linq;
 using DG.Tweening;
 using Leaderboard;
 using TMPro;
-using TwentyFour.Scripts.RemoteConfig;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;

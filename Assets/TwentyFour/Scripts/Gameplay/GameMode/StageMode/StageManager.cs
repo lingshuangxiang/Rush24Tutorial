@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TwentyFour.Scripts.Achievement;
-using TwentyFour.Scripts.RemoteConfig;
 using Unity.UOS.TwentyFour.Model;
 using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
