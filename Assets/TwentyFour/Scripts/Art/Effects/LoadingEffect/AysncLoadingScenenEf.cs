@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using TwentyFour.Scripts.Quest;
-using TwentyFour.Scripts.RemoteConfig;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -128,7 +127,7 @@ public class AysncLoadingScenenEf : MonoBehaviour
     {
         // var remoteConfigAwaiter = RemoteConfigHelper.GetDefaultRemoteConfig().GetAwaiter();
         // yield return new WaitUntil(() => remoteConfigAwaiter.IsCompleted);
-        var leaderboardCount = RemoteConfigHelper.GetInt(RemoteConfigKeys.DefaultRankCount);
+        var leaderboardCount = 20;
         var count = leaderboardCount == 0 ? 20 : leaderboardCount;
         var leaderboardlistAwaiter =
             TiersHelper.ListTierLeaderBoard(count).GetAwaiter();

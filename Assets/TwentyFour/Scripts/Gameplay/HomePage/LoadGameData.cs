@@ -7,7 +7,6 @@ using Passport;
 using TMPro;
 using TwentyFour.Scripts.Metrics;
 using TwentyFour.Scripts.Quest;
-using TwentyFour.Scripts.RemoteConfig;
 using Unity.Passport.Runtime;
 using Unity.Passport.Runtime.UI;
 using Unity.UOS.Common;
@@ -135,7 +134,6 @@ namespace Unity.UOS.TwentyFour
         {
             MetricsHelper.SetUser();
             yield return StartCoroutine(InitPush());
-            yield return StartCoroutine(InitRemoteConfig());
             yield return StartCoroutine(InitStage());
             yield return StartCoroutine(InitSave());
             yield return StartCoroutine(InitAchievement());
@@ -176,19 +174,6 @@ namespace Unity.UOS.TwentyFour
             yield return new WaitUntil(()=>task.IsCompleted);
         }
 
-        IEnumerator InitRemoteConfig()
-        {
-            RemoteConfigHelper.Init();
-            var t = RemoteConfigHelper.GetDefaultRemoteConfig();
-
-            var overridesConfigAwaiter = RemoteConfigHelper.GetOverridesRemoteConfig().GetAwaiter();
-            yield return new WaitUntil(()=>t.IsCompleted && overridesConfigAwaiter.IsCompleted);
-            // var currentTournament = RemoteConfigHelper.GetString(RemoteConfigKeys.CurrentTournamentSlug);
-            // var data = RemoteConfigHelper.GetJsonSO<TournamentData>(currentTournament);
-            // Debug.LogError(data.DisplayName+" 当前锦标赛");
-            yield return null;
-        }
-
         IEnumerator InitAchievement()
         {
             ProgressTextTmp.text = "正在...构建指令...";
@@ -214,7 +199,7 @@ namespace Unity.UOS.TwentyFour
         IEnumerator FetchLeaderboard()
         {
             ProgressTextTmp.text = "正在...校准文明...";
-            var leaderboardCount = RemoteConfigHelper.GetInt(RemoteConfigKeys.DefaultRankCount);
+            var leaderboardCount = 20;
             var count = leaderboardCount == 0 ? 20 : leaderboardCount;
             var leaderboardlistAwaiter =
                 TiersHelper.ListTierLeaderBoard(count).GetAwaiter();

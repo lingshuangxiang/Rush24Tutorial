@@ -5,7 +5,6 @@ using Economy;
 using Passport;
 using TMPro;
 using TwentyFour.Scripts.Quest;
-using TwentyFour.Scripts.RemoteConfig;
 using Unity.Passport.Runtime;
 using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
