@@ -8,6 +8,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Logger = Unity.UOS.TwentyFour.Common.Logger;
 
+
 namespace Unity.UOS.TwentyFour.UOSGateway
 {
     public class UOSSave
@@ -32,7 +33,7 @@ namespace Unity.UOS.TwentyFour.UOSGateway
             return list;
         }
         
-        public static async Task Init()
+        public static void Init()
         {
             Logger.Log("执行 UOS Save Init");
             // 使用 UOS Launcher 方式初始化SDK, 更多SDK初始化方式见 sdk package sample目录
@@ -51,7 +52,7 @@ namespace Unity.UOS.TwentyFour.UOSGateway
             var savedScores = PlayerPrefs.GetString(SAVE_NS_STAGE_SCORES);
             if (!String.IsNullOrEmpty(savedScores))
             {
-                await FetchPlayerProgress();
+                FetchPlayerProgress();
             }
             else
             {
@@ -61,14 +62,14 @@ namespace Unity.UOS.TwentyFour.UOSGateway
 
         }
 
-        private static async Task FetchPlayerProgress()
+        private static void FetchPlayerProgress()
         {
             var scores = PlayerPrefs.GetString(SAVE_NS_STAGE_SCORES);
             StageManager.LoadStageScores(ConvertStringToList(scores));
         }
         
         
-        public static async Task SavePlayerProgress(List<int> scores)
+        public static void SavePlayerProgress(List<int> scores)
         {
             PlayerPrefs.SetString(SAVE_NS_STAGE_SCORES, string.Join("", scores));
         }

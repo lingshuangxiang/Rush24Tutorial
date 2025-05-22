@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TwentyFour.Scripts.Achievement;
 using Unity.UOS.TwentyFour.Model;
 using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
-using Action = Achievement.Action;
 using Logger = Unity.UOS.TwentyFour.Common.Logger;
 
 namespace Unity.UOS.TwentyFour
@@ -281,32 +279,19 @@ namespace Unity.UOS.TwentyFour
             return null;
         }
 
-        public static async Task SetStageScore(int score)
+        public static void SetStageScore(int score)
         {
             int currentIndex = GetCurrentStageIndex();
             if (currentIndex >= 0)
             {
                 playerStageScores[currentIndex] = score;
-
-                await UpLoadStageAchievementAsync();
-                //save to cloud
-                await UOSSave.SavePlayerProgress(playerStageScores);
+                UOSSave.SavePlayerProgress(playerStageScores);
             }
         }
 
         public static int GetClearCount()
         {
             return playerStageScores.Count(score => score > 0);
-        }
-
-        public static async Task UpLoadStageAchievementAsync(System.Action failed = null)
-        {
-            uint count = (uint)GetClearCount();
-
-            Logger.LogInfo($"upload {AchievementKeys.CLEAR_STAGES} achieved {count}");
-
-            var a =await AchievementManager.UpdatePersonaAchievement(AchievementKeys.CLEAR_STAGES, Action.Accumulate, count ,null,failed);
-            Logger.LogInfo($"{a.DisplayName} achieved {a.AchievedValue}");
         }
         
     }

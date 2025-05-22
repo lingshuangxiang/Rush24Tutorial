@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Passport.Runtime.UI;
 using UnityEngine;
 using UnityEngine.UI;
+using TwentyFour.Scripts.Utilities;
 
 public class HomepageEffectManager : MonoBehaviour
 {

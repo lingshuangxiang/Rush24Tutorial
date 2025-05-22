@@ -17,7 +17,6 @@ public class ChangeAvatarPanel : MonoBehaviour
     public Action OnExit;
     public void Init()
     {
-        CharatorManager.InitPlayerAvatar(PersonaPropertiesHelper.GetLocalProperties());
     }
 
     public void PlayEffect()
@@ -39,7 +38,6 @@ public class ChangeAvatarPanel : MonoBehaviour
         StartEffect.Play();
         Light.DOScale(1, 0.5f).From(0);
         Light.DOLocalRotate(new Vector3(0, 0, 360), 10, RotateMode.FastBeyond360).From(Vector3.zero).SetEase(Ease.Linear).SetLoops(-1);
-        CharatorManager.InitPlayerAvatar(PersonaPropertiesHelper.GetLocalProperties());
         DrapeL.DOScaleX(0.2f, 0.3f).From(1);
         DrapeR.DOScaleX(0.2f, 0.3f).From(1);
         yield return new WaitForSeconds(1f);
@@ -58,23 +56,5 @@ public class ChangeAvatarPanel : MonoBehaviour
     private void OnEnable()
     {
         PlayEffect();
-    }
-
-    private void OnDisable()
-    {
-        CharatorManager.InitPlayerAvatar(PersonaPropertiesHelper.GetLocalProperties());
-
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Init();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

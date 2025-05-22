@@ -3,11 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mime;
-using Passport;
-using TwentyFour.Scripts.PersonaProperty;
-using Unity.Muninn.Model;
-using Unity.Passport.Runtime;
-using Unity.Passport.Runtime.Model;
 using UnityEngine;
 using UnityEngine.UI;
 using Unity.UOS.TwentyFour.UOSGateway;
@@ -27,8 +22,6 @@ public class PlayerPanelInfoUpdate : MonoBehaviour
     public GameObject IsMasterClient;
     public bool IsSelf;
     public PlayerCharatorManager PlayerCharator;
-
-    private MuninnPlayer playerInfo;
     
     private void Awake()
     {
@@ -49,51 +42,14 @@ public class PlayerPanelInfoUpdate : MonoBehaviour
 
     private void ShowSelfInfo()
     {
-        int score = 0;
-        string tier = "石头";
-        if (PersonaPropertiesHelper.MyLeaderboardScore != null)
-        {
-            tier = PersonaPropertiesHelper.MyLeaderboardScore.Tier;
-            score = (int)PersonaPropertiesHelper.MyLeaderboardScore.Score;
-        }
-        PlayerName.text = PassportSDK.CurrentPersona.DisplayName;
-
-        TierBadge.SetupBadge(true, score, tier);
-        
-        //load self avatar
-        PlayerCharator.InitPlayerAvatar(PersonaPropertiesHelper.GetLocalProperties());
+        PlayerName.text = Identity.persona.DisplayName;
     }
 
     private void UpdateMasterClient()
     {
 
     }
-
-    public void ShowPlayerInfo(MuninnPlayer player)
-    {
-        playerInfo = player;
-        if (player == null)
-        {
-            Logger.LogError("Player is null");
-            return;
-        }
-
-        PlayerName.text = player.Name;
-
-        var showTier = "石头";
-        int score = 0;
-        if (player.Properties.TryGetValue(PersonaPropertyKeys.BattleCurrentTierKey, out var tier))
-            showTier = tier;
-        if (player.Properties.TryGetValue(PersonaPropertyKeys.BattleCurrentScoreKey, out var scoreStr))
-            score = int.Parse(scoreStr);
-        TierBadge.SetupBadge(true, score, showTier);
-        
-        UpdateMasterClient();
-        
-        //load player avatar
-        PlayerCharator.InitPlayerAvatar(player.Properties);
-    }
-
+    
     public void ShowPlayerInfo()
     {
         

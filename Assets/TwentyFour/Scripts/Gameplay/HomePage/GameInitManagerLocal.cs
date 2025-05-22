@@ -2,12 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
-using Unity.Passport.Runtime.UI;
 using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using TwentyFour.Scripts.Utilities;
 
 public enum InitState
 {
@@ -26,7 +26,6 @@ public class GameInitManagerLocal : MonoBehaviour
     public GameObject matchCanvas;
     public Button matchButton;
 
-    public PlayerInfoPanel PlayerInfoPanel;
     public Button BattleButton;
     public UnityEvent OnStartEvent;
 
@@ -37,7 +36,6 @@ public class GameInitManagerLocal : MonoBehaviour
     {
         OnStartEvent?.Invoke();
         IsCustomOnceMoreSender = false;
-        UIManager.Instance.PlayerInfoPanelInstance = PlayerInfoPanel;
     }
 
     public void OnEnable()

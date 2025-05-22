@@ -1,15 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Passport;
-using Unity.Passport.Runtime;
-using Unity.Passport.Runtime.UI;
-using Unity.UOS.Common;
 using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
-using Unity.UOS.Auth;
 using System.Threading.Tasks;
-using Unity.UOS.Networking;
 using UnityEngine.UI;
 
 namespace Unity.UOS.TwentyFour
@@ -27,60 +20,11 @@ namespace Unity.UOS.TwentyFour
 #endif
         public delegate void CreatePersonaCompleteCallback(Persona persona);
         
-        // sdk 配置（Config 是 SDK 初始化时的配置）
-        private readonly PassportUIConfig _config = new()
-        {
-            AutoRotation = true, // 是否开启自动旋转，默认值为 false。
-            InvokeLoginManually = false, // 是否通过自行调用 Login 函数启动登录面板，默认值为 false。
-            Theme = PassportUITheme.Dark, // 风格主题配置。
-            #if TUANJIE_1_0_OR_NEWER
-            UnityContainerId = "tuanjie-container" // WebGL 场景下 Tuanjie 实例容器 Id。
-            #else
-            UnityContainerId = "unity-container" // WebGL 场景下 Unity 实例容器 Id。
-            #endif
-        };
- 
-        // sdk 回调
-        private void _callback(PassportEvent e)
-        {
-            // event: 不同情况下的回调事件，详情可以参考下面的回调类型。
-            switch (e)
-            {
-                case PassportEvent.RejectedTos:
-                    Debug.Log("用户拒绝了协议");
-                    
-                    //Quit game if TOS rejected
-#if UNITY_EDITOR
-                    UnityEditor.EditorApplication.isPlaying = false;
-#else
-                    Application.Quit();
-#endif
-                    break;
-                case PassportEvent.LoggedIn:
-                    Debug.Log("完成登录");
-                    break;
-                case PassportEvent.Completed:
-                    Debug.Log("完成所有流程");
-                    // await CheckPersona();
-                    GotoLoadingPage();
-                    break;
-                case PassportEvent.LoggedOut:
-                    Debug.Log("用户登出");
-                    break;
-            }
-
-        }
-
         // Start is called before the first frame update
-        async void Start()
+        void Start()
         {
             //Play initBGM as login BGM
             BGMManager.Instance.Play(BGMManager.BackgroundMusic.InitBGM);
-            
-            if (string.IsNullOrEmpty(Settings.AppID))
-            {
-                Debug.LogError("Empty App Info! Please open the menu in editor: UOS -> Open Launcher, and enter UOS App info. For more tutorial, open the menu in editor: Tutorial -> Show Tutorial.");
-            }
             
             StartCoroutine(InitLogin());
         }
@@ -90,7 +34,6 @@ namespace Unity.UOS.TwentyFour
             //Resolve Logout Navigation
             if (GameRouter.isLoggingOut)
             {
-                PassportLoginSDK.Identity.Logout();
                 GameRouter.isLoggingOut = false;
             }
             
@@ -99,21 +42,36 @@ namespace Unity.UOS.TwentyFour
             
             //Init Passport Login UI 
             Login();
+            GotoLoadingPage();
+
         }
 
-        public async void Login()
+        public void Login()
         {
-            await PassportFeatureSDK.Initialize();
-            // passport login
-            await PassportSDK.Initialize();
-            await PassportUI.Init(_config, _callback);
+            var personaIDKey = "personaID";
+            var personaNameKey = "personaName";
+            var personaID = PlayerPrefs.GetString(personaIDKey);
+            var personaName = PlayerPrefs.GetString(personaNameKey);
+            if (String.IsNullOrEmpty(personaID))
+            {
+                personaID = Guid.NewGuid().ToString();
+                PlayerPrefs.SetString(personaIDKey, personaID);
+            }
+            
+            Identity.persona = new Persona()
+            {
+                PersonaID = personaID,
+                DisplayName = personaName
+            };
         }
+        
+        
+        
 
         // 登出
         public void Logout()
         {
             GameRouter.BackAndLogout();
-            PassportUI.Logout();
         }
         
         void GotoLoadingPage()

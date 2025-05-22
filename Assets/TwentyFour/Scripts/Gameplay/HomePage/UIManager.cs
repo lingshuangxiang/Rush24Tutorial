@@ -1,15 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.UOS.Common;
 using UnityEngine;
 using UnityEngine.UI;
+using TwentyFour.Scripts.Utilities;
 
 public class UIManager : GenericSingleton<UIManager>
 {
     private PopUpPanel popUpPanel;
     private CommonLoadingPanel commonLoadingPanel;
-    public PlayerInfoPanel PlayerInfoPanelInstance;
     private GetItemPanel getItemPanelInstance;
     Canvas canvas;
 

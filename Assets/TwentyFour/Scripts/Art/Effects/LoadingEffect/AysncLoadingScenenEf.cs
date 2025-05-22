@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using TwentyFour.Scripts.Quest;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -79,8 +78,7 @@ public class AysncLoadingScenenEf : MonoBehaviour
     /// <returns></returns>
     IEnumerator loadSequence()
     {
-        if(fetchData)
-            yield return FetchUserData();
+        if(fetchData) FetchUserData();
         fetchData = false;
         Logger.Log("[AysncLoadingScenenEf] Fetch User Data");
         
@@ -123,24 +121,12 @@ public class AysncLoadingScenenEf : MonoBehaviour
         }
     }
 
-    IEnumerator FetchUserData()
+    void FetchUserData()
     {
         // var remoteConfigAwaiter = RemoteConfigHelper.GetDefaultRemoteConfig().GetAwaiter();
         // yield return new WaitUntil(() => remoteConfigAwaiter.IsCompleted);
         var leaderboardCount = 20;
         var count = leaderboardCount == 0 ? 20 : leaderboardCount;
-        var leaderboardlistAwaiter =
-            TiersHelper.ListTierLeaderBoard(count).GetAwaiter();
-
-        var personaPropertyAwaiter = PersonaPropertiesHelper.GetPersonaProperties().GetAwaiter();
-        var leaderBoardAwaiter = TiersHelper.GetMyLeaderboardScore(TiersHelper.TiersLeaderboardSlugName).GetAwaiter();
-        
-        var achievementAwaiter = AchievementManager.ListPersonaAchievements().GetAwaiter();
-        var questAwaiter = QuestHelper.SearchPersonaQuests().GetAwaiter();
-        yield return TiersHelper.GetTierUserScoreData(Identity.persona.PersonaID);
-        yield return new WaitUntil(() =>
-            personaPropertyAwaiter.IsCompleted && leaderBoardAwaiter.IsCompleted && leaderboardlistAwaiter.IsCompleted &&
-            achievementAwaiter.IsCompleted && questAwaiter.IsCompleted);
     }
 
     /// <summary>

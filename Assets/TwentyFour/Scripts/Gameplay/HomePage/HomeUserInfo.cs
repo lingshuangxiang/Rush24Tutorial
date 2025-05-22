@@ -1,11 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Economy;
-using Passport;
 using TMPro;
-using TwentyFour.Scripts.Quest;
-using Unity.Passport.Runtime;
 using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,10 +34,7 @@ namespace Unity.UOS.TwentyFour
             RightButtonSizeFitter.SetActive(true);
 #endif
             UserNameText.text = Identity.persona.DisplayName;
-            PersonaPropertiesHelper.OnPersonaUpdatedAction += OnPersonaUpdatedAction;
-            QuestHelper.OnSearchPersonaQuests += RefreshQuestInfo;
             GetUserBagInfo();
-            RefreshQuestInfo();
         }
 
         public void OnClickDefaultStore()
@@ -53,38 +46,17 @@ namespace Unity.UOS.TwentyFour
             NewMessageHint.SetActive(newMessage);
         }
         
-
-        void OnDestroy()
-        {
-            PersonaPropertiesHelper.OnPersonaUpdatedAction -= OnPersonaUpdatedAction;
-            QuestHelper.OnSearchPersonaQuests -= RefreshQuestInfo;
-
-
-
-        }   
+        
         public GameObject RedeemQuestHint;
         public GameObject RedeemDailyQuestHint;
         
-        void RefreshQuestInfo()
-        {
-            var DailyData = QuestHelper.PersonaQuests[QuestKeys.DailyMatchQuestsSlug];
-            var canRedeemDaily = false;
-            foreach (var quest in DailyData.Items)
-            {
-                if (quest.Completed && !quest.Redeemed)
-                {
-                    canRedeemDaily = true;
-                    break;
-                }
-            }
-            RedeemDailyQuestHint?.SetActive(canRedeemDaily);
-        }
+
         private void OnPersonaUpdatedAction(Persona persona)
         {
             UserNameText.text = Identity.persona.DisplayName;
         }
 
-        async void GetUserBagInfo()
+        void GetUserBagInfo()
         {
             //GetPersonaInventoryResponse personaInventories = await PassportFeatureSDK.Economy.SearchPersonaInventory();
 

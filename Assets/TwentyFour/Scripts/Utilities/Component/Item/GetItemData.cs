@@ -14,13 +14,7 @@ public class GetItemData
         return null;
     }
 
-    public GetItemData(Achievement.ResourceDetail resourceDetail)
-    {
-        DisplayName = resourceDetail.DisplayName;
-        Slug = resourceDetail.SlugName;
-        Count = resourceDetail.Quantity;
-        Namespace = resourceDetail.Namespace;
-    }
+
     public GetItemData()
     {
         

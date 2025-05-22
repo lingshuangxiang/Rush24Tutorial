@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Guild;
 using UnityEngine;
 using Unity.UOS.TwentyFour;
 

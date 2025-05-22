@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/TwentyFour/Scenes/BattleScene.unity
+- path: Assets/TwentyFour/Scenes/StageScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

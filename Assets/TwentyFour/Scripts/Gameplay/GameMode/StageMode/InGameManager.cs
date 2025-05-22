@@ -4,11 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DG.Tweening;
-using Economy;
 using TMPro;
-using TwentyFour.Scripts.Metrics;
-using Unity.Passport.Runtime;
-using Unity.Passport.Runtime.UI;
 using Unity.UOS.TwentyFour.Model;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -76,16 +72,6 @@ namespace Unity.UOS.TwentyFour
                 currentStage = StageManager.ReturnAllStages()[0];
                 SetCurrentStage(currentStage);
             }
-
-            if (gameMode == GameMode.Battle)
-            {
-                // 联机模式
-#if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
-                WX.OnShow(WXOnShowCheckDisconnection);
-#endif
-                CheckDisconnection();
-
-            }
         }
         
         
@@ -96,8 +82,6 @@ namespace Unity.UOS.TwentyFour
             if (gameMode == GameMode.Stage)
             {
                 SetCurrentStage(StageManager.NextStage());
-                if(PersonaPropertiesHelper.ShowStageTutorial)
-                    TutorialManager.Instance.StartTutorial();
             }
         }
 #if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
@@ -175,10 +159,6 @@ namespace Unity.UOS.TwentyFour
 
             if (gameMode == GameMode.Stage)
             {
-                MetricsHelper.TrackEvent(MetricsKeys.EVENT_CLEAR_STAGE, new Dictionary<string, object>()
-                {
-                    {MetricsKeys.PARAM_STAGE_INDEX, currentStage.index},
-                });
                 ResetResultPopup();
                 BGMManager.Instance.PlayAFX(AFXMusic.StageWin);
                 //save progress and get reward at first pass
@@ -196,17 +176,6 @@ namespace Unity.UOS.TwentyFour
                 {
                     DisplayRewardDetail(false);
                 }
-                
-
-                //todo new account
-                if (PersonaPropertiesHelper.ShowStageTutorial)
-                {
-                    ResultExitButton.SetActive(true);
-                    TutorialManager.Instance.ShowTutorial("show_stage_tutorial",true);
-                
-                    PersonaPropertiesHelper.ShowStageTutorial = false;
-                }
-                // SetCurrentStage(StageManager.NextStage(1));
             }
         }
 
@@ -217,22 +186,14 @@ namespace Unity.UOS.TwentyFour
         }
         IEnumerator SaveProgressToCloud()
         {
-            Task saveTask = StageManager.SetStageScore(1);
-            yield return new WaitUntil(()=>saveTask.IsCompleted);
-            
+            StageManager.SetStageScore(1);
+            yield break;            
         }
 
         IEnumerator GetReward()
         {
             yield return new WaitForSeconds(1);
             DisplayRewardDetail();
-        }
-            
-        public void SkipTutorial()
-        {
-            TutorialManager.Instance.SetProperties("show_stage_tutorial");
-            PersonaPropertiesHelper.ShowStageTutorial = false;
-            ExitGame();
         }
         
         public void NextRound()
@@ -249,44 +210,7 @@ namespace Unity.UOS.TwentyFour
 
         public void ExitGame()
         {
-            PersonaPropertiesHelper.GetPersonaProperties();
             GameRouter.LoadHomeScene();
         }
-        
-        //TODO: init with different game mode: stage/battle
-        
-        #region BATTLE
-        /// <summary>
-        /// 接收到牌局信息
-        /// </summary>
-        public static void OnReceiveBattleStages(List<Stage> stages)
-        {
-            // //匹配超时或者房主已经取消匹配
-            // if (MatchMakingManager.IsMatchedAndInRoom == false)
-            // {
-            //     RoomManager.LeaveRoom();
-            //     GameInitManagerLocal.MyInitState = InitState.OpponentQuits;
-            //     InGameManager.instance.ExitGame();
-            //     return;
-            // }
-            Logger.LogInfo("接收到牌组数据+OnReceiveBattleStages");
-            // if (roomView.Players.Count != 2)
-            // {
-            //     Logger.LogError("房间人数不为2");
-            //     UIMessage.Show("对手退出");
-            //     RoomManager.LeaveRoom();
-            //     MuninnMessage.Clear();
-            //     return;
-            // }
-            // 收到服务器下发的题目的时候为每张牌设置一个随机花色
-            foreach (Stage s in stages)
-                s.question?.ShuffleCardsSuit();
-            
-            StageManager.SetAllStages(stages, GameMode.Battle);
-            StageManager.selectedStage = 0;
-            currentStage = stages[0];
-            GameRouter.LoadBattleGameScene(); 
-        }
-        #endregion
     }
 }

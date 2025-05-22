@@ -780,7 +780,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: UNITY_UOS_COMMON;UNITY_UOS_SECURITY;DOTWEEN
+    Android: UNITY_UOS_COMMON;DOTWEEN
     EmbeddedLinux: DOTWEEN
     GameCoreScarlett: DOTWEEN
     GameCoreXboxOne: DOTWEEN
@@ -791,12 +791,12 @@ PlayerSettings:
     QNX: DOTWEEN
     Server: UNITY_UOS_SECURITY
     Stadia: DOTWEEN
-    Standalone: UNITY_UOS_COMMON;UNITY_UOS_SECURITY;DOTWEEN
-    WebGL: UNITY_UOS_COMMON;UNITY_UOS_SECURITY;DOTWEEN;UNITY_WEIXINMINIGAME
+    Standalone: UNITY_UOS_COMMON;DOTWEEN
+    WebGL: UNITY_UOS_COMMON;DOTWEEN;UNITY_WEIXINMINIGAME
     WeixinMiniGame: UNITY_UOS_SECURITY
     Windows Store Apps: DOTWEEN
     XboxOne: DOTWEEN
-    iPhone: UNITY_UOS_SECURITY;DOTWEEN
+    iPhone: DOTWEEN
     tvOS: DOTWEEN
   additionalCompilerArguments: {}
   platformArchitecture: {}

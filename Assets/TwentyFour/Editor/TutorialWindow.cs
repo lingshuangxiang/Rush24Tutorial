@@ -2,7 +2,6 @@ using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Unity.UOS.Launcher;
 
 namespace Unity.UOS.TwentyFour.Editor
 {
@@ -43,13 +42,6 @@ namespace Unity.UOS.TwentyFour.Editor
         {
             var tree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/TwentyFour/Editor/TutorialTree.uxml");
             rootVisualElement.Add(tree.Instantiate());
-
-            rootVisualElement.Q<Button>().clicked += OpenLauncher;
-        }
-
-        private static void OpenLauncher()
-        {
-            LauncherWindow.Open();
         }
     }
 }

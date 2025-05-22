@@ -19,16 +19,6 @@ namespace Unity.UOS.TwentyFour
             ClientInitHelper.Logout();
         }
 
-        private void OnEnable()
-        {
-#if UNITY_WEIXINMINIGAME
-            if (!TryGetComponent<WXTouchInputOverride>(out WXTouchInputOverride inputOverride))
-            {
-                gameObject.AddComponent<WXTouchInputOverride>();
-            }
-#endif
-        }
-
         // Start is called before the first frame update
         void Start()
         {

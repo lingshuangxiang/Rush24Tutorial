@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Passport;
-using TwentyFour.Scripts.PersonaProperty;
 using Unity.UOS.TwentyFour;
 using UnityEngine;
 using UOS.TwentyFour.Charator;
@@ -29,18 +27,6 @@ public class PlayerCharatorManager : MonoBehaviour
 
     public void InitPlayerAvatar(Dictionary<string, string> properties)
     {
-        properties.TryGetValue(PersonaPropertyKeys.ActiveAvatarHeadKey, out string headSlug);
-        ActiveAvatarHeadSlug = headSlug ?? DefaultAvatarHeadSlug;
-        
-        properties.TryGetValue(PersonaPropertyKeys.ActiveAvatarEyeKey, out string eyeSlug);
-        ActiveAvatarEyeSlug = eyeSlug ?? DefaultAvatarEyeSlug;
-        
-        properties.TryGetValue(PersonaPropertyKeys.ActiveAvatarMouthKey, out string mouthSlug);
-        ActiveAvatarMouthSlug = mouthSlug ?? DefaultAvatarMouthSlug;
-        
-        properties.TryGetValue(PersonaPropertyKeys.ActiveAvatarHeadwearKey, out string headwearSlug);
-        ActiveAvatarHeadwearSlug = headwearSlug ?? DefaultAvatarHeadwearSlug;
-        
         LoadCharator();
     }
 
@@ -146,12 +132,6 @@ public class PlayerCharatorManager : MonoBehaviour
     {
         var sprite = AllAvatarParts.GetAllAvatarParts().avatarParts.Find(x => x.slug.Equals(DefaultAvatarHeadSlug))
             .LoadingMaskSprite;
-        if (PersonaPropertiesHelper.GetLocalProperties()
-            .TryGetValue(PersonaPropertyKeys.ActiveAvatarHeadKey, out string headSlug))
-        {
-            sprite = AllAvatarParts.GetAllAvatarParts().avatarParts
-                    .Find(x => x.slug.Equals(headSlug)).LoadingMaskSprite;
-        }
         
         return sprite;
     }

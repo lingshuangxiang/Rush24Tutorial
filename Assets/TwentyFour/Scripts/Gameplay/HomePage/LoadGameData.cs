@@ -2,17 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Cloud;
-using Passport;
 using TMPro;
-using TwentyFour.Scripts.Metrics;
-using TwentyFour.Scripts.Quest;
-using Unity.Passport.Runtime;
-using Unity.Passport.Runtime.UI;
-using Unity.UOS.Common;
-using Unity.UOS.Config;
 using Unity.UOS.TwentyFour;
-using Unity.UOS.TwentyFour.Model;
 using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
 using UnityEngine.Events;
@@ -42,15 +33,6 @@ namespace Unity.UOS.TwentyFour
         
         IEnumerator CheckPersona()
         {
-            yield return StartCoroutine(InitMetrics());
-            string realmID = String.Empty;
-            Task<string> task = Identity.GetRealmID();
-            yield return new WaitUntil(()=>task.IsCompleted);
-            if (!string.IsNullOrEmpty(task.Result))
-                realmID = task.Result;
-            Task<Persona> getPersonaTask = PassportSDK.Identity.GetPersonaByRealm(realmID);
-            yield return new WaitUntil(()=>getPersonaTask.IsCompleted);
-
             var externalLoginAndGotWechatName = false;
             var notExternalLogin = true;
    #if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
@@ -63,18 +45,12 @@ namespace Unity.UOS.TwentyFour
 #endif
             // 非 external login 且已有 persona
             // 或者是 external login 且 persona 已有 display name
-            if ((notExternalLogin && getPersonaTask.Result != null) || externalLoginAndGotWechatName)
+            if ((notExternalLogin) || externalLoginAndGotWechatName)
             {
-                Identity.persona = getPersonaTask.Result;
-
                 var startTime = DateTime.Now;
                 yield return StartCoroutine(SelectPersonaAndInit());
                 var endTime = DateTime.Now;
                 var elapsedTime = endTime - startTime;
-                MetricsHelper.TrackEvent(MetricsKeys.EVENT_LAUNCH_GAME, new Dictionary<string, object>()
-                {
-                    {MetricsKeys.PARAM_TIME_COST, elapsedTime.TotalSeconds}
-                });
                 
                 // Task selectPersonaTask = PassportSDK.Identity.SelectPersona(Identity.persona.PersonaID);
                 // yield return new WaitUntil(()=>selectPersonaTask.IsCompleted);
@@ -119,38 +95,16 @@ namespace Unity.UOS.TwentyFour
 
         IEnumerator SelectPersonaAndInit()
         {
-            Task selectPersonaTask = PassportSDK.Identity.SelectPersona(Identity.persona.PersonaID);
-            yield return new WaitUntil(()=>selectPersonaTask.IsCompleted);
-            var personaPropertiesTaskAwaiter = PersonaPropertiesHelper.GetPersonaProperties().GetAwaiter();
-            yield return new WaitUntil(() => personaPropertiesTaskAwaiter.IsCompleted);
-            PersonaPropertiesHelper.Init();
-            var tierAwaiter = TiersHelper.GetMyLeaderboardScore(TiersHelper.TiersLeaderboardSlugName).GetAwaiter();
-            yield return new WaitUntil(() => tierAwaiter.IsCompleted);
             yield return StartCoroutine(Init());
         }
         
         // Start is called before the first frame update
         IEnumerator Init()
         {
-            MetricsHelper.SetUser();
-            yield return StartCoroutine(InitPush());
             yield return StartCoroutine(InitStage());
             yield return StartCoroutine(InitSave());
-            yield return StartCoroutine(InitAchievement());
-            yield return StartCoroutine(InitQuest());
-            //yield return AccomplishmentHelper.GetData(Identity.persona.PersonaID);
-            yield return StartCoroutine(FetchLeaderboard());
-            StreamDataCheckHelper.Instance.Init();
-            if (PersonaPropertiesHelper.ShowStageTutorial)
-            {
-                MetricsHelper.TrackEvent(MetricsKeys.EVENT_CREATE_NEW_PRESONA);
-                StageManager.selectedStage = 0;
-                GameRouter.LoadStageGameScene();
-            }
-            else
-            {
-                GameRouter.LoadHomeSceneFirst();
-            }
+            GameRouter.LoadHomeSceneFirst();
+            
             // StageManager.LoadAllStagesFromCSV();
             // UOSSave.Init();
             // GameRouter.instance.LoadHomeScene();
@@ -169,60 +123,12 @@ namespace Unity.UOS.TwentyFour
         IEnumerator InitSave()
         {
             ProgressTextTmp.text = "正在...了解过去...";
-            Task task = UOSSave.Init();
-            // UIMessage.Show("加载玩家数据...");
-            yield return new WaitUntil(()=>task.IsCompleted);
-        }
-
-        IEnumerator InitAchievement()
-        {
-            ProgressTextTmp.text = "正在...构建指令...";
-            var fetch = AchievementManager.FetchAchievement();
-            yield return new WaitUntil(()=>fetch.IsCompleted);
-            var initAchievement =  AchievementManager.InitAchievements();
-            yield return new WaitUntil(()=>initAchievement.IsCompleted);
-        }
-
-        IEnumerator InitQuest()
-        {
-            var quest = QuestHelper.FetchPersonaQuests();
-            var defaultQuests = QuestHelper.SearchPersonaQuests();
-            yield return new WaitUntil(()=>defaultQuests.IsCompleted && quest.IsCompleted);
+            UOSSave.Init();
+            yield break;
         }
         
 
-        IEnumerator InitMetrics()
-        {
-            var init = MetricsHelper.Init().GetAwaiter();
-            yield return new WaitUntil(() => init.IsCompleted);
-        }
-        IEnumerator FetchLeaderboard()
-        {
-            ProgressTextTmp.text = "正在...校准文明...";
-            var leaderboardCount = 20;
-            var count = leaderboardCount == 0 ? 20 : leaderboardCount;
-            var leaderboardlistAwaiter =
-                TiersHelper.ListTierLeaderBoard(count).GetAwaiter();
 
-            var personaPropertyAwaiter = PersonaPropertiesHelper.GetPersonaProperties().GetAwaiter();
-            var leaderBoardAwaiter =
-                TiersHelper.GetMyLeaderboardScore(TiersHelper.TiersLeaderboardSlugName).GetAwaiter();
-
-            yield return TiersHelper.GetTierUserScoreData(Identity.persona.PersonaID);
-
-            yield return new WaitUntil(() =>
-                leaderboardlistAwaiter.IsCompleted && personaPropertyAwaiter.IsCompleted &&
-                leaderBoardAwaiter.IsCompleted);
-        }
-
-        IEnumerator InitPush()
-        {
-            ProgressTextTmp.text = "正在...链接中枢...";
-            var init = PushHelper.Initialize();
-            yield return new WaitUntil(()=>init.IsCompleted);
-            var connect = PushHelper.ConnectAsync();
-            yield return new WaitUntil(()=>connect.IsCompleted);
-        }
         // Update is called once per frame
         void Update()
         {

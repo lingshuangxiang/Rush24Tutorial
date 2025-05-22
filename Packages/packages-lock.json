@@ -1,114 +1,11 @@
 {
   "dependencies": {
-    "cn.unity.uos.cdn": {
-      "version": "https://e.coding.net/unitychina/uos/UosCdnSDK.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "4a296e521829f4b4b3fa857bb3fb8ffa966f3d2b"
-    },
-    "cn.unity.uos.config": {
-      "version": "https://e.coding.net/unitychina/uos/RemoteConfigSDK.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "3.2.1"
-      },
-      "hash": "c808ea60889959e2383c1b071c7ac2d4b8e52559"
-    },
-    "cn.unity.uos.func.stateless": {
-      "version": "https://e.coding.net/unitychina/uos/FuncStatelessSDK.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "3.2.1"
-      },
-      "hash": "80625372341c4fb830f678f02ec8c9a7b51ccb24"
-    },
-    "cn.unity.uos.launcher": {
-      "version": "https://e.coding.net/unitychina/uos/UOSLauncher.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "3.2.1"
-      },
-      "hash": "6c99c4a61903046a8761ca5945a9ccbc0ebe2bc6"
-    },
-    "cn.unity.uos.matchmaking": {
-      "version": "https://e.coding.net/unitychina/uos/MatchmakingSDK.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "3.2.1"
-      },
-      "hash": "d2fb35ba6b4294b44ef74053e1faf2cfe9f7aa6e"
-    },
-    "cn.unity.uos.metrics": {
-      "version": "https://e.coding.net/unitychina/uos/MetricsSDK.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "1c91bd0374f46feba4f31b30c4fda8b469d68fbc"
-    },
-    "cn.unity.uos.passport.core": {
-      "version": "https://e.coding.net/unitychina/uos/PassportCore.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "3.2.1"
-      },
-      "hash": "aae1e3882c04cf97670c02cb8dcbeb94c0078f19"
-    },
-    "cn.unity.uos.passport.feature": {
-      "version": "https://e.coding.net/unitychina/uos/PassportFeatureSDK.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "3.2.1"
-      },
-      "hash": "c9bc3374ba41043d4053368f1766016f70336dcf"
-    },
-    "cn.unity.uos.passport.login": {
-      "version": "https://e.coding.net/unitychina/uos/PassportLoginSDK.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "3.2.1"
-      },
-      "hash": "efda87ba687b9b8f40741e8a2aa2b0859a434154"
-    },
-    "cn.unity.uos.push": {
-      "version": "https://e.coding.net/unitychina/uos/PushSDK.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "3.2.1"
-      },
-      "hash": "cb4bdc28d908ca58d9895446f0ba246c784ad29a"
-    },
-    "cn.unity.uos.sync.realtime": {
-      "version": "https://e.coding.net/unitychina/uos/SyncRealtimeSDK.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "3.0.2",
-        "com.unity.transport": "1.3.3"
-      },
-      "hash": "8153a46675a192602aa19105af59a2a9e0deae28"
-    },
     "com.cysharp.unitask": {
       "version": "https://e.coding.net/unitychina/uos/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.3",
       "depth": 0,
       "source": "git",
       "dependencies": {},
       "hash": "64792b672d35e43b3412fc74861f8bdbf41e3a6f"
-    },
-    "com.qq.weixin.minigame": {
-      "version": "https://gitee.com/wechat-minigame/minigame-tuanjie-transform-sdk.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "207766f6db6dfad12cb8a5b6ce5c0da0520a7f97"
     },
     "com.unity.2d.animation": {
       "version": "9.1.1",
@@ -475,17 +372,6 @@
       "dependencies": {
         "com.unity.sysroot": "2.0.10",
         "com.unity.sysroot.linux-x86_64": "2.0.9"
-      },
-      "url": "https://packages.unity.cn"
-    },
-    "com.unity.transport": {
-      "version": "1.4.1",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.collections": "1.2.4",
-        "com.unity.burst": "1.6.6",
-        "com.unity.mathematics": "1.2.6"
       },
       "url": "https://packages.unity.cn"
     },

@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TwentyFour/Scenes/StageScene.unity
     guid: 78ba75eca54ac5e489247b76e6fb5a19
-  - enabled: 1
+  - enabled: 0
     path: Assets/TwentyFour/Scenes/BattleScene.unity
     guid: d4cb072010d14604dbadaeab8d228fd9
   - enabled: 1

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using Unity.UOS.TwentyFour.Model;
 using UnityEngine;
 
 namespace Unity.UOS.TwentyFour
