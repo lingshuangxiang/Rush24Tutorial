@@ -6,7 +6,7 @@ using UnityEngine.UI;
 #if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
 using WeChatWASM;
 #endif
-using Logger = Unity.UOS.TwentyFour.Common.Logger;
+using Logger = TwentyFour.Scripts.Utilities.Logger;
 
 
 public static class CopyPasteUtil

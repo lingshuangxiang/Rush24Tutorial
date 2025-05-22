@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
-using Logger = Unity.UOS.TwentyFour.Common.Logger;
+using Logger = TwentyFour.Scripts.Utilities.Logger;
 
 
 namespace Unity.UOS.TwentyFour.UOSGateway

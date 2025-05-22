@@ -2,28 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GetItemData
+namespace TwentyFour.Scripts.Utilities
 {
-    public string DisplayName;
-    public string Slug;
-    public uint Count;
-    public string Namespace;
-
-    public Sprite GetIcon()
+    public class GetItemData
     {
-        return null;
+        public string DisplayName;
+        public string Slug;
+        public uint Count;
+        public string Namespace;
+
+        public Sprite GetIcon()
+        {
+            return null;
+        }
+
+
+        public GetItemData()
+        {
+
+        }
     }
 
-
-    public GetItemData()
+    public class GetItemParams
     {
-        
+        public string Title = "获得物品";
+        public List<GetItemData> GetItemDataList = new();
+
     }
-}
-
-public class GetItemParams
-{
-    public string Title = "获得物品";
-    public List<GetItemData> GetItemDataList = new();
-
 }

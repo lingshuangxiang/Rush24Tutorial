@@ -5,7 +5,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Logger = Unity.UOS.TwentyFour.Common.Logger;
+using Logger = TwentyFour.Scripts.Utilities.Logger;
 using Unity.UOS.TwentyFour.UOSGateway;
 
 public class AysncLoadingScenenEf : MonoBehaviour

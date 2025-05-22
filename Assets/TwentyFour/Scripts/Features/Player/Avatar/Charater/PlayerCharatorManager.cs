@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.UOS.TwentyFour;
 using UnityEngine;
 using UOS.TwentyFour.Charator;
-using Logger = Unity.UOS.TwentyFour.Common.Logger;
+using Logger = TwentyFour.Scripts.Utilities.Logger;
 
 public class PlayerCharatorManager : MonoBehaviour
 {

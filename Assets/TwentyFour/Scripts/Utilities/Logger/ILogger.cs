@@ -1,4 +1,4 @@
-namespace Unity.UOS.TwentyFour.Common
+namespace TwentyFour.Scripts.Utilities
 {
     public enum LogType
     {

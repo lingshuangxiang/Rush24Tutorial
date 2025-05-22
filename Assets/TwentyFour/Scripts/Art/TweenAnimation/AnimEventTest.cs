@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Logger = Unity.UOS.TwentyFour.Common.Logger;
+using Logger = TwentyFour.Scripts.Utilities.Logger;
 
 public class AnimEventTest : MonoBehaviour
 {

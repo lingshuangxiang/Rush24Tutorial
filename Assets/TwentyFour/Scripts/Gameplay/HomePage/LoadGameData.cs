@@ -12,7 +12,7 @@ using UnityEngine.UI;
 using WeChatWASM;
 using Unity.UOS.TwentyFour.Wechat;
 #endif
-using Logger = Unity.UOS.TwentyFour.Common.Logger;
+using Logger =TwentyFour.Scripts.Utilities.Logger;
 
 
 namespace Unity.UOS.TwentyFour

@@ -3,7 +3,7 @@ using TwentyFour.Scripts.Audio;
 using TwentyFour.Scripts.Utilities;
 using UnityEngine;
 using Utils;
-using Logger = Unity.UOS.TwentyFour.Common.Logger;
+using Logger = TwentyFour.Scripts.Utilities.Logger;
 public enum AFXMusic
 {
     BattleCorrect,

@@ -4,56 +4,61 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Logger = Unity.UOS.TwentyFour.Common.Logger;
+using Logger = TwentyFour.Scripts.Utilities.Logger;
 
-public class CommonLoadingPanel : MonoBehaviour
+namespace TwentyFour.Scripts.Utilities
 {
-    public Text LoadingText;
-    public float IntervalSecond = 0.5f;
-    public string Hint;
-    YieldInstruction waitSecond;
-    private int hintIndex = 0;
-    private List<string> ends = new List<string>()
+    public class CommonLoadingPanel : MonoBehaviour
     {
-        string.Empty,
-        ".",
-        "..",
-        "...",
-    };
+        public Text LoadingText;
+        public float IntervalSecond = 0.5f;
+        public string Hint;
+        YieldInstruction waitSecond;
+        private int hintIndex = 0;
 
-    public void Show(string text)
-    {
-        waitSecond = new WaitForSeconds(IntervalSecond);
-        gameObject.SetActive(true);
-        Hint = text;
-        StopAllCoroutines();
-        StartCoroutine(ShowLoading());
-    }
-
-    public void Hide()
-    {
-        gameObject.SetActive(false);
-        Hint = string.Empty;
-        StopAllCoroutines();
-    }
-
-    IEnumerator ShowLoading()
-    {
-        while (true)
+        private List<string> ends = new List<string>()
         {
-            LoadingText.text = Hint + ends[hintIndex];
-            hintIndex++;
-            if (hintIndex >= ends.Count)
-            {
-                hintIndex = 0;
-            }
-            yield return waitSecond;
+            string.Empty,
+            ".",
+            "..",
+            "...",
+        };
 
+        public void Show(string text)
+        {
+            waitSecond = new WaitForSeconds(IntervalSecond);
+            gameObject.SetActive(true);
+            Hint = text;
+            StopAllCoroutines();
+            StartCoroutine(ShowLoading());
         }
-    }
 
-    private void OnDestroy()
-    {
-        StopAllCoroutines();
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+            Hint = string.Empty;
+            StopAllCoroutines();
+        }
+
+        IEnumerator ShowLoading()
+        {
+            while (true)
+            {
+                LoadingText.text = Hint + ends[hintIndex];
+                hintIndex++;
+                if (hintIndex >= ends.Count)
+                {
+                    hintIndex = 0;
+                }
+
+                yield return waitSecond;
+
+            }
+        }
+
+        private void OnDestroy()
+        {
+            StopAllCoroutines();
+        }
     }
 }

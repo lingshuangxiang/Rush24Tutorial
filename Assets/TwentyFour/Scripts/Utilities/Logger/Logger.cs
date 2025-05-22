@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using Debug = UnityEngine.Debug;
 
-namespace Unity.UOS.TwentyFour.Common
+namespace TwentyFour.Scripts.Utilities
 {
     public class Logger : ILogger
     {

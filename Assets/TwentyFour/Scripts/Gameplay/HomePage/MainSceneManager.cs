@@ -5,9 +5,7 @@ using Unity.UOS.TwentyFour;
 using Unity.UOS.TwentyFour.UOSGateway;
 using Unity.VisualScripting;
 using UnityEngine;
-#if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
-using WeChatWASM;
-#endif
+using TwentyFour.Scripts.Utilities;
 
 namespace Unity.UOS.TwentyFour
 {

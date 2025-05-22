@@ -7,7 +7,7 @@ using Unity.UOS.TwentyFour.UOSGateway;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using Logger = Unity.UOS.TwentyFour.Common.Logger;
+using Logger = TwentyFour.Scripts.Utilities.Logger;
 
 public class TiersBadge : MonoBehaviour
 {
