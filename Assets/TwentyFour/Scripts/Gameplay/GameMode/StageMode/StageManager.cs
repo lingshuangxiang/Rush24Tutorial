@@ -124,7 +124,6 @@ namespace Unity.UOS.TwentyFour
         }
         private static void HandleFileContent(string text)
         {
-            Logger.LogError(text);
             _allStages = new List<Stage>();
             string fileString = text.Replace("\r", ""); 
             string[] lines = fileString.Split("\n");

@@ -2093,7 +2093,6 @@ GameObject:
   - component: {fileID: 171262309476208992}
   - component: {fileID: 5074863258906044907}
   - component: {fileID: 6112670994944801890}
-  - component: {fileID: 3726219003630632650}
   m_Layer: 0
   m_Name: WeChatBTN
   m_TagString: Untagged
@@ -2218,18 +2217,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.14509805}
   m_EffectDistance: {x: 0, y: -16}
   m_UseGraphicAlpha: 1
---- !u!114 &3726219003630632650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4725757495596717004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfe9c31616f628143ab6a87586e2fa8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4770312181659297905
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,7 +2528,6 @@ GameObject:
   - component: {fileID: 4609661503843704022}
   - component: {fileID: 1827164526408545036}
   - component: {fileID: 5130258703775883264}
-  - component: {fileID: 6796036556882041128}
   - component: {fileID: 25612246314607832}
   m_Layer: 0
   m_Name: PlayerInfoPanel
@@ -2616,37 +2602,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6796036556882041128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6190047022499436077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b69f6358aed8d4393adcfb66446830, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerName: {fileID: 2426477315321464298}
-  PlayerNameInHall: {fileID: 0}
-  TierBadge: {fileID: 1186741835282207329}
-  ClearStageCount: {fileID: 1307135346704239569}
-  AverageTime: {fileID: 2681513573541149367}
-  PanelCanvasGroup: {fileID: 25612246314607832}
-  ButtonLogout: {fileID: 8141721592020984068}
-  CharatorManager: {fileID: 1974356417999824}
-  TogglBGM: {fileID: 3533479962082228031}
-  TogglAFX: {fileID: 2295831574695450530}
-  WeChatButton: {fileID: 5074863258906044907}
-  InfoCanvasGroup: {fileID: 25612246314607832}
-  AvatarBoard: {fileID: 8724823301745523151}
-  InfoBoard: {fileID: 2611547802253770075}
-  AvatarEnd: {fileID: 1991883515335224594}
-  InfoEnd: {fileID: 8891789493415268292}
-  EditorAvatarButton: {fileID: 272028222626823745}
-  SettingComponent: {fileID: 1665753173768956949}
-  AccomplishmentButton: {fileID: 1442895161327425105}
 --- !u!225 &25612246314607832
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3758,17 +3713,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 085cd498884f8394ebab408f428ca546, type: 3}
---- !u!114 &1186741835282207329 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3670134604921552788, guid: 085cd498884f8394ebab408f428ca546, type: 3}
-  m_PrefabInstance: {fileID: 2492399977484054005}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea9772eae90efcd4ebf7f3a012a7246a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &4977296349325527157 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7459122323480995200, guid: 085cd498884f8394ebab408f428ca546, type: 3}
@@ -3887,17 +3831,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae5cc07a2447a64419e8e615e8154b2d, type: 3}
---- !u!114 &1974356417999824 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7875895131293386643, guid: ae5cc07a2447a64419e8e615e8154b2d, type: 3}
-  m_PrefabInstance: {fileID: 7875616309047522371}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eae08caf9b6acb4469c3203f7cf49d1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &2461470104068714271 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5720461352754912092, guid: ae5cc07a2447a64419e8e615e8154b2d, type: 3}

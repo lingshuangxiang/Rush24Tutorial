@@ -333,7 +333,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2947291194478944998}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RedeemCodePanel, Assembly-CSharp
         m_MethodName: Redeem
         m_Mode: 1
@@ -529,7 +529,6 @@ GameObject:
   - component: {fileID: 1668190043188961413}
   - component: {fileID: 8610888165411093838}
   - component: {fileID: 6351208673254575658}
-  - component: {fileID: 2947291194478944998}
   m_Layer: 0
   m_Name: RedeemCodePanel
   m_TagString: Untagged
@@ -595,21 +594,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2947291194478944998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3185351512975047564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e780f1fb4c0bef48a87c1b1fe61991d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PasteButton: {fileID: 5129718748846271067}
-  InputCodeField: {fileID: 3660845603271974892}
-  GetItemPanel: {fileID: 0}
 --- !u!1 &4695343001929678658
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,7 +961,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6505479968656528996}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: KeyboardManager, Assembly-CSharp
         m_MethodName: HideKeyboard
         m_Mode: 1
@@ -1227,7 +1211,6 @@ GameObject:
   - component: {fileID: 8391744427178664625}
   - component: {fileID: 6446627569610496186}
   - component: {fileID: 3660845603271974892}
-  - component: {fileID: 6505479968656528996}
   - component: {fileID: 9130532494405418504}
   m_Layer: 0
   m_Name: InputField (Legacy)
@@ -1363,19 +1346,6 @@ MonoBehaviour:
   m_CaretWidth: 3
   m_ReadOnly: 0
   m_ShouldActivateOnSelect: 1
---- !u!114 &6505479968656528996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8370668261150564607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b19844f781bb37b4b91244bfe556c18d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputField: {fileID: 3660845603271974892}
 --- !u!114 &9130532494405418504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1393,7 +1363,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 6505479968656528996}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: KeyboardManager, Assembly-CSharp
           m_MethodName: ShowKeyboard
           m_Mode: 1

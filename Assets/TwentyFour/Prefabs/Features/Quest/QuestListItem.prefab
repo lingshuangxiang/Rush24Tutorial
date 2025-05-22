@@ -1015,7 +1015,6 @@ GameObject:
   - component: {fileID: 7414482606251978667}
   - component: {fileID: 4993118539796485989}
   - component: {fileID: 4582018856574153457}
-  - component: {fileID: 116559687495250562}
   m_Layer: 0
   m_Name: QuestListItem
   m_TagString: Untagged
@@ -1087,26 +1086,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &116559687495250562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6692755210809871889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c3a52354de86094690ab851cfe09153, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  QuestName: {fileID: 3406216023722236533}
-  QuestProcess: {fileID: 7452163018954292548}
-  Reward: {fileID: 4868143216244668034}
-  Icon: {fileID: 8907414544570818957}
-  ButtonIcon: {fileID: 4014123209808072676}
-  ActionButton: {fileID: 2737281298028036415}
-  ActionButtonText: {fileID: 2576585177766148916}
-  CompletedHint: {fileID: 6297574066835194238}
-  DefaultColor: {r: 0.5372549, g: 0.61960787, b: 0.7372549, a: 1}
-  RedeemedColor: {r: 0.3764706, g: 0.5568628, b: 1, a: 1}
-  ButtonBackground: {fileID: 480380572751295778}
