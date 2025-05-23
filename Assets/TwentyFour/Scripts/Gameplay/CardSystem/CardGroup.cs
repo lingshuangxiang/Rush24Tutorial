@@ -5,10 +5,11 @@ using DG.Tweening;
 using Unity.UOS.TwentyFour.Model;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Unity.UOS.TwentyFour;
+using TwentyFour.Scripts.Utilities;
 
-namespace Unity.UOS.TwentyFour
+namespace TwentyFour.Scripts.Gameplay.CardSystem
 {
     public class CardGroup : MonoBehaviour, IPointerClickHandler
     {
@@ -50,7 +51,7 @@ namespace Unity.UOS.TwentyFour
 
         public void ShowValueTag()
         {
-            if (Common.Utils.IsInteger(currentValue)) //是整数
+            if (Utils.IsInteger(currentValue)) //是整数
             {
                 ValueTag.SetText($"{currentValue:N0}");
             }
@@ -106,7 +107,7 @@ namespace Unity.UOS.TwentyFour
         public string ShowValue()
         {
             
-            if (Common.Utils.IsInteger(GetValue()))//是整数就显示整数
+            if (Utilities.Utils.IsInteger(GetValue()))//是整数就显示整数
             {
                 return GetValue().ToString();
             }

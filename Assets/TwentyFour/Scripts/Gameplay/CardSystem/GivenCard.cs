@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Unity.UOS.TwentyFour
+namespace TwentyFour.Scripts.Gameplay.CardSystem
 {
     public class GivenCard : MonoBehaviour
         //,IInitializePotentialDragHandler,IBeginDragHandler, IDragHandler, IEndDragHandler

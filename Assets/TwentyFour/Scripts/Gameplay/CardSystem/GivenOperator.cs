@@ -6,8 +6,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
-namespace Unity.UOS.TwentyFour
+using Unity.UOS.TwentyFour;
+namespace TwentyFour.Scripts.Gameplay.CardSystem
 {
     public class GivenOperator : MonoBehaviour, IPointerClickHandler
     {

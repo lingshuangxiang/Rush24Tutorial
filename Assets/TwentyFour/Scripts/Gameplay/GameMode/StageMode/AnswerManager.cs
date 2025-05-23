@@ -4,6 +4,8 @@ using TMPro;
 using Unity.UOS.TwentyFour.Model;
 using UnityEngine;
 using Logger = TwentyFour.Scripts.Utilities.Logger;
+using TwentyFour.Scripts.Gameplay.CardSystem;
+using TwentyFour.Scripts.Utilities;
 
 namespace Unity.UOS.TwentyFour
 {
@@ -180,7 +182,7 @@ namespace Unity.UOS.TwentyFour
             {
                 float testCalculate = exp.Operator
                     .Calculate(CardGroups[exp.Left].GetValue(), CardGroups[exp.Right].GetValue());
-                if (Common.Utils.IsInteger(testCalculate)) //是整数
+                if (Utils.IsInteger(testCalculate)) //是整数
                 {
                     expressionText +=
                         $" {CardGroups[exp.Right].ShowValue()} = {(int)(exp.Operator.Calculate(CardGroups[exp.Left].GetValue(), CardGroups[exp.Right].GetValue()))}";

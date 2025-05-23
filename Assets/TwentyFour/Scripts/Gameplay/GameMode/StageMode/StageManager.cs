@@ -6,6 +6,7 @@ using Unity.UOS.TwentyFour.Model;
 using UnityEngine;
 using Logger = TwentyFour.Scripts.Utilities.Logger;
 using TwentyFour.Scripts.Features.Save;
+using TwentyFour.Scripts.Gameplay.CardSystem;
 
 namespace Unity.UOS.TwentyFour
 {

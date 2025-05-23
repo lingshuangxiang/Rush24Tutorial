@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TwentyFour.Scripts.Gameplay.CardSystem;
 
 namespace Unity.UOS.TwentyFour.Model
 {

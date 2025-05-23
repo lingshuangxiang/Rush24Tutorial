@@ -5,7 +5,7 @@ using UnityEngine;
 using WeChatWASM;
 #endif
 
-namespace Unity.UOS.TwentyFour.Common
+namespace TwentyFour.Scripts.Utilities
 {
     public class Utils
     {

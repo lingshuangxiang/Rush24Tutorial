@@ -3,7 +3,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace Utils
+namespace TwentyFour.Scripts.Utilities
 {
     public class LocalStorageUtil
     {

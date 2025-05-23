@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Unity.UOS.TwentyFour.Model
+namespace TwentyFour.Scripts.Gameplay.CardSystem
 {
     public enum OperatorName
     {

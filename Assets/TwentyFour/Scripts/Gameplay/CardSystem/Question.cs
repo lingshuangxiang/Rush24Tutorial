@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Unity.UOS.TwentyFour.Model;
 
-namespace Unity.UOS.TwentyFour
+namespace TwentyFour.Scripts.Gameplay.CardSystem
 {
     [Serializable]
     public class Question
