@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Unity.UOS.TwentyFour
+namespace TwentyFour.Scripts.Utilities
 {
     public class PageIndicatorPoint : MonoBehaviour
     {

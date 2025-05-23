@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Unity.UOS.TwentyFour.Common
+namespace TwentyFour.Scripts.Utilities
 {
     /// <summary>
     /// 单例模式

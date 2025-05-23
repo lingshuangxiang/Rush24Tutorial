@@ -1,4 +1,3 @@
-using Unity.UOS.TwentyFour;
 using UnityEngine;
 using TwentyFour.Scripts.Features.Save;
 using TwentyFour.Scripts.Gameplay.HomePage;

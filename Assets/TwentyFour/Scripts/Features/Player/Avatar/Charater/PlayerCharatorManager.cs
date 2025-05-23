@@ -1,9 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.UOS.TwentyFour;
 using UnityEngine;
-using Logger = TwentyFour.Scripts.Utilities.Logger;
-using TwentyFour.Scripts.Features.Player;
 
 namespace TwentyFour.Scripts.Features.Player
 {

@@ -8,12 +8,13 @@ using WeChatWASM;
 #endif
 using Logger = TwentyFour.Scripts.Utilities.Logger;
 
-
-public static class CopyPasteUtil
+namespace TwentyFour.Scripts.Utilities
 {
-    public static void Copy(string content)
+    public static class CopyPasteUtil
     {
-        
+        public static void Copy(string content)
+        {
+
 #if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
         WX.SetClipboardData(new SetClipboardDataOption()
         {
@@ -24,14 +25,14 @@ public static class CopyPasteUtil
             }
         });
 #else
-        GUIUtility.systemCopyBuffer = content;
-        Logger.Log("Copied to clipboard: " + content);
+            GUIUtility.systemCopyBuffer = content;
+            Logger.Log("Copied to clipboard: " + content);
 #endif
-    }
-    
-    public static void Paste(InputField target)
-    {
-        
+        }
+
+        public static void Paste(InputField target)
+        {
+
 #if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
         WX.GetClipboardData(new GetClipboardDataOption()
         {
@@ -42,8 +43,9 @@ public static class CopyPasteUtil
             }
         });
 #else
-        target.text = GUIUtility.systemCopyBuffer;
-        Logger.Log("Paste clipboard: " + GUIUtility.systemCopyBuffer);
+            target.text = GUIUtility.systemCopyBuffer;
+            Logger.Log("Paste clipboard: " + GUIUtility.systemCopyBuffer);
 #endif
+        }
     }
 }

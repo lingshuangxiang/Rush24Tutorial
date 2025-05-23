@@ -1,4 +1,4 @@
-﻿namespace TwentyFour.Scripts.Common
+﻿namespace TwentyFour.Scripts.Utilities
 {
     using System.Collections;
     using System.Collections.Generic;

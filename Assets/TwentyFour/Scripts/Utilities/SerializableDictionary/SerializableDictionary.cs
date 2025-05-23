@@ -1,43 +1,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class SerializableDictionary<TKey, TValue>
+namespace TwentyFour.Scripts.Utilities
 {
-    [SerializeField] private List<TKey> keys;
-    [SerializeField] private List<TValue> values;
-
-    public SerializableDictionary()
+    [System.Serializable]
+    public class SerializableDictionary<TKey, TValue>
     {
-        keys = new List<TKey>();
-        values = new List<TValue>();
-    }
+        [SerializeField] private List<TKey> keys;
+        [SerializeField] private List<TValue> values;
 
-    public void Add(TKey key, TValue value)
-    {
-        keys.Add(key);
-        values.Add(value);
-    }
-
-    public TValue Get(TKey key)
-    {
-        int index = keys.IndexOf(key);
-        if (index >= 0)
+        public SerializableDictionary()
         {
-            return values[index];
+            keys = new List<TKey>();
+            values = new List<TValue>();
         }
 
-        return default(TValue);
-    }
-
-    public Dictionary<TKey, TValue> ToDictionary()
-    {
-        Dictionary<TKey, TValue> dictionary = new Dictionary<TKey, TValue>();
-        for (int i = 0; i < keys.Count; i++)
+        public void Add(TKey key, TValue value)
         {
-            dictionary[keys[i]] = values[i];
+            keys.Add(key);
+            values.Add(value);
         }
 
-        return dictionary;
+        public TValue Get(TKey key)
+        {
+            int index = keys.IndexOf(key);
+            if (index >= 0)
+            {
+                return values[index];
+            }
+
+            return default(TValue);
+        }
+
+        public Dictionary<TKey, TValue> ToDictionary()
+        {
+            Dictionary<TKey, TValue> dictionary = new Dictionary<TKey, TValue>();
+            for (int i = 0; i < keys.Count; i++)
+            {
+                dictionary[keys[i]] = values[i];
+            }
+
+            return dictionary;
+        }
     }
 }

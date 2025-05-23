@@ -2,7 +2,7 @@
 using System.Globalization;
 using UnityEngine;
 
-namespace TwentyFour.Scripts.Common
+namespace TwentyFour.Scripts.Utilities
 {
     public static class TimeConverter
     {

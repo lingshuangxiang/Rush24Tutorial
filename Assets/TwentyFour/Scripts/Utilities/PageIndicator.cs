@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Unity.UOS.TwentyFour
+namespace TwentyFour.Scripts.Utilities
 {
     public class PageIndicator : MonoBehaviour
     {

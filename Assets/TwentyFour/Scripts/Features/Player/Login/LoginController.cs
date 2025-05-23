@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TwentyFour.Scripts.Gameplay.HomePage;
+using TwentyFour.Scripts.Utilities;
 
 namespace TwentyFour.Scripts.Features.Player
 {

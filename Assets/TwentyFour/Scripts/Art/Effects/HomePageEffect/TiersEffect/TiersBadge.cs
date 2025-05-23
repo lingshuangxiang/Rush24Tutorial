@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TwentyFour.Scripts.Utilities;
 public class TiersBadge : MonoBehaviour
 {
     public List<TierIcon> AllIcons = new List<TierIcon>();

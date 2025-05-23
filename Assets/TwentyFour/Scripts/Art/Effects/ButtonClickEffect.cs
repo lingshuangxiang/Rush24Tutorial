@@ -1,14 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Sequence = DG.Tweening.Sequence;
+using TwentyFour.Scripts.Utilities;
 
 public class ButtonClickEffect : MonoBehaviour, IPointerClickHandler
 {

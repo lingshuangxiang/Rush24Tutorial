@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.UOS.TwentyFour;
 
 namespace TwentyFour.Scripts.Features.Player
 {
