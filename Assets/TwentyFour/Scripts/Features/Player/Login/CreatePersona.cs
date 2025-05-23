@@ -5,7 +5,7 @@ using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Unity.UOS.TwentyFour
+namespace TwentyFour.Scripts.Features.Player
 {
     public class CreatePersona : MonoBehaviour
     {

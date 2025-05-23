@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Unity.UOS.TwentyFour
+namespace TwentyFour.Scripts.Features.Player
 {
     [Serializable]
     public class AvatarPart

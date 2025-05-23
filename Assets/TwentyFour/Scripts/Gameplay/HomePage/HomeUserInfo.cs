@@ -6,6 +6,7 @@ using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
 using UnityEngine.UI;
 using Utils;
+using TwentyFour.Scripts.Features.Player;
 
 namespace Unity.UOS.TwentyFour
 {

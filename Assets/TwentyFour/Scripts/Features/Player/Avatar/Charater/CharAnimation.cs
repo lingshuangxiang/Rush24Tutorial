@@ -4,64 +4,67 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class CharAnimation : MonoBehaviour
+namespace TwentyFour.Scripts.Features.Player
 {
-    public bool isCelebrating = false;
-
-    public Animator anim;
-
-    private void Awake()
+    public class CharAnimation : MonoBehaviour
     {
-        anim = GetComponent<Animator>();
-    }
+        public bool isCelebrating = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        anim.SetFloat("BlinkInterval", Random.Range(0f, 1f));
-    }
+        public Animator anim;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void PlayCelebrateAnimation()
-    {
-        if (anim != null)
+        private void Awake()
         {
-            anim.SetBool("IsLookingAround", false);
-            anim.SetTrigger("Celebrate");
+            anim = GetComponent<Animator>();
         }
-    }
-    
-    public void PlayWorkingAnimation()
-    {
-        if (anim != null)
-        {
-            anim.SetTrigger("Working");
-        }
-    }
-    
-    public void PlayLookAroundAnimation()
-    {
-        if (anim != null)
-        {
-            anim.SetBool("IsLookingAround", true);
-        }
-    }
-    
-    public void StopLookAroundAnimation()
-    {
-        if (anim != null)
-        {
-            anim.SetBool("IsLookingAround", false);
-        }
-    }
 
-    public void Idle()
-    {
-        StopLookAroundAnimation();
+        // Start is called before the first frame update
+        void Start()
+        {
+            anim.SetFloat("BlinkInterval", Random.Range(0f, 1f));
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        public void PlayCelebrateAnimation()
+        {
+            if (anim != null)
+            {
+                anim.SetBool("IsLookingAround", false);
+                anim.SetTrigger("Celebrate");
+            }
+        }
+
+        public void PlayWorkingAnimation()
+        {
+            if (anim != null)
+            {
+                anim.SetTrigger("Working");
+            }
+        }
+
+        public void PlayLookAroundAnimation()
+        {
+            if (anim != null)
+            {
+                anim.SetBool("IsLookingAround", true);
+            }
+        }
+
+        public void StopLookAroundAnimation()
+        {
+            if (anim != null)
+            {
+                anim.SetBool("IsLookingAround", false);
+            }
+        }
+
+        public void Idle()
+        {
+            StopLookAroundAnimation();
+        }
     }
 }

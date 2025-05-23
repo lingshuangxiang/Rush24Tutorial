@@ -1,4 +1,4 @@
-﻿namespace UOS.TwentyFour.Charator
+﻿namespace TwentyFour.Scripts.Features.Player
 {
     public class CharSetSlugKeys
     {

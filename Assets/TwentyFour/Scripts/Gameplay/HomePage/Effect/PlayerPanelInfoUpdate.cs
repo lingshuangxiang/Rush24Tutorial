@@ -9,6 +9,7 @@ using Unity.UOS.TwentyFour.UOSGateway;
 using Unity.VisualScripting;
 using UnityEngine.Serialization;
 using Logger = TwentyFour.Scripts.Utilities.Logger;
+using TwentyFour.Scripts.Features.Player;
 
 /// <summary>
 /// 本代码会根据提供的信息反馈指定玩家的名称，段位属性等内容,并且同时具备主机对玩家的操作空间

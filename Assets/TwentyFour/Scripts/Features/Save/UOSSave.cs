@@ -7,7 +7,7 @@ using System.Xml.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using Logger = TwentyFour.Scripts.Utilities.Logger;
-
+using TwentyFour.Scripts.Features.Player;
 
 namespace Unity.UOS.TwentyFour.UOSGateway
 {

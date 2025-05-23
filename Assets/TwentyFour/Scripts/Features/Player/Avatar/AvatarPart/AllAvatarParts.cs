@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.UOS.TwentyFour;
 
-[CreateAssetMenu(fileName = "AllAvatarParts", menuName = "ScriptableObjects/AllAvatarParts", order = 2)]
-public class AllAvatarParts : ScriptableObject
+namespace TwentyFour.Scripts.Features.Player
 {
-    public List<AvatarPart> avatarParts;
-
-    static AllAvatarParts AllAvatarPartsInstance;
-    public static AllAvatarParts GetAllAvatarParts()
+    [CreateAssetMenu(fileName = "AllAvatarParts", menuName = "ScriptableObjects/AllAvatarParts", order = 2)]
+    public class AllAvatarParts : ScriptableObject
     {
-        AllAvatarPartsInstance ??= Resources.Load<AllAvatarParts>("AllAvatarParts");
-        return AllAvatarPartsInstance;
+        public List<AvatarPart> avatarParts;
+
+        static AllAvatarParts AllAvatarPartsInstance;
+
+        public static AllAvatarParts GetAllAvatarParts()
+        {
+            AllAvatarPartsInstance ??= Resources.Load<AllAvatarParts>("AllAvatarParts");
+            return AllAvatarPartsInstance;
+        }
     }
 }

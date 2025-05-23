@@ -13,7 +13,7 @@ using WeChatWASM;
 using Unity.UOS.TwentyFour.Wechat;
 #endif
 using Logger =TwentyFour.Scripts.Utilities.Logger;
-
+using TwentyFour.Scripts.Features.Player;
 
 namespace Unity.UOS.TwentyFour
 {

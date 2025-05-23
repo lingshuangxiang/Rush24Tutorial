@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Unity.UOS.TwentyFour.UOSGateway
+namespace TwentyFour.Scripts.Features.Player
 {
     public class Persona
     {

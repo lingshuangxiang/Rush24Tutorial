@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace UOS.TwentyFour.Charator
+namespace TwentyFour.Scripts.Features.Player
 {
     public enum CharPartEnum
     {

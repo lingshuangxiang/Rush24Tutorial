@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Random = UnityEngine.Random;
 
-namespace Unity.UOS.TwentyFour
+namespace TwentyFour.Scripts.Features.Player
 {
     public class RandomName
     {
