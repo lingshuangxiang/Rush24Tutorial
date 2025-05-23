@@ -5,7 +5,6 @@ using UnityEngine.UI;
 namespace TwentyFour.Scripts.Gameplay.CardSystem
 {
     public class GivenCard : MonoBehaviour
-        //,IInitializePotentialDragHandler,IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [SerializeField] public Card cardModel;
         [SerializeField] public GameObject cardNum;
@@ -15,28 +14,11 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
 
         private Vector3 offset;
         private Vector3 originalPos;
-
-
-
-        // Start is called before the first frame update
-        void Start()
-        {
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="card"></param>
+        
         public void Init(Card card)
         {
             cardModel = card;
             LoadCardFace();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            
         }
 
         public void LoadCardFace()
@@ -57,6 +39,5 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
             cardFaceRenderer = cardFaceGo.GetComponent<Image>();
             cardFaceRenderer.sprite = Resources.Load(path, typeof(Sprite)) as Sprite;
         }
-        
     }
 }

@@ -174,7 +174,7 @@ namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
 
             if (!(exp.Operator is null))
             {
-                expressionText += $" {exp.Operator.Symble()}";
+                expressionText += $" {exp.Operator.GetSymbol()}";
             }
 
             if (exp.Right >= 0)

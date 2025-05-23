@@ -41,11 +41,6 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
             }
         }
 
-        private void Update()
-        {
-            //TODO: highlightborder breath effect
-        }
-
         public void ShowValueTag()
         {
             if (Utils.IsInteger(currentValue)) //是整数
@@ -73,20 +68,19 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
         /// <param name="newValue"></param>
         public void Append(CardGroup group2, float newValue)
         {
-            
             currentValue = newValue;
             ShowValueTag();
-            ///////  设置卡牌位置     ////////
+            // 设置卡牌位置
             List<GivenCard> cards = new List<GivenCard> { group2.Original };
             cards.AddRange(group2.appendings);
             int i = appendings.Count;
             foreach (var card in cards)
-            {
-                card.gameObject.transform.SetParent(AppendingParent.transform);
-                Vector3 pos = card.gameObject.transform.localPosition;
-                card.gameObject.transform.localPosition = new Vector3(pos.x, pos.y, -0.01f * ++i);
+            {                
+                var cardTransform = card.gameObject.transform;
+                cardTransform.SetParent(AppendingParent.transform);
+                Vector3 pos = cardTransform.localPosition;
+                cardTransform.localPosition = new Vector3(pos.x, pos.y, -0.01f * ++i);
             }
-            //////////////////
             appendings.AddRange(cards);
             group2.SetEmpty();
         }
@@ -103,22 +97,19 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
         /// <returns></returns>
         public string ShowValue()
         {
-            
-            if (Utilities.Utils.IsInteger(GetValue()))//是整数就显示整数
+            if (Utils.IsInteger(GetValue()))//是整数就显示整数
             {
                 return GetValue().ToString();
             }
-            else// 不是整数就显示分数
-            {
-                return fractionValue.Numerator.ToString()+"/"+fractionValue.Denominator.ToString();
-            }
+       
+            // 不是整数就显示分数
+            return fractionValue.Numerator +"/"+fractionValue.Denominator;
         }
 
         public float GetValue()
         {
             return currentValue;
         }
-
 
         public void ResetCard(Stage stage)
         {

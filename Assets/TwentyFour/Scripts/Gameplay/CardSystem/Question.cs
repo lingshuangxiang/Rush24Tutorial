@@ -11,8 +11,8 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
         public void ShuffleCardsSuit()
         {
             var suitedCards = new List<Card>(cards.Count);
-            var NoSuitCards = cards;
-            foreach (var card in NoSuitCards)
+            var noSuitCards = cards;
+            foreach (var card in noSuitCards)
             {
                 var newCard = new Card(card.number, card.index);
                 suitedCards.Add(newCard);

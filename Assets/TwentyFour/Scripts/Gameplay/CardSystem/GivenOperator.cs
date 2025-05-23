@@ -11,17 +11,11 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
 
         [SerializeField] public AnswerManager answerManager;
         [SerializeField] public Operator operatorModel;
-
         
-        // Start is called before the first frame update
-        void Start()
-        {
-        }
-
         // Update is called once per frame
         void Update()
         {
-            textObject.text = operatorModel.Symble();
+            textObject.text = operatorModel.GetSymbol();
         }
 
         public void OnPointerClick(PointerEventData eventData)

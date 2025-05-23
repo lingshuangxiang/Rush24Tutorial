@@ -26,7 +26,7 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
                 { OperatorName.Divide, "÷" },
             };
 
-        public string Symble()
+        public string GetSymbol()
         {
             return NameToSymbol[name];
         }
@@ -79,11 +79,7 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
 
             return float.NaN.ToString();
         }
-
-        // public string GetCalculateResult(CardGroup a, CardGroup b)
-        // {
-        //     
-        // }
+        
         /// <summary>
         /// 用分数来进行全部的计算
         /// </summary>
@@ -113,7 +109,7 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
             return null;
         }
         
-       [System.Serializable]
+       [Serializable]
         public class Fraction
         {
             public int Numerator;
