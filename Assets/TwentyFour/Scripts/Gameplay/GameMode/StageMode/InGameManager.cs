@@ -7,6 +7,7 @@ using Logger = TwentyFour.Scripts.Utilities.Logger;
 using UnityEngine.UI;
 using TwentyFour.Scripts.Gameplay.HomePage;
 using TwentyFour.Scripts.Utilities;
+using TwentyFour.Scripts.Art.UIEffect;
 
 namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
 {

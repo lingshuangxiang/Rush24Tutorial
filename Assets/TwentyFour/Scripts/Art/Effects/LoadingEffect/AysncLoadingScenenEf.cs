@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Logger = TwentyFour.Scripts.Utilities.Logger;
 using TwentyFour.Scripts.Features.Player;
+using TwentyFour.Scripts.Art.UIEffect;
 
 namespace TwentyFour.Scripts.Art.Effects
 {

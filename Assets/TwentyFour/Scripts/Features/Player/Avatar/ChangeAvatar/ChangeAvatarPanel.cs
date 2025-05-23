@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using TwentyFour.Scripts.Art.UIEffect;
 
 namespace TwentyFour.Scripts.Features.Player
 {

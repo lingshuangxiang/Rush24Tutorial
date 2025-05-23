@@ -1,97 +1,101 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using TwentyFour.Scripts.Art.Effects;
 
-public class UIEffect : MonoBehaviour
+namespace TwentyFour.Scripts.Art.UIEffect
 {
-    [SerializeField] public List<UIEffectData> UIEffectDataList = new List<UIEffectData>();
-
-    public UIEffectPlayTimingType PlayTimingType;
-    public float CustomDelaySecond = 0f;
-    public UnityEvent OnPlay;
-    public UnityEvent OnEnd = new UnityEvent();
-    void Awake()
+    public class UIEffect : MonoBehaviour
     {
-        if(!isActiveAndEnabled)
-            return;
-        foreach (UIEffectData uiEffectData in UIEffectDataList)
+        [SerializeField] public List<UIEffectData> UIEffectDataList = new List<UIEffectData>();
+
+        public UIEffectPlayTimingType PlayTimingType;
+        public float CustomDelaySecond = 0f;
+        public UnityEvent OnPlay;
+        public UnityEvent OnEnd = new UnityEvent();
+
+        void Awake()
         {
-            uiEffectData.Init();
-        }
-
-        if (PlayTimingType == UIEffectPlayTimingType.AfterCutSceneAnim)
-        {
-            AysncLoadingScenenEf.OnUnloadLoadingCompletedAction -= Play;
-
-            AysncLoadingScenenEf.OnUnloadLoadingCompletedAction += Play;
-        }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (PlayTimingType == UIEffectPlayTimingType.Start)
-            Play();
-    }
-
-    private void OnEnable()
-    {
-        if (PlayTimingType == UIEffectPlayTimingType.OnEnable)
-            Play();
-    }
-
-    private void OnDisable()
-    {
-        
-    }
-
-    void ResetAll()
-    {
-        if (PlayTimingType == UIEffectPlayTimingType.OnEnable)
-        {
-            StopCoroutine(PlayEffect());
+            if (!isActiveAndEnabled)
+                return;
             foreach (UIEffectData uiEffectData in UIEffectDataList)
             {
-                uiEffectData.Reset();
+                uiEffectData.Init();
+            }
+
+            if (PlayTimingType == UIEffectPlayTimingType.AfterCutSceneAnim)
+            {
+                AysncLoadingScenenEf.OnUnloadLoadingCompletedAction -= Play;
+
+                AysncLoadingScenenEf.OnUnloadLoadingCompletedAction += Play;
             }
         }
-    }
 
-    private void OnDestroy()
-    {
-        AysncLoadingScenenEf.OnUnloadLoadingCompletedAction -= Play;
-        StopAllCoroutines();
-    }
-
-    public void Play()
-    {
-        OnPlay?.Invoke();
-        AysncLoadingScenenEf.OnUnloadLoadingCompletedAction -= Play;
-        StopCoroutine(PlayEffect());
-        StartCoroutine(PlayEffect());
-    }
-
-    IEnumerator PlayEffect()
-    {
-        ResetAll();
-        
-        yield return new WaitForSeconds(CustomDelaySecond);
-        
-        foreach (var effectData in UIEffectDataList)
+        // Start is called before the first frame update
+        void Start()
         {
-            effectData.Play();
-            yield return new WaitForSeconds(effectData.Delay);
+            if (PlayTimingType == UIEffectPlayTimingType.Start)
+                Play();
         }
-        OnEnd?.Invoke();
-    }
-}
 
-public enum UIEffectPlayTimingType
-{
-    Start,
-    OnEnable,
-    AfterCutSceneAnim
+        private void OnEnable()
+        {
+            if (PlayTimingType == UIEffectPlayTimingType.OnEnable)
+                Play();
+        }
+
+        private void OnDisable()
+        {
+
+        }
+
+        void ResetAll()
+        {
+            if (PlayTimingType == UIEffectPlayTimingType.OnEnable)
+            {
+                StopCoroutine(PlayEffect());
+                foreach (UIEffectData uiEffectData in UIEffectDataList)
+                {
+                    uiEffectData.Reset();
+                }
+            }
+        }
+
+        private void OnDestroy()
+        {
+            AysncLoadingScenenEf.OnUnloadLoadingCompletedAction -= Play;
+            StopAllCoroutines();
+        }
+
+        public void Play()
+        {
+            OnPlay?.Invoke();
+            AysncLoadingScenenEf.OnUnloadLoadingCompletedAction -= Play;
+            StopCoroutine(PlayEffect());
+            StartCoroutine(PlayEffect());
+        }
+
+        IEnumerator PlayEffect()
+        {
+            ResetAll();
+
+            yield return new WaitForSeconds(CustomDelaySecond);
+
+            foreach (var effectData in UIEffectDataList)
+            {
+                effectData.Play();
+                yield return new WaitForSeconds(effectData.Delay);
+            }
+
+            OnEnd?.Invoke();
+        }
+    }
+
+    public enum UIEffectPlayTimingType
+    {
+        Start,
+        OnEnable,
+        AfterCutSceneAnim
+    }
 }
