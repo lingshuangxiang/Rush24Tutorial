@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Unity.UOS.TwentyFour.Model;
 using UnityEngine;
 using Logger = TwentyFour.Scripts.Utilities.Logger;
 using TwentyFour.Scripts.Features.Save;
 using TwentyFour.Scripts.Gameplay.CardSystem;
 
-namespace Unity.UOS.TwentyFour
+namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
 {
     public static class StageManager
     {

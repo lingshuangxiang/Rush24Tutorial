@@ -1,6 +1,6 @@
 ﻿using UnityEngine.UI;
 
-namespace TwentyFour.Scripts.UIEffect
+namespace TwentyFour.Scripts.Art.UIEffect
 {
     public static class UGUIHelper
     {

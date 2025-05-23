@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Logger = TwentyFour.Scripts.Utilities.Logger;
 using TwentyFour.Scripts.Features.Player;
-using Unity.UOS.TwentyFour;
+using TwentyFour.Scripts.Gameplay.GameMode.StageMode;
 
 namespace TwentyFour.Scripts.Features.Save
 {

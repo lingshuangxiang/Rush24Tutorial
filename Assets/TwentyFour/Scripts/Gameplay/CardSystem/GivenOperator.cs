@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.UOS.TwentyFour.Model;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
-using Unity.UOS.TwentyFour;
+using TwentyFour.Scripts.Gameplay.GameMode.StageMode;
+
 namespace TwentyFour.Scripts.Gameplay.CardSystem
 {
     public class GivenOperator : MonoBehaviour, IPointerClickHandler

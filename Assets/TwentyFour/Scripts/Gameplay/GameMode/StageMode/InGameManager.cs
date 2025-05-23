@@ -1,13 +1,12 @@
 using System.Collections;
 using DG.Tweening;
 using TMPro;
-using Unity.UOS.TwentyFour.Model;
 using UnityEngine;
 using UnityEngine.Events;
 using Logger = TwentyFour.Scripts.Utilities.Logger;
 using UnityEngine.UI;
-
-namespace Unity.UOS.TwentyFour
+using Unity.UOS.TwentyFour;
+namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
 {
     public enum GameMode
     {

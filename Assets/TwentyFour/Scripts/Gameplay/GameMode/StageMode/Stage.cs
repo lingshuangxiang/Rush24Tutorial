@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using TwentyFour.Scripts.Gameplay.CardSystem;
 
-namespace Unity.UOS.TwentyFour.Model
+namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
 {
     [Serializable]
     public class Stage

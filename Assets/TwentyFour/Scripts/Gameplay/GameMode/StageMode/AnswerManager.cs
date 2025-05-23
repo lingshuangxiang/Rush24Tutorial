@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
-using Unity.UOS.TwentyFour.Model;
 using UnityEngine;
 using Logger = TwentyFour.Scripts.Utilities.Logger;
 using TwentyFour.Scripts.Gameplay.CardSystem;
 using TwentyFour.Scripts.Utilities;
 
-namespace Unity.UOS.TwentyFour
+namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
 {
     [Serializable]
     public struct Expression

@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using TwentyFour.Scripts.Gameplay.GameMode.StageMode;
 
 namespace Unity.UOS.TwentyFour
 {

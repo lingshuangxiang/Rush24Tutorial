@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Logger =TwentyFour.Scripts.Utilities.Logger;
 using TwentyFour.Scripts.Features.Player;
 using TwentyFour.Scripts.Features.Save;
+using TwentyFour.Scripts.Gameplay.GameMode.StageMode;
 
 namespace Unity.UOS.TwentyFour
 {

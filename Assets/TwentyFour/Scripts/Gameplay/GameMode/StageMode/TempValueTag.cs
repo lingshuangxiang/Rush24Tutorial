@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace Unity.UOS.TwentyFour
+namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
 {
     public class TempValueTag : MonoBehaviour
     {
