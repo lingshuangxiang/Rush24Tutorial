@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Unity.UOS.TwentyFour 
+namespace TwentyFour.Scripts.Gameplay.HomePage
 {
     public class HomeUI : MonoBehaviour
     {

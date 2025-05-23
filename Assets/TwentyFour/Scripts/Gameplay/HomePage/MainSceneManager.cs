@@ -1,7 +1,7 @@
 using UnityEngine;
 using TwentyFour.Scripts.Utilities;
 
-namespace Unity.UOS.TwentyFour
+namespace TwentyFour.Scripts.Gameplay.HomePage
 {
     public class MainSceneManager : MonoBehaviour
     {

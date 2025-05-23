@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TwentyFour.Scripts.Gameplay.GameMode.StageMode;
+using Unity.UOS.TwentyFour;
+using GameModeEnum = TwentyFour.Scripts.Gameplay.GameMode.StageMode.GameMode;
 
-namespace Unity.UOS.TwentyFour
+namespace TwentyFour.Scripts.Gameplay.HomePage
 {
     public class StageList : MonoBehaviour
     {
@@ -29,7 +31,7 @@ namespace Unity.UOS.TwentyFour
             GameObject page = null;
             
             //init stage items according to user score data
-            var allStages = StageManager.GetAllStages(GameMode.Stage);
+            var allStages = StageManager.GetAllStages(GameModeEnum.Stage);
             for (var i=0; i<allStages.Count; i++)
             {
                 //instantiate new page if previous is full

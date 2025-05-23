@@ -7,7 +7,7 @@ using TwentyFour.Scripts.Features.Player;
 using TwentyFour.Scripts.Features.Save;
 using TwentyFour.Scripts.Gameplay.GameMode.StageMode;
 
-namespace Unity.UOS.TwentyFour
+namespace TwentyFour.Scripts.Gameplay.HomePage
 {
     public class LoadGameData : MonoBehaviour
     {

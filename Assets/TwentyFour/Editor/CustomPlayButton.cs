@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using TwentyFour.Scripts.Gameplay.HomePage;
 
 [InitializeOnLoad]
 public static class CustomPlayButton

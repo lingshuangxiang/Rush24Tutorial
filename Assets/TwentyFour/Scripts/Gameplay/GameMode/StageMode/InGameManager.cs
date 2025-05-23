@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using Logger = TwentyFour.Scripts.Utilities.Logger;
 using UnityEngine.UI;
-using Unity.UOS.TwentyFour;
+using TwentyFour.Scripts.Gameplay.HomePage;
+
 namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
 {
     public enum GameMode

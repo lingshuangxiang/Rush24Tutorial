@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using System.Threading.Tasks;
 using UnityEngine.UI;
-using Unity.UOS.TwentyFour;
+using TwentyFour.Scripts.Gameplay.HomePage;
 
 namespace TwentyFour.Scripts.Features.Player
 {

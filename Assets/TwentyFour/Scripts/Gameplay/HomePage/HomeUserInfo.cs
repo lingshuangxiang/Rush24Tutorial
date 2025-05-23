@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TwentyFour.Scripts.Features.Player;
 
-namespace Unity.UOS.TwentyFour
+namespace TwentyFour.Scripts.Gameplay.HomePage
 {
     public class HomeUserInfo : MonoBehaviour
     {

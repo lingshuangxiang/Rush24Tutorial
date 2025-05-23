@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Logger = TwentyFour.Scripts.Utilities.Logger;
 
-namespace Unity.UOS.TwentyFour
+namespace TwentyFour.Scripts.Gameplay.HomePage
 {
 //to manage scene switching
     public static class GameRouter
