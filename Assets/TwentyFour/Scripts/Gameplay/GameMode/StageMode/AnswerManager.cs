@@ -45,11 +45,6 @@ namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
             ResetAnswer();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-        }
-
         public void AddCard(int groupIndex)
         {
              Logger.Log("AddCard"+groupIndex);
@@ -64,7 +59,6 @@ namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
             }
             else  //代表选择了运算公式后选择的卡牌
             {
-                
                 currentExpression.Right = groupIndex; 
                 HighlightCardGroup(-1);
                 UpdateExpressionText();
@@ -78,7 +72,6 @@ namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
             }
             
             PlayAnswerAFX();
-            //TODO: send sync msg
         }
 
         void PlayAnswerAFX()
@@ -100,8 +93,6 @@ namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
             currentExpression.Operator = op;
             
             UpdateExpressionText();
-            
-            //TODO: send sync msg
         }
 
         public void RemoveOperator(Operator op)
@@ -113,7 +104,6 @@ namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
             CardGroups[currentExpression.Left].UnLock();
             currentExpression.Operator = null;
             UpdateExpressionText();
-            
         }
         
         
@@ -218,8 +208,7 @@ namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
                 Right = -1
             };
         }
-
-
+        
         private bool CheckAnswer()
         {
 
@@ -234,8 +223,6 @@ namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
                 return false;
             }
             return false;
-
         }
-
     }
 }

@@ -11,11 +11,7 @@ using TwentyFour.Scripts.Art.UIEffect;
 
 namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
 {
-    public enum GameMode
-    {
-        Stage,
-        Battle
-    }
+
     public class InGameManager : MonoBehaviour
     {
         [SerializeField] public GameObject BattlePage;

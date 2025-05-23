@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TwentyFour.Scripts.Gameplay.GameMode.StageMode;
-using GameModeEnum = TwentyFour.Scripts.Gameplay.GameMode.StageMode.GameMode;
+using GameModeEnum = TwentyFour.Scripts.Gameplay.GameMode.GameMode;
 using TwentyFour.Scripts.Utilities;
 
 namespace TwentyFour.Scripts.Gameplay.HomePage
