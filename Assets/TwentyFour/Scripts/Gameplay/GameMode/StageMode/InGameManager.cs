@@ -11,7 +11,6 @@ using TwentyFour.Scripts.Art.UIEffect;
 
 namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
 {
-
     public class InGameManager : MonoBehaviour
     {
         [SerializeField] public GameObject BattlePage;
@@ -28,15 +27,11 @@ namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
         public ParticleSystem RewardParticle;
         //[SerializeField] public TextMeshProUGUI NextStageButtonTMP;
         [SerializeField] public Text RewardQuantityTMP;
-        [SerializeField] private GameMode gameMode = GameMode.Stage;
         
         public static Stage currentStage;
         public static InGameManager instance;
-        public bool JustTestInGame=false;
         
         public UnityEvent SuccessEvent=new UnityEvent(){};
-        public GameMode GameMode => gameMode;
-
         private Text _resultPlaceholderText;
         private Text resultPlaceholderText
         {
@@ -56,46 +51,15 @@ namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
         private void Awake()
         {
             instance = this;
-            if (JustTestInGame == true)
-            {
-                currentStage = StageManager.ReturnAllStages()[0];
-                SetCurrentStage(currentStage);
-            }
         }
         
         
         // Start is called before the first frame update
         void Start()
         {
-            if(JustTestInGame==true)return;
-            if (gameMode == GameMode.Stage)
-            {
-                SetCurrentStage(StageManager.NextStage());
-            }
-        }
-#if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
-        void WXOnShowCheckDisconnection(WeChatWASM.OnShowListenerResult result)
-        {
-            CheckDisconnection();
-        }
-#endif
-        void CheckDisconnection()
-        {
-
+            SetCurrentStage(StageManager.NextStage());
         }
         
-        private void OnDisconnectAction()
-        {
-
-        }
-
-        private void OnDestroy()
-        {
-#if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
-            WX.OffShow(WXOnShowCheckDisconnection);
-#endif
-        }
-
         public void ExitBattle()
         {
             ExitGame();
@@ -104,10 +68,7 @@ namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
         void SetCurrentStage(Stage s)
         {
             currentStage = s;
-            if (gameMode == GameMode.Stage)
-            {
-                StageTMP.text = (s.index + 1).ToString();
-            }
+            StageTMP.text = (s.index + 1).ToString();
         }
 
         void ResetResultPopup()
@@ -139,32 +100,26 @@ namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
 
         public void ShowResult(bool result)
         {
-            Logger.Log("调用 Show Result");
             if (!result) return;
             
             SuccessEvent?.Invoke();
-            if(JustTestInGame)
-                return;
-
-            if (gameMode == GameMode.Stage)
+            
+            ResetResultPopup();
+            BGMManager.Instance.PlayAFX(AFXMusic.StageWin);
+            //save progress and get reward at first pass
+            ResultPopup.SetActive(true);
+            if (StageManager.playerStageScores[currentStage.index] == 0)
             {
-                ResetResultPopup();
-                BGMManager.Instance.PlayAFX(AFXMusic.StageWin);
-                //save progress and get reward at first pass
-                ResultPopup.SetActive(true);
-                if (StageManager.playerStageScores[currentStage.index] == 0)
+                var uiEffect = ResultPopup.GetComponent<UIEffect>();
+                if (uiEffect != null)
                 {
-                    var uiEffect = ResultPopup.GetComponent<UIEffect>();
-                    if (uiEffect != null)
-                    {
-                        uiEffect.OnEnd.RemoveAllListeners();
-                        uiEffect.OnEnd.AddListener(UploadUserData);
-                    }
+                    uiEffect.OnEnd.RemoveAllListeners();
+                    uiEffect.OnEnd.AddListener(UploadUserData);
                 }
-                else
-                {
-                    DisplayRewardDetail(false);
-                }
+            }
+            else
+            {
+                DisplayRewardDetail(false);
             }
         }
 

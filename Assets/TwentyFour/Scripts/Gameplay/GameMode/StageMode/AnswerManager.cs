@@ -211,16 +211,10 @@ namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
         
         private bool CheckAnswer()
         {
-
-            if (InGameManager.GameMode == GameMode.Stage)
+            if (expressions.Count == 3 && Math.Abs(expressions[2].Result - 24) < 0.01)
             {
-                if (expressions.Count == 3 && Math.Abs(expressions[2].Result - 24) < 0.01)
-                {
-                    InGameManager.ShowResult(true);
-                    return true;
-                }       
-
-                return false;
+                InGameManager.ShowResult(true);
+                return true;
             }
             return false;
         }
