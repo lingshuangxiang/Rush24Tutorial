@@ -2,7 +2,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections.Generic;
 
-namespace Unity.UOS.TwentyFour
+namespace TwentyFour.Scripts.Features.Save
 {
     public class SerializeList
     {

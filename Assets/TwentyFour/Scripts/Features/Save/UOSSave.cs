@@ -8,8 +8,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Logger = TwentyFour.Scripts.Utilities.Logger;
 using TwentyFour.Scripts.Features.Player;
+using Unity.UOS.TwentyFour;
 
-namespace Unity.UOS.TwentyFour.UOSGateway
+namespace TwentyFour.Scripts.Features.Save
 {
     public class UOSSave
     {

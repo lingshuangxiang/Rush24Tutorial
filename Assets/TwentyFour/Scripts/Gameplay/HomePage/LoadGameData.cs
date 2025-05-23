@@ -1,19 +1,10 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using TMPro;
-using Unity.UOS.TwentyFour;
-using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
-   #if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
-using WeChatWASM;
-using Unity.UOS.TwentyFour.Wechat;
-#endif
 using Logger =TwentyFour.Scripts.Utilities.Logger;
 using TwentyFour.Scripts.Features.Player;
+using TwentyFour.Scripts.Features.Save;
 
 namespace Unity.UOS.TwentyFour
 {

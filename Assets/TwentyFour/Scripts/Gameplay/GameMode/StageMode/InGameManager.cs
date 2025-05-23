@@ -1,18 +1,9 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
 using Unity.UOS.TwentyFour.Model;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Events;
-using Unity.UOS.TwentyFour.UOSGateway;
-#if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
-using WeChatWASM;
-#endif
 using Logger = TwentyFour.Scripts.Utilities.Logger;
 using UnityEngine.UI;
 

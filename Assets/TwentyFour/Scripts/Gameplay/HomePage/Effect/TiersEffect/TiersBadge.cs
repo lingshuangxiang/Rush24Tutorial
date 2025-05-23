@@ -1,13 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using TMPro;
-using Unity.UOS.TwentyFour.UOSGateway;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using Logger = TwentyFour.Scripts.Utilities.Logger;
 
 public class TiersBadge : MonoBehaviour
 {

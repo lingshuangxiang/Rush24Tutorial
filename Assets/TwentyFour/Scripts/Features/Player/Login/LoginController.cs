@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
 using System.Threading.Tasks;
 using UnityEngine.UI;

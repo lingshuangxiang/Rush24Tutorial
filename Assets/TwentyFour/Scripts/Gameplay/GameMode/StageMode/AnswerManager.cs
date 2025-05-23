@@ -1,11 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using TMPro;
 using Unity.UOS.TwentyFour.Model;
-using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
-using UnityEngine.Advertisements;
 using Logger = TwentyFour.Scripts.Utilities.Logger;
 
 namespace Unity.UOS.TwentyFour

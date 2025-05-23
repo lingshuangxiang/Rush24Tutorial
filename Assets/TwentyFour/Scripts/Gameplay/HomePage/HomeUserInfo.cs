@@ -1,11 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
 using UnityEngine.UI;
-using Utils;
 using TwentyFour.Scripts.Features.Player;
 
 namespace Unity.UOS.TwentyFour

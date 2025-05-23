@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Logger = TwentyFour.Scripts.Utilities.Logger;
-using Unity.UOS.TwentyFour.UOSGateway;
 using TwentyFour.Scripts.Features.Player;
 
 public class AysncLoadingScenenEf : MonoBehaviour

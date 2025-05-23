@@ -1,14 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.UI;
-using Unity.UOS.TwentyFour.UOSGateway;
-using Unity.VisualScripting;
-using UnityEngine.Serialization;
-using Logger = TwentyFour.Scripts.Utilities.Logger;
 using TwentyFour.Scripts.Features.Player;
 
 /// <summary>

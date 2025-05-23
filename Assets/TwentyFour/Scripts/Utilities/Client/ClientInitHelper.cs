@@ -1,6 +1,6 @@
 using Unity.UOS.TwentyFour;
-using Unity.UOS.TwentyFour.UOSGateway;
 using UnityEngine;
+using TwentyFour.Scripts.Features.Save;
 
 namespace TwentyFour.Scripts.Utilities
 {
