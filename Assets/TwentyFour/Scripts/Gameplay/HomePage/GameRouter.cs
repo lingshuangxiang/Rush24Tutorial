@@ -5,7 +5,7 @@ using TwentyFour.Scripts.Art.Effects;
 
 namespace TwentyFour.Scripts.Gameplay.HomePage
 {
-//to manage scene switching
+    // to manage scene switching
     public static class GameRouter
     {
         // public static GameRouter instance;
@@ -31,20 +31,6 @@ namespace TwentyFour.Scripts.Gameplay.HomePage
 
             //Init all SDK
         }
-
-        // Start is called before the first frame update
-        // void Start()
-        // {
-        //     instance = this;
-        //     DontDestroyOnLoad(gameObject);
-        // }
-        //
-        // // Update is called once per frame
-        // void Update()
-        // {
-        //
-        // }
-
 
         public static void LoadLoadingScene()
         {
