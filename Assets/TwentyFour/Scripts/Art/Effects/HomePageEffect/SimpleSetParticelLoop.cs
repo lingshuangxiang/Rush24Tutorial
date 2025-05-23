@@ -8,6 +8,7 @@ public class SimpleSetParticelLoop : MonoBehaviour
 {
     public void SetLoop(bool particelLoop)
     {
-      GetComponent<ParticleSystem>().loop = particelLoop;   
+        var main = GetComponent<ParticleSystem>().main; 
+        main.loop = particelLoop;   
     }
 }
