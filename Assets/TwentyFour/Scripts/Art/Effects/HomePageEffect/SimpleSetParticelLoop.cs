@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TwentyFour.Scripts.Features.Player;
 
-public class SimpleSetParticelLoop : MonoBehaviour
+namespace TwentyFour.Scripts.Art.Effects
 {
-    public void SetLoop(bool particelLoop)
+    public class SimpleSetParticelLoop : MonoBehaviour
     {
-        var main = GetComponent<ParticleSystem>().main; 
-        main.loop = particelLoop;   
+        public void SetLoop(bool particelLoop)
+        {
+            var main = GetComponent<ParticleSystem>().main;
+            main.loop = particelLoop;
+        }
     }
 }

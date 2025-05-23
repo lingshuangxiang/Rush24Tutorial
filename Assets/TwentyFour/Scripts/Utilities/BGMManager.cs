@@ -1,8 +1,6 @@
 using System.Collections.Generic;
-using TwentyFour.Scripts.Audio;
-using TwentyFour.Scripts.Utilities;
 using UnityEngine;
-using Logger = TwentyFour.Scripts.Utilities.Logger;
+using TwentyFour.Scripts.Art.Audio;
 
 namespace TwentyFour.Scripts.Utilities
 {

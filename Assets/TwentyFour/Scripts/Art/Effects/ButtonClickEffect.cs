@@ -5,29 +5,32 @@ using UnityEngine.UI;
 using Sequence = DG.Tweening.Sequence;
 using TwentyFour.Scripts.Utilities;
 
-public class ButtonClickEffect : MonoBehaviour, IPointerClickHandler
+namespace TwentyFour.Scripts.Art.Effects
 {
-    [SerializeField] public Image image;
-    
-    Sequence btnPressSequence;
+    public class ButtonClickEffect : MonoBehaviour, IPointerClickHandler
+    {
+        [SerializeField] public Image image;
 
-    private void OnSelectEffect()
-    {
-        //play animation
-        if (btnPressSequence ==  null)
+        Sequence btnPressSequence;
+
+        private void OnSelectEffect()
         {
-            btnPressSequence = TweenUtils.DOPressSequence(image.transform, .1f);
-            btnPressSequence.SetAutoKill(false);
+            //play animation
+            if (btnPressSequence == null)
+            {
+                btnPressSequence = TweenUtils.DOPressSequence(image.transform, .1f);
+                btnPressSequence.SetAutoKill(false);
+            }
+            else
+            {
+                btnPressSequence.Restart();
+            }
         }
-        else
+
+        public void OnPointerClick(PointerEventData eventData)
         {
-            btnPressSequence.Restart();
+            BGMManager.Instance.PlayAFX(AFXMusic.ButtonEffectClick);
+            OnSelectEffect();
         }
-    }
-    
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        BGMManager.Instance.PlayAFX(AFXMusic.ButtonEffectClick);
-        OnSelectEffect();
     }
 }

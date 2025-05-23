@@ -1,15 +1,15 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class StartAnimTrigger : MonoBehaviour
+namespace TwentyFour.Scripts.Art.Effects
 {
-    // Start is called before the first frame update
-    public string StartAnim;
-
-    public void OnEnable()
+    public class StartAnimTrigger : MonoBehaviour
     {
-        this.GetComponent<Animator>().Play(StartAnim);
+        // Start is called before the first frame update
+        public string StartAnim;
+
+        public void OnEnable()
+        {
+            this.GetComponent<Animator>().Play(StartAnim);
+        }
     }
 }

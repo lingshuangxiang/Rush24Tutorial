@@ -4,33 +4,36 @@ using UnityEngine;
 using UnityEngine.UI;
 using TwentyFour.Scripts.Utilities;
 
-public class HomepageEffectManager : MonoBehaviour
+namespace TwentyFour.Scripts.Art.Effects
 {
-    // Start is called before the first frame update
-    void Start()
+    public class HomepageEffectManager : MonoBehaviour
     {
-        //Switch BGM to homepage music
-        BGMManager.Instance.Play(BGMManager.BackgroundMusic.HomepageBGM);
-    }
+        // Start is called before the first frame update
+        void Start()
+        {
+            //Switch BGM to homepage music
+            BGMManager.Instance.Play(BGMManager.BackgroundMusic.HomepageBGM);
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
 
-    }
+        }
 
-    public void OnAddVitClick()
-    {
-        UIMessage.Show($"看广告去！");
-    }
+        public void OnAddVitClick()
+        {
+            UIMessage.Show($"看广告去！");
+        }
 
-    public void OnAddGemClick()
-    {
-        UIMessage.Show($"看广告去！");
-    }
+        public void OnAddGemClick()
+        {
+            UIMessage.Show($"看广告去！");
+        }
 
-    
-    public void OnStageClick()
-    {
+
+        public void OnStageClick()
+        {
+        }
     }
 }

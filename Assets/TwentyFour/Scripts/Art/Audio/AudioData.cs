@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace TwentyFour.Scripts.Audio
+namespace TwentyFour.Scripts.Art.Audio
 {
     [Serializable]
     public class AudioData

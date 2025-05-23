@@ -6,30 +6,33 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FianlPanelEffect : MonoBehaviour
+namespace TwentyFour.Scripts.Art.Effects
 {
-    public GameObject Text_timer, Text_Hint;
-    
-    public Color DefaultColor;
-    public Color GreenColor;
-    public Image Mainpanel;
-    
-    public void OnMatchSuccessEffect()
+    public class FianlPanelEffect : MonoBehaviour
     {
-      StopAllCoroutines();
-      StartCoroutine("greyToGreen");
-      Text_timer.gameObject.SetActive(false);
-      Text_Hint.gameObject.SetActive(true);
-    }
+        public GameObject Text_timer, Text_Hint;
 
-    IEnumerator greyToGreen()
-    {
-        float a = 0;
-        while (a<1)
+        public Color DefaultColor;
+        public Color GreenColor;
+        public Image Mainpanel;
+
+        public void OnMatchSuccessEffect()
         {
-            a += Time.deltaTime;
-            Mainpanel.color = Color.Lerp(Mainpanel.color, GreenColor, a);
-            yield return null;
-        }  
+            StopAllCoroutines();
+            StartCoroutine("greyToGreen");
+            Text_timer.gameObject.SetActive(false);
+            Text_Hint.gameObject.SetActive(true);
+        }
+
+        IEnumerator greyToGreen()
+        {
+            float a = 0;
+            while (a < 1)
+            {
+                a += Time.deltaTime;
+                Mainpanel.color = Color.Lerp(Mainpanel.color, GreenColor, a);
+                yield return null;
+            }
+        }
     }
 }

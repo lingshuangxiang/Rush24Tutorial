@@ -1,20 +1,23 @@
 using UnityEngine;
 using TwentyFour.Scripts.Utilities;
 
-public class AudioPlayHelper : MonoBehaviour
+namespace TwentyFour.Scripts.Art.Audio
 {
-    public void PlayAFX(int type)
+    public class AudioPlayHelper : MonoBehaviour
     {
-        BGMManager.Instance.PlayAFX((AFXMusic)type);
-    }
+        public void PlayAFX(int type)
+        {
+            BGMManager.Instance.PlayAFX((AFXMusic)type);
+        }
 
-    public void EnableBGM(bool isOn)
-    {
-        BGMManager.Instance.EnableBGM(isOn);
-    }
+        public void EnableBGM(bool isOn)
+        {
+            BGMManager.Instance.EnableBGM(isOn);
+        }
 
-    public void EnableAFX(bool isOn)
-    {
-        BGMManager.Instance.EnableAFX(isOn);
+        public void EnableAFX(bool isOn)
+        {
+            BGMManager.Instance.EnableAFX(isOn);
+        }
     }
 }
