@@ -494,7 +494,6 @@ GameObject:
   - component: {fileID: 4331618994375630328}
   - component: {fileID: 4011050236778400462}
   - component: {fileID: 1090267025438163924}
-  - component: {fileID: 3367174688818699945}
   m_Layer: 0
   m_Name: AccomplishmentPanel
   m_TagString: Untagged
@@ -565,21 +564,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3367174688818699945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2293980213832020529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a3da12d030bdb74aaa1515fc53ff1ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AccomplishmentItemPrefab: {fileID: 5384291072254884576, guid: 63e070f07b79db94687ee9defef0468a, type: 3}
-  AccomplishmentScrollRect: {fileID: 7897820300166792235}
-  EmptyHint: {fileID: 7067415613118675670}
 --- !u!1 &2776552993227048524
 GameObject:
   m_ObjectHideFlags: 0

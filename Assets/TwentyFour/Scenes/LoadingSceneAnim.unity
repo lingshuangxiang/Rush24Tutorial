@@ -546,8 +546,8 @@ MonoBehaviour:
   LoadImage: {fileID: 1324943790}
   InEase: 2
   OutEase: 2
-  InDuration: 0.6
-  OutDuration: 0.6
+  InDuration: 1
+  OutDuration: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

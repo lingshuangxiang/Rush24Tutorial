@@ -21,7 +21,7 @@ namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
         public GameObject ResultPlaceholder;
         public GameObject RewardDetail;
         
-        [SerializeField] public TextMeshProUGUI StageTMP;
+        [SerializeField] public Text StageTMP;
 
         public Image RewardLightImage;
         public ParticleSystem RewardParticle;
