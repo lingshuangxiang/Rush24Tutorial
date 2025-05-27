@@ -26,19 +26,20 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
         private string markValue;//可能除下来是分数
         private bool isLocked;
         private Sequence aniSequence;
-        
-        private Image _highlightBorder;
-        private Image highlightBorder
-        {
-            get
-            {
-                if (_highlightBorder == null)
-                {
-                    _highlightBorder = GetComponent<Image>();
-                }
 
-                return _highlightBorder;
-            }
+        public Image highlightBorder;
+
+        int degree = 0;
+        private Vector2 oriPos;
+        private void Start()
+        {
+            degree = Random.Range(-5, 5);
+            oriPos = transform.localPosition;
+        }
+
+        private void Update()
+        {
+            //TODO: highlightborder breath effect
         }
 
         public void ShowValueTag()
@@ -68,19 +69,20 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
         /// <param name="newValue"></param>
         public void Append(CardGroup group2, float newValue)
         {
+            
             currentValue = newValue;
             ShowValueTag();
-            // 设置卡牌位置
+            ///////  设置卡牌位置     ////////
             List<GivenCard> cards = new List<GivenCard> { group2.Original };
             cards.AddRange(group2.appendings);
             int i = appendings.Count;
             foreach (var card in cards)
-            {                
-                var cardTransform = card.gameObject.transform;
-                cardTransform.SetParent(AppendingParent.transform);
-                Vector3 pos = cardTransform.localPosition;
-                cardTransform.localPosition = new Vector3(pos.x, pos.y, -0.01f * ++i);
+            {
+                card.gameObject.transform.SetParent(AppendingParent.transform);
+                Vector3 pos = card.gameObject.transform.localPosition;
+                card.gameObject.transform.localPosition = new Vector3(pos.x, pos.y, -0.01f * ++i);
             }
+            //////////////////
             appendings.AddRange(cards);
             group2.SetEmpty();
         }
@@ -101,15 +103,17 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
             {
                 return GetValue().ToString();
             }
-       
-            // 不是整数就显示分数
-            return fractionValue.Numerator +"/"+fractionValue.Denominator;
+            else// 不是整数就显示分数
+            {
+                return fractionValue.Numerator.ToString()+"/"+fractionValue.Denominator.ToString();
+            }
         }
 
         public float GetValue()
         {
             return currentValue;
         }
+
 
         public void ResetCard(Stage stage)
         {
@@ -119,11 +123,15 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
             isLocked = false;
             gameObject.SetActive(true);
             var oTrans = Original.gameObject.transform;
-            Vector3 pos = oTrans.localPosition;
-            oTrans.localPosition = new Vector3(pos.x, pos.y, 0);
+            
             
             oTrans.SetParent(transform);
             oTrans.SetSiblingIndex(0);
+            oTrans.localPosition = Vector3.zero;
+
+            Original.CardRect.DOMove(Original.CardStart.position, 0);
+            Original.CardRect.DOLocalRotate(new Vector3(0, 0, degree), 0f);
+            Original.CardRect.DOScale(1.2f, 0f);
             
             currentValue = Original.cardModel.number;
             originValue = currentValue;//进行备份
@@ -158,21 +166,45 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
             isLocked = false;
         }
 
+        List<Sequence> appendList = new List<Sequence>();
         public void SetHighlighted(bool v = true)
         {
             if (highlightBorder)
             {
                 highlightBorder.enabled = v;
             }
-
+            var rect = Original.CardRect;
             if (v)
             {
+                
                 //perform bounce animation
                 aniSequence = DOTween.Sequence();
-                aniSequence.Append(transform.DOScale(0.95f, 0.05f))
-                    .Append(transform.DOScale(1.25f, 0.1f))
-                    .Append(transform.DOScale(1.1f, 0.05f));
+                appendList?.Clear();
+                aniSequence.Append(rect.DOScale(1.1f, 0.05f))
+                    .Append(rect.DOScale(1.4f, 0.1f))
+                    .Append(rect.DOScale(1.3f, 0.05f));
+                foreach (var card in appendings)
+                {
+                    var cardRect = card.CardRect;
+                    Sequence seq = DOTween.Sequence();
+                    seq.Append(cardRect.DOScale(1.1f, 0.05f))
+                        .Append(cardRect.DOScale(1.4f, 0.1f))
+                        .Append(cardRect.DOScale(1.3f, 0.05f));
+                    appendList.Add(seq);
+                    seq.Play();
+                }
                 aniSequence.Play();
+                
+                var tempRect = ValueTag.GetComponent<RectTransform>();
+                Sequence tempseq = DOTween.Sequence();
+                tempseq.Append(tempRect.DOScale(1.1f, 0.05f))
+                    .Append(tempRect.DOScale(1.4f, 0.1f))
+                    .Append(tempRect.DOScale(1.3f, 0.05f));
+                appendList.Add(tempseq);
+                tempseq.Play();
+                
+                rect.DOMove(Original.CardEnd.position, 0);
+
             }
             else
             {
@@ -181,7 +213,16 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
                 {
                     aniSequence.Kill();
                 }
-                transform.localScale = Vector3.one;
+
+                foreach (var seq in appendList)
+                {
+                    seq.Kill();
+                }
+                appendList?.Clear();
+
+                rect.DOScale(1.2f, 0f);
+                rect.DOMove(Original.CardStart.position, 0);
+
             }
         }
 
