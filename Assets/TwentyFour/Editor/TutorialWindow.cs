@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Unity.UOS.TwentyFour.Editor
+namespace TwentyFour.Scripts.Editor
 {
     public class TutorialWindow : EditorWindow
     {
