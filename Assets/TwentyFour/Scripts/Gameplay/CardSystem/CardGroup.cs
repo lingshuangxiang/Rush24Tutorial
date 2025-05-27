@@ -209,7 +209,7 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
             else
             {
                 //scale back immediately
-                if (!(aniSequence is null) && aniSequence.IsPlaying())
+                if (!(aniSequence is null) && aniSequence.IsActive())
                 {
                     aniSequence.Kill();
                 }
