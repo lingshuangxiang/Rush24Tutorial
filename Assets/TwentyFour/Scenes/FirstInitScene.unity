@@ -210,7 +210,6 @@ GameObject:
   - component: {fileID: 327210489}
   - component: {fileID: 327210488}
   - component: {fileID: 327210487}
-  - component: {fileID: 327210492}
   m_Layer: 6
   m_Name: Button_UseWechatUserName
   m_TagString: Untagged
@@ -335,18 +334,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 327210485}
   m_CullTransparentMesh: 0
---- !u!114 &327210492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 327210485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfe9c31616f628143ab6a87586e2fa8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &334309587
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,7 +875,6 @@ GameObject:
   - component: {fileID: 702078063}
   - component: {fileID: 702078067}
   - component: {fileID: 702078066}
-  - component: {fileID: 702078065}
   - component: {fileID: 702078064}
   m_Layer: 6
   m_Name: InputField_UserName
@@ -986,18 +972,6 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_ShouldActivateOnSelect: 1
---- !u!114 &702078065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702078062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56393f797a0f7e94e95547f5052052a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &702078066
 MonoBehaviour:
   m_ObjectHideFlags: 0
