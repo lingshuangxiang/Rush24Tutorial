@@ -26,9 +26,9 @@ namespace TwentyFour.Scripts.Art.UIEffect
 
             if (PlayTimingType == UIEffectPlayTimingType.AfterCutSceneAnim)
             {
-                AysncLoadingScenenEf.OnUnloadLoadingCompletedAction -= Play;
+                AsyncLoadingSceneEffect.OnUnloadLoadingCompletedAction -= Play;
 
-                AysncLoadingScenenEf.OnUnloadLoadingCompletedAction += Play;
+                AsyncLoadingSceneEffect.OnUnloadLoadingCompletedAction += Play;
             }
         }
 
@@ -64,14 +64,14 @@ namespace TwentyFour.Scripts.Art.UIEffect
 
         private void OnDestroy()
         {
-            AysncLoadingScenenEf.OnUnloadLoadingCompletedAction -= Play;
+            AsyncLoadingSceneEffect.OnUnloadLoadingCompletedAction -= Play;
             StopAllCoroutines();
         }
 
         public void Play()
         {
             OnPlay?.Invoke();
-            AysncLoadingScenenEf.OnUnloadLoadingCompletedAction -= Play;
+            AsyncLoadingSceneEffect.OnUnloadLoadingCompletedAction -= Play;
             StopCoroutine(PlayEffect());
             StartCoroutine(PlayEffect());
         }

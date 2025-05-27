@@ -11,9 +11,9 @@ using TwentyFour.Scripts.Art.UIEffect;
 
 namespace TwentyFour.Scripts.Art.Effects
 {
-    public class AysncLoadingScenenEf : MonoBehaviour
+    public class AsyncLoadingSceneEffect : MonoBehaviour
     {
-        public static AysncLoadingScenenEf instance;
+        public static AsyncLoadingSceneEffect instance;
 
         public static string WaitToLoadScene = "WaitToLoadScene";
         public static string WaitToUnLoadScene = "WaitToLoadScene";
@@ -83,7 +83,7 @@ namespace TwentyFour.Scripts.Art.Effects
         {
             if (fetchData) FetchUserData();
             fetchData = false;
-            Logger.Log("[AysncLoadingScenenEf] Fetch User Data");
+            Logger.Log("[AsyncLoadingSceneEffect] Fetch User Data");
 
             yield return LoadDestinationScene();
             yield return UnloadScene();

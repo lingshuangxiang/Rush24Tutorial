@@ -40,25 +40,25 @@ namespace TwentyFour.Scripts.Gameplay.HomePage
         public static void LoadStageGameScene()
         {
             Logger.Log("Load Stage Game Scene");
-            AysncLoadingScenenEf.LoadScene(SceneManager.GetActiveScene().name, FolderPath + StageScene, false);
+            AsyncLoadingSceneEffect.LoadScene(SceneManager.GetActiveScene().name, FolderPath + StageScene, false);
         }
 
         public static void LoadBattleGameScene()
         {
             Logger.Log("Load Battle Game Scene");
             //    SceneManager.LoadScene("TwentyFour/Scenes/BattleScene");
-            AysncLoadingScenenEf.LoadScene(SceneManager.GetActiveScene().name, FolderPath + BattleScene, false);
+            AsyncLoadingSceneEffect.LoadScene(SceneManager.GetActiveScene().name, FolderPath + BattleScene, false);
         }
 
         public static void LoadHomeScene()
         {
             Logger.Log("Load Home Scene");
-            AysncLoadingScenenEf.LoadScene(SceneManager.GetActiveScene().name, FolderPath + MainScene);
+            AsyncLoadingSceneEffect.LoadScene(SceneManager.GetActiveScene().name, FolderPath + MainScene);
         }
         public static void LoadHomeSceneFirst()
         {
             Logger.Log("Load Home Scene");
-            AysncLoadingScenenEf.LoadScene(SceneManager.GetActiveScene().name, FolderPath + MainScene, false);
+            AsyncLoadingSceneEffect.LoadScene(SceneManager.GetActiveScene().name, FolderPath + MainScene, false);
         }
 
         public static void BackAndLogout()
