@@ -1,11 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
-using Object = UnityEngine.Object;
 using Vector3 = UnityEngine.Vector3;
 
 namespace TwentyFour.Scripts.Art.TweenAnimation
