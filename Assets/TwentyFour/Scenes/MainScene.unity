@@ -26372,7 +26372,6 @@ GameObject:
   - component: {fileID: 1863668345}
   - component: {fileID: 1863668346}
   - component: {fileID: 1863668344}
-  - component: {fileID: 1863668343}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -26380,18 +26379,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1863668343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863668342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebb7712b1eb393f4cb309b3cd32654a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!199 &1863668344
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -36658,11 +36645,11 @@ PrefabInstance:
     - target: {fileID: 3368363414836498337, guid: 4269cea6f59762643811da633ddf5658, type: 3}
       propertyPath: OnSucceed.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 1863668343}
+      objectReference: {fileID: 0}
     - target: {fileID: 3368363414836498337, guid: 4269cea6f59762643811da633ddf5658, type: 3}
       propertyPath: OnSucceed.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1863668343}
+      objectReference: {fileID: 0}
     - target: {fileID: 3368363414836498337, guid: 4269cea6f59762643811da633ddf5658, type: 3}
       propertyPath: OnSucceed.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
