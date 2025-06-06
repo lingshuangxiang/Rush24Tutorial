@@ -21,12 +21,18 @@ namespace TwentyFour.Scripts.Utilities
         [SerializeField] public Color SelectedTextColor = Color.white;
         public bool DeselectOnClick = true;
         public bool DeselectOnOutsideClick = true;
-
+        
         // private bool isSelected;
         private Shadow btnShadow;
         private TextMeshProUGUI text;
 
         public bool isSelected;
+        
+        public GameObject Bg;
+        public GameObject BGSelected;
+        
+        public UnityEvent OnSelected;
+        public UnityEvent OnDeselected;
 
 
         // Start is called before the first frame update
@@ -45,10 +51,22 @@ namespace TwentyFour.Scripts.Utilities
             if (!isSelected)
             {
                 isSelected = true;
+                if (BGSelected != null)
+                {
+                    BGSelected?.SetActive(true);
+                }
+
+                if (Bg != null)
+                {
+                    Bg?.SetActive(false);
+
+                }
+                OnSelected?.Invoke();
+            
                 //change text color
                 if (text != null)
                 {
-                    text.color = SelectedTextColor;
+                    text.color = SelectedTextColor;            
                 }
             }
             else if (DeselectOnClick)
@@ -56,15 +74,27 @@ namespace TwentyFour.Scripts.Utilities
                 EventSystem.current.SetSelectedGameObject(null);
                 OnDeselect();
             }
-
+        
         }
 
         public void OnDeselect()
         {
             isSelected = false;
+            OnDeselected?.Invoke();
+            if (BGSelected != null)
+            {
+                BGSelected?.SetActive(false);
+            }
+
+            if (Bg != null)
+            {
+                Bg?.SetActive(true);
+
+            }
+        
             if (text != null)
             {
-                text.color = DefaultTextColor;
+                text.color = DefaultTextColor;            
             }
 
             if (btnShadow != null)

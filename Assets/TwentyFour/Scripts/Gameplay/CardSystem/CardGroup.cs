@@ -8,7 +8,7 @@ using TwentyFour.Scripts.Gameplay.GameMode.StageMode;
 
 namespace TwentyFour.Scripts.Gameplay.CardSystem
 {
-    public class CardGroup : MonoBehaviour, IPointerClickHandler
+    public class CardGroup : MonoBehaviour, IPointerDownHandler
     {
         public delegate void CardGroupClick(int index);
         
@@ -226,7 +226,7 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
             }
         }
 
-        public void OnPointerClick(PointerEventData eventData)
+        public void OnPointerDown(PointerEventData eventData)
         {
             if (!isLocked && onCardGroupClick != null)
             {

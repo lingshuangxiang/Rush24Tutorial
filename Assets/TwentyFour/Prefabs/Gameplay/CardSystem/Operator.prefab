@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8595949043426808713}
   - component: {fileID: 2232663893335691916}
   - component: {fileID: 7194490841586883897}
-  - component: {fileID: 8298556178962586618}
+  - component: {fileID: 1971561376548814983}
   m_Layer: 5
   m_Name: Operator
   m_TagString: Untagged
@@ -238,20 +238,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2045139432550770374}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2232663893335691916}
-        m_TargetAssemblyTypeName: SelectableButton, Assembly-CSharp
-        m_MethodName: OnSelect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &8298556178962586618
+      m_Calls: []
+--- !u!114 &1971561376548814983
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,7 +248,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 596914162783241374}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20051ea6cefa4fc597349ac3df41321a, type: 3}
+  m_Script: {fileID: 11500000, guid: e25c1b92c0223ad45a9fe8a92b346ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 5644648731173900037}

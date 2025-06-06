@@ -8,7 +8,7 @@ using TwentyFour.Scripts.Utilities;
 
 namespace TwentyFour.Scripts.Gameplay.CardSystem
 {
-    public class GivenOperator : MonoBehaviour, IPointerClickHandler
+    public class GivenOperator : MonoBehaviour, IPointerDownHandler
     {
         public TextMeshProUGUI textObject;
 
@@ -32,7 +32,7 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
             textObject.text = operatorModel.GetSymbol();
         }
 
-        public void OnPointerClick(PointerEventData eventData)
+        public void OnPointerDown(PointerEventData eventData)
         {
             answerManager.AddOperator(operatorModel);
             
@@ -48,6 +48,7 @@ namespace TwentyFour.Scripts.Gameplay.CardSystem
                     {
                         answerManager.RemoveOperator(operatorModel);
                     }
+                    btn.OnSelect();
                 }
             }
         }
