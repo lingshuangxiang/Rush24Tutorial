@@ -1,17 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using UnityEditor;
+using UnityEngine;
 
 namespace TwentyFour.Scripts.Features.Player
 {
-    public class Persona
-    {
-        public string PersonaID;
-        public string DisplayName;
-        public Dictionary<string, string> Properties;
-    }
     public class Identity
     {
-        public static Persona persona;
+        private static string _defaultRealmID = "";
+        
+
+        [MenuItem("Tools/Clear")]
+        public static void Clear()
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
 }

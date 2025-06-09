@@ -31,18 +31,6 @@ namespace TwentyFour.Scripts.Features.Save
         
         public static void Init()
         {
-            Logger.Log("执行 UOS Save Init");
-            // 使用 UOS Launcher 方式初始化SDK, 更多SDK初始化方式见 sdk package sample目录
-   
-            // 默认与 UOS Launcher 中填写的 UOS APP 关联
-            // 如需与其他 UOS APP 关联，可以使用 CloudSaveSDK.Initialize(string appId, string appSecret, string userId) 方法
-            Logger.Log("初始化 Cloud Save");
-            Logger.Log("获取 Persona ID");
-            string personaId = Identity.persona.PersonaID;
-            Logger.Log($"Persona ID: {personaId}");
-            
-            // list saves
-            
             // CloudSaveSDK.Instance 包含了用户的 userId 信息
             // ListAllAsync 会根据 options 列出该用户的存档，按时间倒序排列，最新的存档在前
             var savedScores = PlayerPrefs.GetString(SAVE_NS_STAGE_SCORES);

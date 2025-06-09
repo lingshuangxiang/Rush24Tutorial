@@ -26,10 +26,6 @@ namespace TwentyFour.Scripts.Gameplay.HomePage
         // Start is called before the first frame update
         void Start()
         {
-#if UNITY_WEIXINMINIGAME && !UNITY_EDITOR
-            RightButtonSizeFitter.SetActive(true);
-#endif
-            UserNameText.text = Identity.persona.DisplayName;
             GetUserBagInfo();
         }
 
@@ -46,23 +42,12 @@ namespace TwentyFour.Scripts.Gameplay.HomePage
         public GameObject RedeemQuestHint;
         public GameObject RedeemDailyQuestHint;
         
-
-        private void OnPersonaUpdatedAction(Persona persona)
-        {
-            UserNameText.text = Identity.persona.DisplayName;
-        }
+        
 
         void GetUserBagInfo()
         {
             //GetPersonaInventoryResponse personaInventories = await PassportFeatureSDK.Economy.SearchPersonaInventory();
 
         }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
     }
 }
