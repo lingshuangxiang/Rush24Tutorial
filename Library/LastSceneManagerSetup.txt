@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/TwentyFour/Scenes/StageScene.unity
+- path: Assets/TwentyFour/Scenes/FirstInitScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

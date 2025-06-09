@@ -36,7 +36,6 @@ namespace TwentyFour.Scripts.Art.Effects
 
         private void ShowSelfInfo()
         {
-            PlayerName.text = Identity.persona.DisplayName;
         }
 
         private void UpdateMasterClient()
