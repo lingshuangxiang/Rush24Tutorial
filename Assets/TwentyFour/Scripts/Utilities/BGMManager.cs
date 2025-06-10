@@ -137,19 +137,5 @@ namespace TwentyFour.Scripts.Utilities
                 audioSource.Stop();
             }
         }
-
-        // Update is called once per frame
-        void Update()
-        {
-            // if (!checkBGM && Time.deltaTime > .5)
-            // {
-            //     AudioSource audioSource = GetComponent<AudioSource>();
-            //     if (audioSource != null && !audioSource.isPlaying)
-            //     {
-            //         audioSource.Play();
-            //     }
-            //     checkBGM = true;
-            // }
-        }
     }
 }
