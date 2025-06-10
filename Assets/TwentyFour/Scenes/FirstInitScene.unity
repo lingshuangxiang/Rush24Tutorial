@@ -739,7 +739,6 @@ GameObject:
   - component: {fileID: 702078063}
   - component: {fileID: 702078067}
   - component: {fileID: 702078066}
-  - component: {fileID: 702078065}
   - component: {fileID: 702078064}
   m_Layer: 6
   m_Name: InputField_UserName
@@ -837,18 +836,6 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_ShouldActivateOnSelect: 1
---- !u!114 &702078065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702078062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56393f797a0f7e94e95547f5052052a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &702078066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2183,50 +2170,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490867658}
   m_CullTransparentMesh: 0
---- !u!1 &1543024556
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1543024558}
-  - component: {fileID: 1543024557}
-  m_Layer: 0
-  m_Name: AuthTokenManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1543024557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543024556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90f0551280584829a9f48dc7b74258cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1543024558
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543024556}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1570629780
 GameObject:
   m_ObjectHideFlags: 0
@@ -2813,6 +2756,5 @@ SceneRoots:
   - {fileID: 1193254560}
   - {fileID: 368623724}
   - {fileID: 1134338715}
-  - {fileID: 1543024558}
   - {fileID: 865128568}
   - {fileID: 2117711197}
