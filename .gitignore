@@ -15,3 +15,4 @@
 !Tools/*
 node_modules
 .env.*
+!ProjectSettings/ProjectVersion.txt
