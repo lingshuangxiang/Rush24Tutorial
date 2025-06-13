@@ -8,8 +8,6 @@
 !Packages/**
 !ProjectSettings/EditorBuildSettings.asset
 !Library/LastSceneManagerSetup.txt
-!Assets/Resources/UOSSettings.asset
-!Assets/Resources/UOSSettings.asset.meta
 !ProjectSettings/ProjectSettings.asset
 !UserSettings/Layouts/*
 !Tools/*
