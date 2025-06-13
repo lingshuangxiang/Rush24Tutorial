@@ -9,7 +9,7 @@ namespace TwentyFour.Scripts.Gameplay.HomePage
     public class LoadGameData : MonoBehaviour
     {
         public GameObject createPersonaDialog;
-        public Text progressTextTmp;
+        public Text coverPageHintText;
         
         void Start()
         {
@@ -26,14 +26,14 @@ namespace TwentyFour.Scripts.Gameplay.HomePage
 
         IEnumerator InitStage()
         {
-            progressTextTmp.text = "正在...构建世界...";
+            coverPageHintText.text = "正在...构建世界...";
             StageManager.LoadAllStagesFromRemoteConfig();
             yield return null;
         }
         
         IEnumerator InitSave()
         {
-            progressTextTmp.text = "正在...了解过去...";
+            coverPageHintText.text = "正在...了解过去...";
             UOSSave.Init();
             yield break;
         }
