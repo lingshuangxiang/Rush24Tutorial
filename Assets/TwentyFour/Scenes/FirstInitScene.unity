@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 702078066}
   - component: {fileID: 702078064}
   m_Layer: 6
-  m_Name: InputField_UserName
+  m_Name: PersonaNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -886,7 +886,7 @@ GameObject:
   - component: {fileID: 705541561}
   - component: {fileID: 705541560}
   m_Layer: 6
-  m_Name: Button_Close
+  m_Name: ButtonClose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2027,7 +2027,7 @@ GameObject:
   - component: {fileID: 1490867661}
   - component: {fileID: 1490867660}
   m_Layer: 6
-  m_Name: Text_Title
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
