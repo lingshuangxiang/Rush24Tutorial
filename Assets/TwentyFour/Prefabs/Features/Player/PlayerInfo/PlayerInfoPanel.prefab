@@ -2529,6 +2529,7 @@ GameObject:
   - component: {fileID: 1827164526408545036}
   - component: {fileID: 5130258703775883264}
   - component: {fileID: 25612246314607832}
+  - component: {fileID: 1696137526490074333}
   m_Layer: 0
   m_Name: PlayerInfoPanel
   m_TagString: Untagged
@@ -2614,6 +2615,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1696137526490074333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6190047022499436077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 320f92260d7204c48a2dd996067a9dfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleBGM: {fileID: 3533479962082228031}
+  toggleAFX: {fileID: 2295831574695450530}
 --- !u!1 &6487889972207979133
 GameObject:
   m_ObjectHideFlags: 0
