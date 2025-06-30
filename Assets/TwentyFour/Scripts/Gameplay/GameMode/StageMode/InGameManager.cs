@@ -142,14 +142,15 @@ namespace TwentyFour.Scripts.Gameplay.GameMode.StageMode
         
         public void NextRound()
         {
-            SetCurrentStage(StageManager.NextStage(1));
-            
-            if (currentStage is null)
+            var nextStage = StageManager.NextStage(1);
+            ResultPopup.SetActive(false);
+
+            if (nextStage is null)
             {
                 ExitGame();
+                return;
             }
-            
-            ResultPopup.SetActive(false);
+            SetCurrentStage(nextStage);
         }
 
         public void ExitGame()
