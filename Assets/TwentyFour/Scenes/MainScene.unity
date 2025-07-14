@@ -6895,6 +6895,18 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u786E\u5B9A\u8981\u767B\u51FA\u5F53\u524D\u8D26\u53F7\uFF1F"
       objectReference: {fileID: 0}
+    - target: {fileID: 6360334575351805501, guid: 8442fd1ff6800b74db79bc55695547a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 737565902}
+    - target: {fileID: 6360334575351805501, guid: 8442fd1ff6800b74db79bc55695547a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Logout
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360334575351805501, guid: 8442fd1ff6800b74db79bc55695547a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TwentyFour.Scripts.Features.Player.LogoutController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8052538628622539966, guid: 8442fd1ff6800b74db79bc55695547a4, type: 3}
       propertyPath: m_Name
       value: Popup
@@ -6902,13 +6914,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2744782777588083762, guid: 8442fd1ff6800b74db79bc55695547a4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 737565902}
   m_SourcePrefab: {fileID: 100100000, guid: 8442fd1ff6800b74db79bc55695547a4, type: 3}
 --- !u!224 &737565900 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 246248509065882722, guid: 8442fd1ff6800b74db79bc55695547a4, type: 3}
   m_PrefabInstance: {fileID: 737565899}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &737565901 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2744782777588083762, guid: 8442fd1ff6800b74db79bc55695547a4, type: 3}
+  m_PrefabInstance: {fileID: 737565899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &737565902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737565901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9193943d3a4bb04294cdfc024678a35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &741606931
 GameObject:
   m_ObjectHideFlags: 0

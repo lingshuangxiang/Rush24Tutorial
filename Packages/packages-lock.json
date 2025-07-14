@@ -1,5 +1,32 @@
 {
   "dependencies": {
+    "cn.unity.uos.launcher": {
+      "version": "https://cnb.cool/unity/uos/UOSLauncher.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      },
+      "hash": "425fa9eb5c10ff99a0f3fdf0d136e854061fee95"
+    },
+    "cn.unity.uos.passport.core": {
+      "version": "https://cnb.cool/unity/uos/PassportCore.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      },
+      "hash": "7092304bb0a863f6b8f001cc286069328bd427c0"
+    },
+    "cn.unity.uos.passport.login": {
+      "version": "https://cnb.cool/unity/uos/PassportLoginSDK.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      },
+      "hash": "2a17643682a9727288091209bd30c983c4844c1e"
+    },
     "com.cysharp.unitask": {
       "version": "https://e.coding.net/unitychina/uos/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.3",
       "depth": 0,

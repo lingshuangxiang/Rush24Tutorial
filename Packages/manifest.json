@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "cn.unity.uos.launcher": "https://cnb.cool/unity/uos/UOSLauncher.git",
+    "cn.unity.uos.passport.core": "https://cnb.cool/unity/uos/PassportCore.git",
+    "cn.unity.uos.passport.login": "https://cnb.cool/unity/uos/PassportLoginSDK.git",
     "com.cysharp.unitask": "https://e.coding.net/unitychina/uos/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.3",
     "com.unity.2d.animation": "9.1.1",
     "com.unity.2d.sprite": "1.0.0",
